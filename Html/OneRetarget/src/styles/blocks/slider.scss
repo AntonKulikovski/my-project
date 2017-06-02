@@ -1,0 +1,151 @@
+.slider{
+  &__wrap{
+    @extend .center-cnt;
+    padding-bottom: 20px;
+    margin-bottom: 8px;
+  }
+
+  &__logo{
+    font-size: 70px;
+    font-weight: 300;
+    color: $color-black;
+
+    .img{
+      display: inline-block;
+      vertical-align: middle;
+      width: 106px;
+      height: 106px;
+      background: url("../images/banner-logo.png");
+    }
+
+    &:hover{text-decoration: none}
+
+    span{
+      display: inline-block;
+      vertical-align: middle;
+      color: $color-blue;
+    }
+  }
+
+  &__slide{
+    text-align: center;
+    margin-top: 23px;
+
+    &--no-margin{
+      margin-top: 0;
+
+      .slider__title{
+        margin-top: 0;
+      }
+    }
+
+    img{
+      display: inline!important;
+      width: auto!important;
+      max-width: 100%;
+    }
+  }
+
+  &__title{
+    font-size: 50px;
+    margin-top: 14px;
+    margin-bottom: 17px;
+    font-weight: 300;
+    letter-spacing: -1px;
+  }
+
+  &__text{
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  &__dots{
+
+    &>div{
+      display: inline-block;
+      vertical-align: middle;
+
+      span{
+        display: block;
+        cursor: pointer;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $color-blue;
+        transition: all $timeanimation ease;
+        margin: 0 9px;
+      }
+
+      &.active{
+        span{
+          transform: scale(1.66);
+        }
+      }
+    }
+  }
+
+  &__btn{
+    display: inline-block;
+    margin-top: 28px;
+    margin-bottom: 22px;
+
+    &:hover{text-decoration: none}
+  }
+
+  &__social{
+    font-weight: 600;
+    font-size: 17px;
+    span{
+      position: relative;
+      display: inline-block;
+      margin-right: 5px;
+      vertical-align: middle;
+      padding-right: 10px;
+      color: #000;
+
+      &:after{
+        display: inline-block;
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        border-radius: 50%;
+        margin-top: -2px;
+        width: 4px;
+        height: 4px;
+        background-color: #1c3b54;
+
+      }
+    }
+  }
+
+  @include tablet-wide{
+    &__wrap{
+      padding-top: 40px;
+    }
+  }
+
+  @include tel{
+    &__title{font-size: 30px}
+
+    &__logo{
+      font-size: 50px;
+      .img{
+        width: 53px;
+        height: 53px;
+        background-size: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 450px){
+    &__logo{
+      font-size: 35px;
+      .img{
+        width: 53px;
+        height: 53px;
+        background-size: 100%;
+      }
+    }
+  }
+}

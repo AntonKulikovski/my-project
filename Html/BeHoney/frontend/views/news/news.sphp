@@ -1,0 +1,35 @@
+<?php
+
+use frontend\models\Page;
+use yii\helpers\Url;
+
+/* @var $this yii\web\View */
+/* @var $news \frontend\models\News */
+
+$this->title = $news->title ? $news->title : $news->name;
+$this->params['breadcrumbs'][] = [
+    'label' => '<span itemprop="title">' . Page::getModelByNameFixed('news')->name . '</span>',
+    'rel' => 'nofollow',
+    'itemprop' => 'url',
+    'url' => Url::to(['news/index']),
+];
+$this->params['breadcrumbs'][] = [
+    'label' => $news->title,
+    'template' => '<span>' . $news->title . '</span>'
+];
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $news->descriptionMeta,
+]);
+?>
+<main>
+    <div class="c-align">
+        <div class="b-type">
+            <h1 class="b-type__title"><?= $news->name ?></h1>
+            <div class="b-text">
+                <p><?php print $news->content; ?></p>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,16 @@
+<?php
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Tag */
+
+$this->title = 'Изменнение тега: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Теги', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Изменение';
+?>
+<div class="tag-update">
+    <h1><?= $this->title ?></h1>
+    <?php print $this->render('_form.sphp', [
+        'model' => $model,
+    ]); ?>
+</div>

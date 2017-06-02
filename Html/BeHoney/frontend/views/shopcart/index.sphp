@@ -1,0 +1,356 @@
+<?php
+
+use frontend\assets\ShopcartAsset;
+use frontend\base\components\Shopcart;
+use frontend\models\Category;
+use frontend\models\Order;
+use frontend\models\Package;
+use frontend\models\Page;
+use frontend\models\ProductVolume;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\widgets\ActiveForm;
+
+/**
+ * @var $this \yii\web\View
+ * @var $productVolume ProductVolume
+ * @var $productFirst ProductVolume
+ * @var $productSecond ProductVolume
+ * @var $package Package
+ * @var $shopcart Shopcart
+ * @var $order Order
+ * @var $category Category
+ * @var $page Page
+ */
+
+$products = $shopcart->getShopcartProduct();
+$emptyList = 'none';
+$this->title = $page->title;
+$label = !empty($page->title) ? $page->title : $page->name;
+$this->params['breadcrumbs'][] = [
+    'label' => $label,
+    'template' => '<span>' . $label . '</span>'
+];
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $page->descriptionMeta,
+]);
+
+ShopcartAsset::register($this);
+?>
+<main>
+    <div class="c-align">
+        <?php if ((isset($products[Shopcart::PRODUCT_VOLUMES_PARAM]) && !empty($products[Shopcart::PRODUCT_VOLUMES_PARAM]))
+            || (isset($products[Shopcart::PACKAGE_PARAM_STANDARD]) && !empty($products[Shopcart::PACKAGE_PARAM_STANDARD]))
+            || (isset($products[Shopcart::PACKAGE_PARAM_ONE]) && !empty($products[Shopcart::PACKAGE_PARAM_ONE]))
+            || (isset($products[Shopcart::PACKAGE_PARAM_ASORTI]) && !empty($products[Shopcart::PACKAGE_PARAM_ASORTI]))
+        ): ?>
+            <?php $emptyList = 'block'; ?>
+        <?php endif; ?>
+        <div class="b-type" style="display: <?= $emptyList ?>">
+            <h1 href="#" class="b-type__title"><?= $page->name ?></h1>
+            <table class="shop-table">
+                <thead>
+                <tr>
+                    <td class="shop-table__title">НАИМЕНОВАНИЕ ТОВАРА</td>
+                    <td class="shop-table__title">ЦЕНА</td>
+                    <td class="shop-table__title">КОЛИЧЕСТВО</td>
+                    <td class="shop-table__title">СУММА</td>
+                </tr>
+                </thead>
+                <tbody>
+                <?php if (isset($products[Shopcart::PRODUCT_VOLUMES_PARAM])
+                    && !empty($products[Shopcart::PRODUCT_VOLUMES_PARAM])
+                ): ?>
+                    <?php print $this->renderAjax('_products.sphp', [
+                        'products' => $products,
+                        'shopcart' => $shopcart,
+                    ]); ?>
+                <?php endif; ?>
+                <?php if (isset($products[Shopcart::PACKAGE_PARAM_STANDARD])
+                    && !empty($products[Shopcart::PACKAGE_PARAM_STANDARD])
+                ): ?>
+                    <?php print $this->renderAjax('_package-standard.sphp', [
+                        'products' => $products,
+                        'shopcart' => $shopcart,
+                    ]); ?>
+                <?php endif; ?>
+                <?php if (isset($products[Shopcart::PACKAGE_PARAM_ONE])
+                    && !empty($products[Shopcart::PACKAGE_PARAM_ONE])
+                ): ?>
+                    <?php print $this->renderAjax('_package-one.sphp', [
+                        'products' => $products,
+                        'shopcart' => $shopcart,
+                    ]); ?>
+                <?php endif; ?>
+                <?php if (isset($products[Shopcart::PACKAGE_PARAM_ASORTI])
+                    && !empty($products[Shopcart::PACKAGE_PARAM_ASORTI])
+                ): ?>
+                    <?php print $this->renderAjax('_package-asorti.sphp', [
+                        'products' => $products,
+                        'shopcart' => $shopcart,
+                    ]); ?>
+                <?php endif; ?>
+                <!--TOTAL ROW-->
+                <tr class="shop-table__total">
+                    <td></td>
+                    <td></td>
+                    <td class="shop-table__total">Общая стоимость</td>
+                    <td>
+                        <strong>
+                            <span class="totalSum" data-price="<?= $shopcart->getTotalSum() ?>">
+                                <?= Yii::$app->formatter->asDecimal($shopcart->getTotalSum(), 2) ?>
+                            </span>
+                            руб.
+                        </strong>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="b-type" style="display: <?= $emptyList ?>">
+            <?php $form = ActiveForm::begin([
+                'action' => Url::to(['shopcart/index']),
+                'method' => 'POST',
+                'fieldConfig' => [
+                    'labelOptions' => ['class' => 'form__label'],
+                    'inputOptions' => ['class' => 'form__field'],
+                ]
+            ]); ?>
+            <h3 href="#" class="b-type__title border">Оформление заказа</h3>
+            <table class="ship">
+                <thead>
+                <tr>
+                    <td class="shop-table__title"></td>
+                    <td class="shop-table__title">СПОСОБ ДОСТАВКИ</td>
+                    <td class="shop-table__title">СТОИМОСТЬ</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="<?= $order->typeDelivery == Order::DELIVERY_STANDARD ? 'check' : '' ?>">
+                    <td>
+                        <div class="volume radio-custom ship-radio">
+                            <div>
+                                <?php print Html::radio('Order[typeDelivery]', $order->typeDelivery == Order::DELIVERY_STANDARD, [
+                                    'value' => Order::DELIVERY_STANDARD,
+                                    'id' => Order::DELIVERY_STANDARD,
+                                ]); ?>
+                                <label for="<?= Order::DELIVERY_STANDARD ?>">
+                                    <span></span><?= Order::DELIVERY_STANDARD_RU ?>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ship__desc">
+                        <p>Осуществляется на следующий рабочий день после заказа с 10:00 до 20:00.<br>
+                            Стоимость доставки по Минску в пределах МКАД*:</p>
+                        <ul>
+                            <li>- При заказе до 40 рублей стоимость доставки составит 4 рубля.</li>
+                            <li>- При заказе свыше 40 рублей - доставка бесплатная.</li>
+                        </ul>
+                        <span>* заказы за пределами МКАД рассчитываются отдельно.</span>
+                    </td>
+                    <?php $priceDelivery = $shopcart->getTotalSum() >= 40 ? 0 : 4; ?>
+                    <td>
+                        <span class="priceDelivery deliveryStandard" data-price="<?= $priceDelivery ?>">
+                            <?= Yii::$app->formatter->asDecimal($priceDelivery, 2) ?>
+                        </span> руб.
+                    </td>
+                </tr>
+                <tr class="<?= $order->typeDelivery == Order::DELIVERY_EXPRESS ? 'check' : '' ?>">
+                    <td>
+                        <div class="volume radio-custom ship-radio">
+                            <div>
+                                <?php print Html::radio('Order[typeDelivery]', $order->typeDelivery == Order::DELIVERY_EXPRESS, [
+                                    'value' => Order::DELIVERY_EXPRESS,
+                                    'id' => Order::DELIVERY_EXPRESS,
+                                ]); ?>
+                                <label for="<?= Order::DELIVERY_EXPRESS ?>">
+                                    <span></span>
+                                    <?= Order::DELIVERY_EXPRESS_RU ?>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ship__desc">
+                        <p>Осуществляется в течении 4 часов после оформления заказа.<br> Стоимость 7 рублей, вне
+                            зависимости от суммы заказа.</p>
+                    </td>
+                    <td><span class="priceDelivery" data-price="7">7,00</span> руб.</td>
+                </tr>
+                <tr class="<?= $order->typeDelivery == Order::DELIVERY_SELF ? 'check' : '' ?>">
+                    <td>
+                        <div class="volume radio-custom ship-radio">
+                            <div>
+                                <?php print Html::radio('Order[typeDelivery]', $order->typeDelivery == Order::DELIVERY_SELF, [
+                                    'value' => Order::DELIVERY_SELF,
+                                    'id' => Order::DELIVERY_SELF,
+                                ]); ?>
+                                <label for="<?= Order::DELIVERY_SELF ?>">
+                                    <span></span><?= Order::DELIVERY_SELF_RU ?>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ship__desc">
+                        <p>Осуществляется по адресу – г. Минск, ул. Острошицкая, 10-41.</p>
+                    </td>
+                    <td><span class="priceDelivery" data-price="0">0,00</span> руб.</td>
+                </tr>
+                <tr class="<?= $order->typeDelivery == Order::DELIVERY_ALL_BELARUS ? 'check' : '' ?>">
+                    <td>
+                        <div class="volume radio-custom ship-radio">
+                            <div>
+                                <?php print Html::radio('Order[typeDelivery]', false, [
+                                    'value' => Order::DELIVERY_ALL_BELARUS,
+                                    'id' => Order::DELIVERY_ALL_BELARUS,
+                                ]); ?>
+                                <label for="<?= Order::DELIVERY_ALL_BELARUS ?>">
+                                    <span></span><?= Order::DELIVERY_ALL_BELARUS_RU ?>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="ship__desc">
+                        <p>Также мы осуществляем доставку по всей Беларуси, срок и стоимость доставки рассчитывается
+                            индивидуально.</p>
+                    </td>
+                    <td><span class="priceDelivery" data-price="0" style="display: none">0,00</span>---</td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="buy-info">
+                <thead>
+                <tr>
+                    <td class="shop-table__title">Информация о покупателе</td>
+                    <td class="shop-table__title">Способ оплаты</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr data-iii="<?= $order->typePayment ?>" data-iiig="<?= $order->typeDelivery ?>">
+                    <td>
+                        <?php if ($order->typePayment == Order::PAYMENT_BANK_CARD_ON_LINE ||
+                            $order->typePayment == Order::PAYMENT_ERIP
+                        ): ?>
+                        <?php endif; ?>
+                        <div class="form form--align">
+                            <?php print $form->field($order, 'name')->textInput([
+                                'placeholder' => 'Иван',
+                            ]); ?>
+                            <div class="info_hide"
+                                 style="display: <?= $order->typePayment == Order::PAYMENT_BANK_CARD_ON_LINE ||
+                                 $order->typePayment == Order::PAYMENT_ERIP ? 'block' : 'none' ?>">
+                                <?php print $form->field($order, 'lastName')->textInput([
+                                    'placeholder' => 'Иванов',
+                                ]); ?>
+                                <?php print $form->field($order, 'middleName')->textInput([
+                                    'placeholder' => 'Иванович',
+                                ]); ?>
+                            </div>
+                            <?php print $form->field($order, 'email')->textInput([
+                                'placeholder' => 'ivan.ivanov@gmail.com',
+                            ]); ?>
+                            <?php print $form->field($order, 'phone')->textInput([
+                                'placeholder' => '+375 (29) 123-45-67',
+                            ]); ?>
+                            <div class="info_hide"
+                                 style="display: <?= $order->typePayment == Order::PAYMENT_BANK_CARD_ON_LINE ||
+                                 $order->typePayment == Order::PAYMENT_ERIP ? 'block' : 'none' ?>">
+                                <?php print $form->field($order, 'city')->textInput(); ?>
+                                <?php print $form->field($order, 'address')->textInput(); ?>
+                                <?php print $form->field($order, 'zip')->textInput(); ?>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="volume radio-custom buy-info__radio">
+                            <div>
+                                <?php print Html::radio(
+                                    'Order[typePayment]',
+                                    $order->typePayment == Order::PAYMENT_CASH ? true : false,
+                                    [
+                                        'value' => Order::PAYMENT_CASH,
+                                        'id' => Order::PAYMENT_CASH,
+                                    ]
+                                ); ?>
+                                <label for="<?= Order::PAYMENT_CASH ?>">
+                                    <span></span><?= Order::PAYMENT_CASH_RU ?>
+                                </label>
+                            </div>
+                            <div>
+                                <?php print Html::radio(
+                                    'Order[typePayment]',
+                                    $order->typePayment == Order::PAYMENT_BANK_CARD_COURIER ? true : false,
+                                    [
+                                        'value' => Order::PAYMENT_BANK_CARD_COURIER,
+                                        'id' => Order::PAYMENT_BANK_CARD_COURIER,
+                                    ]
+                                ); ?>
+                                <label for="<?= Order::PAYMENT_BANK_CARD_COURIER ?>">
+                                    <span></span><?= Order::PAYMENT_BANK_CARD_COURIER_RU ?>
+                                </label>
+                            </div>
+                            <div>
+                                <?php print Html::radio(
+                                    'Order[typePayment]',
+                                    $order->typePayment == Order::PAYMENT_BANK_CARD_ON_LINE ? true : false,
+                                    [
+                                        'value' => Order::PAYMENT_BANK_CARD_ON_LINE,
+                                        'id' => Order::PAYMENT_BANK_CARD_ON_LINE,
+                                    ]
+                                ); ?>
+                                <label for="<?= Order::PAYMENT_BANK_CARD_ON_LINE ?>">
+                                    <span></span><?= Order::PAYMENT_BANK_CARD_ON_LINE_RU ?>
+                                </label>
+                            </div>
+                            <div>
+                                <?php print Html::radio(
+                                    'Order[typePayment]',
+                                    $order->typePayment == Order::PAYMENT_ERIP ? true : false,
+                                    [
+                                        'value' => Order::PAYMENT_ERIP,
+                                        'id' => Order::PAYMENT_ERIP,
+                                    ]
+                                ); ?>
+                                <label for="<?= Order::PAYMENT_ERIP ?>">
+                                    <span></span><?= Order::PAYMENT_ERIP_RU ?>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <?php $order->price = $shopcart->getTotalSum() + $priceDelivery; ?>
+            <?php $order->count = $shopcart->getTotalCount(); ?>
+            <?php print $form->field($order, 'count')->hiddenInput()->label(false); ?>
+            <p class="total-cost">Общая стоимость с доставкой: <span
+                    class="priceTotal"><?= Yii::$app->formatter->asDecimal($order->price, 2) ?></span> руб.</p>
+            <div class="form-group">
+                <?php print Html::submitButton('ПОДТВЕРДИТЬ ЗАКАЗ', [
+                    'class' => 'btn btn--yellow btn__confirm',
+                ]); ?>
+            </div>
+            <?php ActiveForm::end(); ?>
+        </div>
+        <div class="b-type emptyShopcart" style="display: <?= $emptyList == 'block' ? 'none' : 'block' ?>">
+            <h1 href="#" class="b-type__title"><?= $page->name ?> пуста</h1>
+            <div class="empty">
+                <img alt="пустая банка" title="пустая банка" src="/images/empty-bank.png">
+                <p class="empty__title">Перейдите в каталог:</p>
+                <?php foreach ($categories as $category): ?>
+                    <div class="empty__link">
+                        <a href="<?= Url::to(['category/index', 'slug' => $category->slug]) ?>">
+                            <?= $category->name ?>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+                <div class="empty__link">
+                    <a href="<?= Url::to(['package/index', 'slug' => 'all']) ?>">
+                        <?= Page::getModelByNameFixed('package')->name ?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

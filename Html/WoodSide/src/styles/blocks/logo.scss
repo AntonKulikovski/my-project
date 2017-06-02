@@ -1,0 +1,76 @@
+.logo{
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 6px;
+
+  img{
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__distin{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 2px;
+    padding-left: 20px;
+    margin-left: 28px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: rgba(3, 93, 103, 1);
+    letter-spacing: 2.35px;
+    font-family: "Avenir";
+
+    &.bold{font-weight: 600}
+
+    &:before{
+      display: block;
+      content: "";
+      height: 33px;
+      width: 1px;
+      background-color: #381700;
+      position: absolute;
+      top: -9px;
+      left: -7px;
+    }
+  }
+}
+
+@include tablet{
+  .logo{
+    margin-right: 0;
+    margin-left: 14px;
+  }
+}
+
+@include tel{
+  .logo{
+    margin-left: 0;
+    &__distin{
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 420px){
+  .logo{
+    margin-left: 10px;
+    float: left;
+  }
+}
+
+@include wide{
+  .logo{
+    img{
+      width: 237px;
+    }
+    &__distin{
+      font-size: 17px;
+      &:before{
+        height: 51px;
+        width: 2px;
+        top: -13px;
+      }
+    }
+  }
+}

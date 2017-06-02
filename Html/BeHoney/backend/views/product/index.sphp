@@ -1,0 +1,47 @@
+<?php
+
+use backend\models\Product;
+use yii\grid\GridView;
+use yii\helpers\Html;
+
+/* @var $this yii\web\View */
+/* @var $searchModel backend\models\ProductSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = 'Продукты';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="product-index">
+    <h1><?= $this->title ?></h1>
+    <p>
+        <?php print Html::a('Создать продукт', ['create'], ['class' => 'btn btn-success']); ?>
+    </p>
+    <?php print GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'title',
+            'name',
+            [
+                'attribute' => 'categoryId',
+                'value' => function (Product $model) {
+                    return $model->category ? $model->category->name : null;
+                },
+                'filter' => Product::getListCategories(),
+            ],
+//            [
+//                'attribute' => 'image',
+//                'format' => 'html',
+//                'value' => function ($model) {
+//                    return !$model->imageFile->isEmpty ? Html::img($model->imageFile->asSmall) : null;
+//                },
+//            ],
+            'position',
+            'slug',
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+</div>

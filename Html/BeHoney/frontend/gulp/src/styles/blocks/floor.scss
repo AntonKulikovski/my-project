@@ -1,0 +1,17 @@
+.floor{
+  padding-left: 57px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #d7d7d7;
+
+  &:last-child{border-bottom: 0}
+}
+
+@include tel{
+  .floor{
+    padding-left: 0;
+
+    &:last-child{
+      padding-bottom: 0;
+    }
+  }
+}

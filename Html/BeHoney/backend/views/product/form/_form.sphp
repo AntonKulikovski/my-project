@@ -1,0 +1,36 @@
+<?php
+
+use backend\assets\ProductAsset;
+use backend\widgets\ActiveForm;
+use yii\helpers\Html;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Product */
+/* @var $form backend\widgets\ActiveForm */
+
+ProductAsset::register($this);
+?>
+<div class="product-form">
+    <?php $form = ActiveForm::begin(); ?>
+    <?php print $this->render('_base.sphp', [
+        'form' => $form,
+        'model' => $model,
+    ]); ?>
+    <?php print $form->field($model, 'volumeModels')->one2many(__DIR__ . '/_attribute.sphp', [
+        'addOptions' => [
+            'label' => Html::tag('span', '', ['class' => 'glyphicon glyphicon-plus']) .
+                ' ' . Html::encode(Yii::t('app', 'Добавить объем')),
+        ],
+        'removeOptions' => [
+            'label' => Html::tag('span', '', ['class' => 'glyphicon glyphicon-minus']) .
+                ' ' . Html::encode(Yii::t('app', 'Удалить объем')),
+        ],
+    ])->label('Объемы'); ?>
+    <div class="form-group">
+        <?php print Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), [
+                'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary',
+            ]
+        ); ?>
+    </div>
+    <?php ActiveForm::end(); ?>
+</div>

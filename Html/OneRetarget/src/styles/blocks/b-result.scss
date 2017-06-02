@@ -1,0 +1,124 @@
+.b-result{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+  position: relative;
+
+  @include tablet-wide{
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0 0 15px 0 rgba(0,0,0,0.75);
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.75);
+  }
+
+  &__slider{
+    padding: 0;
+    margin-bottom: 40px;
+  }
+
+  &__item{
+    width: 100%;
+    margin-right: 15px;
+
+    &:first-child{
+      max-width: 140px;
+    }
+
+    &:nth-child(2){
+      max-width: 190px;
+    }
+
+    &:nth-child(3), &:last-child{
+      max-width: 270px;
+    }
+  }
+
+  &__title{
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  &__list{
+    list-style-type: none;
+
+    li{
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 15px;
+
+      &:before{
+        display: block;
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 5px;
+        background-color: #3e4256;
+        border-radius: 50%;
+        width: 4px;
+        height: 4px;
+      }
+    }
+  }
+
+  &__line{
+    margin-bottom: 10px;
+
+    label{
+      display: inline-block;
+      width: 60px;
+      vertical-align: middle;
+    }
+    span{
+      display: inline-block;
+      padding: 7px 10px 5px;
+      width: calc(100% - 64px);
+      border-radius: 20px;
+      font-size: 14px;
+    }
+    .before{background-color: #e1ddd4}
+    .after{background-color: $color-yellow}
+  }
+
+  @include tablet-wide{
+    box-shadow: none;
+    margin: 0;
+
+
+    &__slider{
+      min-height: 0;
+      margin-top: 0;
+    }
+  }
+
+  @include tablet{
+    flex-wrap: wrap;
+
+    &__item{
+      flex: 0 0 48%;
+      margin-right: 4%;
+      margin-bottom: 20px;
+      &:nth-child(even){margin-right: 0}
+      &:nth-child(n){max-width: 100%}
+      &:nth-last-child(2), &:last-child{margin-bottom: 0}
+    }
+
+    &__title{
+      margin: 0 0 10px;
+    }
+
+    &__list{
+      li:last-child{margin-bottom: 0}
+    }
+  }
+
+  @include tel{
+    padding: 20px 15px;
+
+    &__slider{padding: 0 0 20px}
+
+    &__item{
+      flex: 0 0 100%;
+      &:nth-child(n){margin-bottom: 20px}
+    }
+  }
+}

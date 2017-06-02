@@ -1,0 +1,23 @@
+.b-type{
+  margin-top: 8px;
+  margin-bottom: 58px;
+  &:last-child{
+    margin-bottom: 0;
+  }
+
+  h2{margin-bottom: 39px}
+
+  h4{
+    margin: 0;
+    font-weight: 100;
+    text-align: center;
+  }
+
+  &__text{
+    margin: 10px auto;
+    font-size: 20px;
+    max-width: 810px;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+}

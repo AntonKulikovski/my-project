@@ -1,0 +1,36 @@
+.product{
+  padding-left: 36px;
+
+  &__title{
+    font-family: 'Roboto Condensed';
+    font-size: 28px;
+    color: #000;
+    margin-top: -8px;
+    margin-bottom: 49px;
+    font-weight: normal;
+    letter-spacing: -0.35px;
+  }
+
+  &__cost{
+    font-family: 'Roboto Slab';
+    font-size: 24px;
+    margin-top: 31px;
+    margin-bottom: 36px;
+  }
+
+  &__img{
+    display: inline;
+    width: auto;
+    max-width: 100%;
+
+    &.hide{display: none}
+  }
+}
+
+@include tel{
+  .product{
+    &__title{
+      margin-top: 0;
+    }
+  }
+}

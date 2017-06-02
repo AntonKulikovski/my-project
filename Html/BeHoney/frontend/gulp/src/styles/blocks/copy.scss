@@ -1,0 +1,12 @@
+.copy{
+  color: #bfbfbf;
+  font-size: 12px;
+}
+
+@include tablet{
+  font-size: 14px;
+}
+
+@include tel{
+  .copy{font-size: 15px}
+}

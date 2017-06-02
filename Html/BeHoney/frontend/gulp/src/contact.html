@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html-templates/head.html')
+<body>
+
+@@include('html-templates/header.html')
+
+<main>
+    <div class="c-align">
+        <div class="b-type"><h3 href="#" class="b-type__title border">Контактная информация</h3></div>
+
+        <div class="b-side__wrap b-side--low-margin">
+            <div class="b-side b-side--no-padding">
+                <div class="info">
+                    <div class="info__item">
+                        <span class="info__label">Телефоны:</span>
+                        <span class="info__cnt">
+                            +375 (29) 678-22-69 velcom, viber<br>
+                            +375 (29) 778-22-69 МТС, viber
+                        </span>
+                    </div>
+                    <div class="info__item">
+                        <span class="info__label">E-mail:</span>
+                        <span class="info__cnt">info@behoney.by</span>
+                    </div>
+                    <div class="info__item">
+                        <span class="info__label">Адрес самовывоза:</span>
+                        <span class="info__cnt">г. Минск, ул. Острошицкая, 10-41.</span>
+                    </div>
+                </div>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2347.8581299657885!2d27.689339515976542!3d53.952027636871016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc9373c71106f%3A0x6bb7727e10e77ffa!2z0YPQuy4g0J7RgdGC0YDQvtGI0LjRhtC60LDRjyAxMCwg0JzQuNC90YHQuiwg0JHQtdC70LDRgNGD0YHRjA!5e0!3m2!1sru!2s!4v1477487266828" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="b-side b-side--no-padding message__wrapper">
+                <div class="message">
+                    <p class="message__text">Если у вас остались еще вопросы или есть какие-то предложения о развитии нашего бренда или о
+                        совместном сотрудничестве, а также хотите высказать нам что-то связанное с нашей продукцией,
+                        заполняйте поля ниже и мы не оставим без внимания Ваше сообщение.</p>
+                    <div class="message__form">
+                        <form>
+                            <div class="form">
+                                <div class="form__group">
+                                    <label class="message__label">Имя</label>
+                                    <input class="form__field" type="text">
+                                </div>
+                                <div class="form__group">
+                                    <label class="message__label">E-mail</label>
+                                    <input class="form__field" type="text">
+                                </div>
+                                <div class="form__group">
+                                    <label class="message__label">Сообщение</label>
+                                    <textarea class="message__textarea"></textarea>
+                                </div>
+                                <div class="form__group">
+                                    <label class="message__label"></label>
+                                    <button class="btn btn--yellow btn__message">отправить сообщение</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@@include('html-templates/footer.html')
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
+<script src="vendor/owl/owl.carousel.min.js" type="text/javascript"></script>
+<script src="scripts/main.min.js" type="text/javascript"></script>
+
+</body>
+</html>

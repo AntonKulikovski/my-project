@@ -1,0 +1,35 @@
+.banner-cnt{
+  color: #fff;
+  width: 54%;
+
+  &__title{
+    font-family: Mrs-Eaves;
+    font-style: italic;
+    font-size: 48px;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 32px;
+  }
+
+  &__text{
+    font-size: 22px;
+    font-family: 'Mrs-Eaves-Roman';
+    margin-bottom: 43px;
+  }
+
+  .b-link-row a{
+    font-weight: normal;
+    color: #fff;
+
+    &:after{
+      background-color: #fff;
+      height: 1px;
+    }
+  }
+}
+
+@include tablet{
+  .banner-cnt{
+    width: 80%;
+  }
+}

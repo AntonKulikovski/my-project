@@ -1,0 +1,482 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>WoodSide</title>
+    <link rel="stylesheet" type="text/css" href="vendor/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/jquery-ui.theme.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/jquery-ui.structure.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.min.css">
+</head>
+<body>
+<div class="page-wrap">
+    <div class="page-wrapper">
+        <div class="header">
+            <div class="header__row header__row--desk">
+                <div class="c-align">
+                    <div class="header__inner">
+                        <a class="logo" href="/">
+                            <img src="images/header-logo.svg">
+                            <span class="logo__distin">DISTINCTLY CALIFORNIA</span>
+                        </a>
+                        <div class="book-btn__wrap">
+                            <span class="book-btn--desktop book-btn js-book-open">Book Now</span>
+                            <a href="/guarantee.html" class="book-btn__rate">BEST RATE GUARANTEE</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header__row">
+                <div class="nav">
+                    <div class="c-align">
+                        <div class="flex-row flex-wrap-row--tablet header-fix">
+                            <span id="call-mobile-menu" class="humb-mobile"></span>
+                            <span class="book-btn--tablet book-btn js-book-open">Book Now</span>
+                        </div>
+                        <div class="nav__list-wrapper">
+                            <ul class="nav__list">
+                                <li class="nav__item">
+                                    <a data-text="ABOUT" href="/about.html">ABOUT</a>
+                                    <span class="nav__item-plus">+</span>
+                                    <ul class="nav__drop-list nav__drop-list--upper">
+                                        <li class="nav__drop-item"><a data-text="Why Stay with Us" href="/about-us.html">Why Stay with Us</a></li>
+                                        <li class="nav__drop-item"><a data-text="The Woodside Spirit" href="/spirit.html">The Woodside Spirit</a></li>
+                                        <li class="nav__drop-item"><a data-text="Well Said" href="/well-said.html">Well Said</a></li>
+                                        <li class="nav__drop-item"><a data-text="Giving Back" href="/giving.html">Giving Back</a></li>
+                                        <li class="nav__drop-item"><a data-text="Our Team" href="/team.html">Our Team</a></li>
+                                        <li class="nav__drop-item"><a data-text="Management Services" href="/management.html">Management Services</a></li>
+                                        <li class="nav__drop-item nav__drop-item--composite">
+                                            <a data-text="Careers" href="/career.html">Careers</a>
+                                            <ul class="nav__drop-list">
+                                                <li class="nav__drop-item"><a data-text="Search for a job" href="/career-search.html?search">Search for a job</a></li>
+                                                <li class="nav__drop-item"><a data-text="Develop Your Career" href="/career-search.html?develop">Develop Your Career</a></li>
+                                                <li class="nav__drop-item"><a data-text="Learn About Our Benefits" href="/career-search.html?learn">Learn About Our Benefits</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav__item">
+                                    <a class="active" data-text="DESTINATIONS" href="/destination.html">DESTINATIONS</a>
+                                </li>
+                                <li class="nav__item">
+                                    <a data-text="FOOD & DRINK" href="/food&drink.html">FOOD & DRINK</a>
+                                </li>
+                                <li class="nav__item">
+                                    <a data-text="SPAS" href="/spas.html">SPAS</a>
+                                </li>
+                                <li class="nav__item">
+                                    <a data-text="MEETINGS & EVENTS" href="/meeting.html">MEETINGS & EVENTS</a>
+                                </li>
+                                <li class="nav__item">
+                                    <a data-text="WEDDINGS" href="/weddings.html">WEDDINGS</a>
+                                </li>
+                                <li class="nav__item">
+                                    <a data-text="OFFERS" href="/offers.html">OFFERS</a>
+                                </li>
+                            </ul>
+                            <span id="close-mobile-menu" class="nav__list-close"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header__row header__row--mob">
+                <div class="c-align">
+                    <div class="header__inner clearfix">
+                        <a class="logo" href="/">
+                            <img src="images/header-logo.svg">
+                            <span class="logo__distin">DISTINCTLY CALIFORNIA</span>
+                        </a>
+                        <a href="/guarantee.html" class="book-btn__rate">BEST RATE GUARANTEE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="js-map-wrapper">
+            <div class="banner banner--destination">
+                <img src="images/map.png" alt="map">
+                <div class="banner-desc banner-desc--desk">
+                    <h3>THE SPIRIT of PLACE</h3>
+                    <p>WHEN YOU STAY IN A WOODSIDE DESTINATION, YOU’RE MUCH MORE THAN OUR GUEST. YOU’RE CARED FOR LIKE
+                        FAMILY.</p>
+                </div>
+                <div class="map-point__wrap">
+                    <div id="napa" class="map-point map-point--napa map-point--left active">
+                        <p class="map-point__title">NAPA VALLEY LODGE</p>
+                        <span class="map-point__dot"></span>
+                        <span class="map-point__pulse"></span>
+                        <span class="map-point__pulse map-point__pulse--2"></span>
+                        <span class="map-point__pulse map-point__pulse--3"></span>
+                    </div>
+                    <div id="bodega" class="map-point map-point--bodega map-point--right">
+                        <p class="map-point__title">BODEGA BAY LODGE</p>
+                        <span class="map-point__dot"></span>
+                        <span class="map-point__pulse"></span>
+                        <span class="map-point__pulse map-point__pulse--2"></span>
+                        <span class="map-point__pulse map-point__pulse--3"></span>
+                    </div>
+                    <div id="lafa" class="map-point map-point--lafa map-point--left">
+                        <p class="map-point__title">LAFAYETTE PARK HOTEL & SPA</p>
+                        <span class="map-point__dot"></span>
+                        <span class="map-point__pulse"></span>
+                        <span class="map-point__pulse map-point__pulse--2"></span>
+                        <span class="map-point__pulse map-point__pulse--3"></span>
+                    </div>
+                    <div id="drisco" class="map-point map-point--drisco map-point--right">
+                        <p class="map-point__title">HOTEL DRISCO</p>
+                        <span class="map-point__dot"></span>
+                        <span class="map-point__pulse"></span>
+                        <span class="map-point__pulse map-point__pulse--2"></span>
+                        <span class="map-point__pulse map-point__pulse--3"></span>
+                    </div>
+                    <div id="stanford" class="map-point map-point--stanford map-point--right">
+                        <p class="map-point__title">STANFORD PARK HOTEL</p>
+                        <span class="map-point__dot"></span>
+                        <span class="map-point__pulse"></span>
+                        <span class="map-point__pulse map-point__pulse--2"></span>
+                        <span class="map-point__pulse map-point__pulse--3"></span>
+                    </div>
+                    <div id="monterey" class="map-point map-point--monterey map-point--right">
+                        <p class="map-point__title">MONTEREY PLAZA HOTEL & SPA</p>
+                        <span class="map-point__dot"></span>
+                        <span class="map-point__pulse"></span>
+                        <span class="map-point__pulse map-point__pulse--2"></span>
+                        <span class="map-point__pulse map-point__pulse--3"></span>
+                    </div>
+                    <div id="bernar" class="map-point map-point--bernar map-point--left">
+                        <p class="map-point__title">BERNARDUS LODGE & SPA</p>
+                        <span class="map-point__dot"></span>
+                        <span class="map-point__pulse"></span>
+                        <span class="map-point__pulse map-point__pulse--2"></span>
+                        <span class="map-point__pulse map-point__pulse--3"></span>
+                    </div>
+
+                    <span class="map-point__close js-close-map"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="js-map-open open-map__wrap">
+            <div class="c-align">
+                <span class="open-map">Open map</span>
+            </div>
+        </div>
+
+        <div class="hotel-modal">
+            <ul class="hotel-modal__list">
+                <li class="hotel-modal__title napa active">NAPA VALLEY LODGE</li>
+                <li class="hotel-modal__title bodega">BODEGA BAY LODGE</li>
+                <li class="hotel-modal__title lafa">LAFAYETTE PARK HOTEL & SPA</li>
+                <li class="hotel-modal__title drisco">HOTEL DRISCO</li>
+                <li class="hotel-modal__title stanford">STANFORD PARK HOTEL</li>
+                <li class="hotel-modal__title monterey">MONTEREY PLAZA HOTEL & SPA</li>
+                <li class="hotel-modal__title bernar">BERNARDUS LODGE & SPA</li>
+            </ul>
+        </div>
+
+        <div class="c-align hidden-desk">
+            <div class="b-page-intro center-align">
+                <h3 class="b-page-intro__title">The Spirit of Place</h3>
+                <p class="b-page-intro__paragraph">When you stay in a Woodside destination, you’re much more than our guest. You’re cared for like family.</p>
+            </div>
+        </div>
+
+        <div class="c-align">
+            <div class="b-page-intro center-align branch-bg">
+                <p class="b-page-intro__paragraph">Each of our hotels we operate offers a remarkable setting that combines local beauty and inviting ambiance with an array of superb amenities for business and pleasure. As part of the Northern California landscape for over four decades, we are dedicated to delivering unparalleled service, creating memorable experiences and exceeding expectations. Come to Woodside Hotels to entertain, meet, celebrate or simply unwind. <a class="b-page-intro__link b-page-intro__link--no-line" href="#">More info</a></p>
+            </div>
+        </div>
+
+        <div class="b-hotel__wrap flex-row flex-row--wrap">
+            <div class="b-hotel">
+                <img class="b-hotel__img" src="images/destination-gallery/destination-1.png">
+                <h3 class="b-hotel__title">MONTEREY PLAZA<br> HOTEL & SPA</h3>
+                <div class="b-hotel__drop-content">
+                    <p>Perched dramatically over Monterey Bay, the Monterey Plaza Hotel & Spa invites you to indulge in the magic of a seaside estate. Kayak among playful otters. Tour the cypress-lined splendor of 17-Mile Drive. Stroll historic Cannery Row to Lovers Point. Beat a barefoot path to the beach for surfing, paddle boarding and kicking back in the sand. Simply indulge in sumptuous cuisine at the hotel’s own Schooners Coastal Kitchen & Bar, or retreat to the Vista Blue Spa or your private balcony and soak in the drama of crashing waves. Bring your flair for adventure and your love of all things California coastal. Let our coastal curators lead you on an unforgettable quest to Monterey’s myriad treasures – many known only to locals.</p>
+                </div>  
+                <div class="b-link-row b-link-row--single">
+                    <div class="b-link-row__item">
+                        <span class="js-drop-content">Learn more</span>
+                    </div>
+                </div>
+                <div class="b-link-row b-link-row--border b-link-row--bottom">
+                    <div class="b-link-row__item"><a href="#">Contact</a></div>
+                    <div class="b-link-row__item"><a href="#">Website</a></div>
+                </div>
+            </div>
+
+            <div class="b-hotel">
+                <img class="b-hotel__img" src="images/destination-gallery/destination-2.png">
+                <h3 class="b-hotel__title">STANFORD PARK<br> HOTEL</h3>
+                <div class="b-hotel__drop-content">
+                    <p>Steps from the hallowed grounds of Stanford University, innovation meets inspiration for a stay that lives up to its cutting-edge locale. Classic and comfortable in every way, the Stanford Park Hotel surrounds you in residential warmth, while connecting you to the pulse of Silicon Valley. Unwind among lush gardens and courtyards. Explore the charming streets of Palo Alto or shop at the famed Stanford Shopping Center. Borrow a bike and cruise the Stanford campus. Socialize with scholars and innovators in our firelit living room. Or grab a seat at our neighborhood grill, where Silicon Valley luminaries gather for power lunches and late-night brainstorming sessions.</p>
+                </div>
+                <div class="b-link-row b-link-row--single">
+                    <div class="b-link-row__item">
+                        <span class="js-drop-content">Learn more</span>
+                    </div>
+                </div>
+                <div class="b-link-row b-link-row--border b-link-row--bottom">
+                    <div class="b-link-row__item"><a href="#">Contact</a></div>
+                    <div class="b-link-row__item"><a href="#">Website</a></div>
+                </div>
+            </div>
+
+            <div class="b-hotel">
+                <img class="b-hotel__img" src="images/destination-gallery/destination-3.png">
+                <h3 class="b-hotel__title">HOTEL DRISCO</h3>
+                <div class="b-hotel__drop-content">
+                    <p>Welcome to the charm of a historic haven many consider their home away from home in the City by the Bay. Perched atop San Francisco’s finest neighborhood – just a stone’s throw from the legendary estates of dignitaries, consulates, politicos and celebrities – the Hotel Drisco resides in prestigious Pacific Heights. Step into our fabled 1903 Edwardian hotel for traditional elegance with a neighborly vibe. Take in a sweeping view of the City. Stroll Fillmore Street’s eclectic restaurants and boutiques. Enjoy our complimentary gourmet continental breakfast and evening wine reception. Explore one of the world’s greatest cities from a residential hideaway where our hosts treat you like family.</p>
+                </div>
+                <div class="b-link-row b-link-row--single">
+                    <div class="b-link-row__item">
+                        <span class="js-drop-content">Learn more</span>
+                    </div>
+                </div>
+                <div class="b-link-row b-link-row--border b-link-row--bottom">
+                    <div class="b-link-row__item"><a href="#">Contact</a></div>
+                    <div class="b-link-row__item"><a href="#">Website</a></div>
+                </div>
+            </div>
+
+            <div class="b-hotel">
+                <img class="b-hotel__img" src="images/destination-gallery/destination-4.png">
+                <h3 class="b-hotel__title">LAFAYETTE PARK<br> HOTEL & SPA</h3>
+                <div class="b-hotel__drop-content">
+                    <p>Imagine the storied charms of a French chateau with the casual air of a California wellness getaway. Nestled near Walnut Creek and the East Bay’s upscale neighborhoods, the Lafayette Park Hotel & Spa blends the sensibilities of European hospitality with the splendor of the rolling California countryside. French chateau architecture and charming courtyards create the backdrop for unforgettable moments among our award-winning Park Bistro & Bar, our relaxing poolside spa and our numerous outdoor fireplaces. Join us for a carefully-tailored experience into the vibrant spirit of the East Bay’s thriving art, shopping and culinary scene.</p>
+                </div>
+                <div class="b-link-row b-link-row--single">
+                    <div class="b-link-row__item">
+                        <span class="js-drop-content">Learn more</span>
+                    </div>
+                </div>
+                <div class="b-link-row b-link-row--border b-link-row--bottom">
+                    <div class="b-link-row__item"><a href="#">Contact</a></div>
+                    <div class="b-link-row__item"><a href="#">Website</a></div>
+                </div>
+            </div>
+
+            <div class="b-hotel">
+                <img class="b-hotel__img" src="images/destination-gallery/destination-5.png">
+                <h3 class="b-hotel__title">BODEGA BAY<br> LODGE</h3>
+                <div class="b-hotel__drop-content">
+                    <p>We offer four full-service spa experiences that feature a variety of treatments from massages to facials to signature body treatments to help you feel relaxed and refreshed. As with each of our properties, we tie the spa experience to the local destination, each with their own unforgettable atmosphere and signature treatments. The common thread through all of our spas is that we elevate relaxation and rejuvenation to an art form.</p>
+                </div>
+                <div class="b-link-row b-link-row--single">
+                    <div class="b-link-row__item">
+                        <span class="js-drop-content">Learn more</span>
+                    </div>
+                </div>
+                <div class="b-link-row b-link-row--border b-link-row--bottom">
+                    <div class="b-link-row__item"><a href="#">Contact</a></div>
+                    <div class="b-link-row__item"><a href="#">Website</a></div>
+                </div>
+            </div>
+
+            <div class="b-hotel">
+                <img class="b-hotel__img" src="images/destination-gallery/destination-6.png">
+                <h3 class="b-hotel__title">NAPA VALLEY<br> LODGE</h3>
+                <div class="b-hotel__drop-content">
+                    <p>There’s a reason connoisseurs love Napa Valley. In fact, there are many. And they’re all beautifully captured at the Napa Valley Lodge. Set in a picturesque vineyard within the town of Yountville, our Tuscan-inspired, farmhouse-style lodge offers a pitch-perfect mix of pristine landscaping, panoramic views and Wine Country passions. Steps away, indulge at Yountville’s renowned restaurants and tasting rooms. Savor a day of wine tasting, gastronomy and scenic drives. Then retreat to the comforts of home for a rousing game of bocce, a prized cabernet at the fire pit or a memorable sunset from your private balcony. Live like a Napa Valley local –  and fall in love with the Napa Valley Lodge.</p>
+                </div>
+                <div class="b-link-row b-link-row--single">
+                    <div class="b-link-row__item">
+                        <span class="js-drop-content">Learn more</span>
+                    </div>
+                </div>
+                <div class="b-link-row b-link-row--border b-link-row--bottom">
+                    <div class="b-link-row__item"><a href="#">Contact</a></div>
+                    <div class="b-link-row__item"><a href="#">Website</a></div>
+                </div>
+            </div>
+
+            <div class="b-hotel">
+                <img class="b-hotel__img" src="images/destination-gallery/destination-7.png">
+                <h3 class="b-hotel__title">BERNARDUS LODGE<br> & SPA</h3>
+                <div class="b-hotel__drop-content">
+                    <p>Romantic, majestic, pastoral and artistic. With its year-round sunshine and warm climate, there’s no place like Carmel Valley. And there’s no better way to tap into its small-town charms than at Bernardus Lodge & Spa. Tucked away among rolling hills, vineyards and gardens, Bernardus invites you to savor the intimacy of a luxury retreat with an epicurean soul. Escape to the warmth of an old friend’s country estate to share in Carmel’s cultural and recreational pursuits, all curated by our local staff for the ultimate insider’s experience. From winery tours and garden-to-table cuisine at our signature restaurant and bar, Lucia, to an extensive array of spa treatments and mountain hikes, Bernardus captures the magic of the Carmel Valley – and the memories that matter most.</p>
+                </div>
+                <div class="b-link-row b-link-row--single">
+                    <div class="b-link-row__item">
+                        <span class="js-drop-content">Learn more</span>
+                    </div>
+                </div>
+                <div class="b-link-row b-link-row--border b-link-row--bottom">
+                    <div class="b-link-row__item"><a href="#">Contact</a></div>
+                    <div class="b-link-row__item"><a href="#">Website</a></div>
+                </div>
+            </div>
+
+            <div class="b-hotel b-hotel--banner b-hotel--bg-green b-hotel--abstract">
+                <div class="banner-cnt">
+                    <h3 class="banner-cnt__title">Restaurants & Spas</h3>
+                    <p class="banner-cnt__text">Discover the ultimate destination experience at our innovative restaurants and luxury spas.</p>
+                    <div class="b-link-row b-link-row--double b-link-row--border b-link-row--bottom">
+                        <div class="b-link-row__item"><a class="no-bold" href="/food&drink.html">Restaurants</a></div>
+                        <div class="b-link-row__item"><a class="no-bold" href="/spas.html">Spas</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+    <div class="c-align">
+        <div class="flex-row footer__row">
+            <div class="footer__nav">
+                <ul class="footer__list">
+                    <li><a href="/team.html">Our Team</a></li>
+                    <li><a href="/management.html">Management Services</a></li>
+                    <li><a href="/career.html">Careers</a></li>
+                </ul>
+                <ul class="footer__list">
+                    <li><a href="/gallery.html">Photo Gallery</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+                <ul class="footer__list">
+                    <li><a href="#">Site Map</a></li>
+                    <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="/accessibility.html">Accessibility</a></li>
+                </ul>
+            </div>
+            <a class="footer__logo" href="/"><img src="images/logo-footer.png"></a>
+            <div class="footer__info">
+                <div class="search js-search-wrap">
+                    <div class="search__form js-footer-form">
+                        <form>
+                            <input class="search__field" type="text" placeholder="Enter email address">
+                            <span class="search__btn js-sent-email">Submit</span>
+                        </form>
+                    </div>
+                    <div class="search__feedback js-footer-message">Thank you for signing up for our newsletter!</div>
+                </div>
+
+                <div class="social">
+                    <a class="social__item social__item--fb" href="#"></a>
+                    <a class="social__item social__item--inst" href="#"></a>
+                    <a class="social__item social__item--tw" href="#"></a>
+                </div>
+                <span class="footer__copy">©2016 Woodside Hotels. All Rights Reserved. The Woodside Hotels name and logo and that of each individual Woodside Hotel are trademarks of Woodside Hotels and Resorts Group Services Corp.</span>
+            </div>
+        </div>
+    </div>
+</footer>
+    </div>
+</div>
+
+<div class="m-book">
+    <span class="m-book__close js-modal-close"></span>
+    <h2 class="m-book__title">Make a Reservation</h2>
+    <div class="m-book__elem m-book__elem--row">
+        <div class="b-dropdown b-dropdown--full">
+            <p class="b-dropdown__title">SELECT HOTEL</p>
+            <div class="b-dropdown__wrap">
+                <span class="b-dropdown__select js-drop-open">MONTEREY PLAZA HOTEL & SPA</span>
+                <ul class="b-dropdown__list">
+                    <li class="b-dropdown__item js-drop-item">BERNARDUS LOGDGE & SPA</li>
+                    <li class="b-dropdown__item js-drop-item">BODEGA BAY LODGE</li>
+                    <li class="b-dropdown__item js-drop-item">HOTEL DRISCO</li>
+                    <li class="b-dropdown__item js-drop-item">LAFAYETTE PARK HOTEL & SPA</li>
+                    <li class="b-dropdown__item js-drop-item">MONTEREY PLAZA HOTEL & SPA</li>
+                    <li class="b-dropdown__item js-drop-item">NAPA VALLEY LODGE</li>
+                    <li class="b-dropdown__item js-drop-item">STANFORD PARK HOTEL</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="m-book__elem js-before-datepicker">
+        <div class="b-dropdown b-dropdown--half">
+            <p class="b-dropdown__title">ARRIVAL</p>
+            <div class="date-form">
+                <form>
+                    <input class="ui-input-default" type="text" id="from" name="from" placeholder="month/day/years" readonly>
+                    <div class="date-form__field">
+                        <input id="fromMonth" type="text" placeholder="02" maxlength="2">
+                    </div>
+                    <div class="date-form__field">
+                        <input id="fromDay" type="text" placeholder="20" maxlength="2">
+                    </div>
+                    <div class="date-form__field">
+                        <input id="fromYears" type="text" placeholder="2016" maxlength="4">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="b-dropdown b-dropdown--half">
+            <div class="double">
+                <div class="b-dropdown b-dropdown--full">
+                    <p class="b-dropdown__title">NIGHTS</p>
+                    <div class="b-dropdown__wrap">
+                        <span class="b-dropdown__select js-drop-open">1</span>
+                        <ul class="b-dropdown__list b-dropdown__list--scroll js-scroll-custom">
+                            <li class="b-dropdown__item js-drop-item">1</li>
+                            <li class="b-dropdown__item js-drop-item">2</li>
+                            <li class="b-dropdown__item js-drop-item">3</li>
+                            <li class="b-dropdown__item js-drop-item">4</li>
+                            <li class="b-dropdown__item js-drop-item">5</li>
+                            <li class="b-dropdown__item js-drop-item">6</li>
+                            <li class="b-dropdown__item js-drop-item">7</li>
+                            <li class="b-dropdown__item js-drop-item">8</li>
+                            <li class="b-dropdown__item js-drop-item">9</li>
+                            <li class="b-dropdown__item js-drop-item">10</li>
+                            <li class="b-dropdown__item js-drop-item">11</li>
+                            <li class="b-dropdown__item js-drop-item">12</li>
+                            <li class="b-dropdown__item js-drop-item">13</li>
+                            <li class="b-dropdown__item js-drop-item">14</li>
+                            <li class="b-dropdown__item js-drop-item">15</li>
+                            <li class="b-dropdown__item js-drop-item">16</li>
+                            <li class="b-dropdown__item js-drop-item">17</li>
+                            <li class="b-dropdown__item js-drop-item">18</li>
+                            <li class="b-dropdown__item js-drop-item">19</li>
+                            <li class="b-dropdown__item js-drop-item">20</li>
+                            <li class="b-dropdown__item js-drop-item">21</li>
+                            <li class="b-dropdown__item js-drop-item">22</li>
+                            <li class="b-dropdown__item js-drop-item">23</li>
+                            <li class="b-dropdown__item js-drop-item">24</li>
+                            <li class="b-dropdown__item js-drop-item">25</li>
+                            <li class="b-dropdown__item js-drop-item">26</li>
+                            <li class="b-dropdown__item js-drop-item">27</li>
+                            <li class="b-dropdown__item js-drop-item">28</li>
+                            <li class="b-dropdown__item js-drop-item">29</li>
+                            <li class="b-dropdown__item js-drop-item">30</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="double">
+                <div class="b-dropdown b-dropdown--full">
+                    <p class="b-dropdown__title">ROOMS</p>
+                    <div class="b-dropdown__wrap">
+                        <span class="b-dropdown__select js-drop-open">2</span>
+                        <ul class="b-dropdown__list">
+                            <li class="b-dropdown__item js-drop-item">1</li>
+                            <li class="b-dropdown__item js-drop-item">2</li>
+                            <li class="b-dropdown__item js-drop-item">3</li>
+                            <li class="b-dropdown__item js-drop-item">4</li>
+                            <li class="b-dropdown__item js-drop-item">5</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="m-book__elem">
+    </div>
+    <div class="m-book__elem center-align">
+        <button class="m-book__btn">Continue</button>
+    </div>
+</div>
+
+<span class="black-bg"></span>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="vendor/jquery-ui.min.js"></script>
+<script type="text/javascript" src="vendor/jquery.mCustomScrollbar.js"></script>
+<script type="text/javascript" src="scripts/main.js"></script>
+</body>
+</html>

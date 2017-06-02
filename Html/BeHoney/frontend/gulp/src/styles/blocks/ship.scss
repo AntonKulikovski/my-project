@@ -1,0 +1,150 @@
+.ship{
+  @extend .shop-table;
+  margin-top: 22px;
+
+  tbody{
+
+    tr{
+      color: #808080;
+      border-bottom: 0;
+
+      &:last-child{
+        td:nth-last-child(2){
+          border-right: 1px solid #d7d7d7;
+          padding-bottom: 25px;
+        }
+      }
+
+    &.check{
+        td{
+          color: #000;
+        }
+      }
+    }
+
+    td{
+      font-size: 16px;
+      text-align: left;
+      font-family: 'Roboto Condensed';
+      vertical-align: top;
+      &:nth-child(n){padding: 24px 0 0px}
+
+      transition: color $timeanimation linear;
+
+      &.ship__desc{
+        padding-left: 35px;
+        padding-right: 35px;
+      }
+
+      &:first-child{
+        white-space: nowrap;
+        border-right: 0;
+      }
+
+      &:last-child{
+        text-align: center;
+        font-size: 18px;
+        font-family: 'Roboto Slab';
+        padding-left: 6.3%;
+        padding-right: 6.3%;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &__desc{
+    p{margin: 0}
+    ul{list-style-type: none}
+  }
+
+  &__pay{
+    width: 242px;
+  }
+
+  &--page{
+    margin-top: 46px;
+    border-bottom: 1px solid #d7d7d7;
+    tbody{
+
+      tr:last-child{
+        td:nth-child(n){padding-bottom: 26px}
+      }
+
+      td{
+        &:nth-child(n){
+          padding: 25px 18px 0;
+          vertical-align: text-bottom;
+
+          &.ship__desc{padding: 0 18px}
+        }
+
+        &:last-child{
+          padding: 0 27px;
+          font-size: 16px;
+          text-align: left;
+          white-space: normal;
+          font-family: 'Roboto Condensed';
+        }
+      }
+
+      tr{
+        &:last-child{
+          td:nth-last-child(2){border-right: 0}
+        }
+      }
+    }
+  }
+}
+
+@include tablet{
+  .ship{
+    tbody{
+      td{
+        &:first-child{padding-left: 20px}
+      }
+    }
+  }
+}
+
+
+@include tel{
+  .ship{
+    tbody{
+      td{
+        &:first-child, &.ship__desc{
+          float: left;
+          width: 77%;
+          border: 0;
+        }
+
+        &:nth-child(n){
+          padding-top: 25px;
+        }
+        &:last-child{
+          float: right;
+          padding: 23px 2.3% 0;
+        }
+
+        &.ship__desc{
+          padding-left: 45px;
+          padding-top: 25px;
+          padding-bottom: 30px;
+        }
+      }
+
+      tr:last-child{
+        td:nth-child(2){border: 0}
+      }
+    }
+
+    &--page{
+      tbody{
+        td{
+          &:first-child{font-weight: bold}
+          &:last-child{float: none}
+          &.ship__pay{display: none}
+        }
+      }
+    }
+  }
+}

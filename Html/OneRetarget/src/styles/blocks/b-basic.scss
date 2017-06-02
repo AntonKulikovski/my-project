@@ -1,0 +1,7 @@
+.b-basic{
+  padding-top: 54px;
+
+  &--slider{padding-bottom: 20px}
+
+  @include tel{padding-top: 30px}
+}

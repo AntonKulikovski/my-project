@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html-templates/head.html')
+<body>
+
+@@include('html-templates/header.html')
+
+<main>
+    <div class="c-align">
+        <div class="b-type">
+            <a href="#" class="b-type__title border">Оплата и доставка</a>
+            <div class="type-text center-text">
+                <p>Заказы принимаются с понедельника по пятницу с 10 до 18 часов.<br>
+                    Если заказ поступил по телефону или через соцсеть, то менеджер пришлет ссылку для оплаты.</p>
+            </div>
+
+            <table class="ship ship--page">
+                <thead>
+                <tr>
+                    <td class="shop-table__title"></td>
+                    <td class="shop-table__title">СПОСОБ ДОСТАВКИ</td>
+                    <td class="shop-table__title">СПОСОБ ОПЛАТЫ</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="check">
+                    <td><span>Стандартная доставка</span></td>
+                    <td class="ship__desc">
+                        <p>Осуществляется на следующий день после заказа.<br>
+                            Стоимость доставки по Минску в пределах МКАД*:</p>
+                        <ul>
+                            <li>• При заказе до 500 000 – 50 000</li>
+                            <li>• При заказе свыше 500 000 – доставка бесплатная</li>
+                        </ul>
+                        <span>* заказы за МКАД рассчитываются отдельно</span>
+                    </td>
+                    <td class="ship__pay" rowspan="4">
+                        <p>Наличными курьеру</p>
+                        <p>Банковской картой курьеру</p>
+                        <p>Банковской картой онлайн</p>
+                        <p>Системой «Расчет» (ЕРИП)</p>
+                    </td>
+                </tr>
+                <tr class="check">
+                    <td><span>Срочная доставка</span></td>
+                    <td class="ship__desc">
+                        <p>Осуществляется в течении 4-ти часов после оформления заказа.<br> Стоимость 7 рублей, вне
+                            зависимости от суммы заказа.</p>
+                    </td>
+                </tr>
+                <tr class="check">
+                    <td><span>Самовывоз</span></td>
+                    <td class="ship__desc">
+                        <p>Осуществляется по адресу – г. Минск, ул. Острошицкая, 10-41.</p>
+                    </td>
+                </tr>
+                <tr class="check">
+                    <td><span>Доставка по всей Беларуси</span></td>
+                    <td class="ship__desc">
+                        <p>Также мы осуществляем доставку по всей Беларуси, срок и стоимость доставки рассчитывается
+                            индивидуально.</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="b-pay">
+                <p>Наличными курьеру</p>
+                <p>Банковской картой курьеру</p>
+                <p>Банковской картой онлайн</p>
+                <p>Системой «Расчет» (ЕРИП)</p>
+            </div>
+
+            <img class="pay-banner" src="images/pay-banner.png">
+        </div>
+    </div>
+</main>
+
+@@include('html-templates/footer.html')
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
+<script src="vendor/owl/owl.carousel.min.js" type="text/javascript"></script>
+<script src="scripts/main.min.js" type="text/javascript"></script>
+
+</body>
+</html>

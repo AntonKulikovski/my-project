@@ -1,0 +1,78 @@
+<?php
+
+use frontend\widgets\LinkPager;
+use yii\data\Pagination;
+use yii\widgets\ListView;
+
+/* @var $this yii\web\View */
+/* @var $dataProvider \yii\data\ActiveDataProvider */
+/* @var $page \frontend\models\Page */
+/* @var $magazine \frontend\models\Magazine */
+
+$dataProvider->getModels();
+$this->title = $page->title;
+$label = empty($page->name) ? $page->title : $page->name;
+$this->params['breadcrumbs'][] = [
+    'label' => $label,
+    'template' => '<span>' . $label . '</span>'
+];
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $page->descriptionMeta,
+]);
+
+if ($dataProvider->pagination->page == 0) {
+    if ($dataProvider->pagination->pageCount > 1) {
+        $this->registerLinkTag([
+            'rel' => 'next',
+            'href' => $dataProvider->pagination->getLinks(true)[Pagination::LINK_NEXT],
+        ]);
+    }
+} else {
+    $this->registerMetaTag([
+        'name' => 'robots',
+        'content' => 'noindex,nofollow',
+    ]);
+
+    if ($dataProvider->pagination->page == $dataProvider->pagination->getPageCount() - 1) {
+        $this->registerLinkTag([
+            'rel' => 'prev',
+            'href' => $dataProvider->pagination->getLinks(true)[Pagination::LINK_PREV],
+        ]);
+    } else {
+        $this->registerLinkTag([
+            'rel' => 'next',
+            'href' => $dataProvider->pagination->getLinks(true)[Pagination::LINK_NEXT],
+        ]);
+        $this->registerLinkTag([
+            'rel' => 'prev',
+            'href' => $dataProvider->pagination->getLinks(true)[Pagination::LINK_PREV],
+        ]);
+    }
+}
+?>
+<main>
+    <div class="c-align">
+        <div class="b-type">
+            <h1 class="b-type__title"><?= $page->name ?></h1>
+            <div class="news__wrap">
+                <?php print ListView::widget([
+                    'dataProvider' => $dataProvider,
+                    'summary' => '',
+                    'itemView' => '_magazine.sphp',
+                    'itemOptions' => [
+                        'tag' => 'div',
+                        'class' => 'news',
+                    ],
+                    'pager' => [
+                        'class' => LinkPager::className(),
+                        'nextPageLabel' => false,
+                        'prevPageLabel' => false,
+                    ],
+                ]); ?>
+            </div>
+        </div>
+    </div>
+</main>
+

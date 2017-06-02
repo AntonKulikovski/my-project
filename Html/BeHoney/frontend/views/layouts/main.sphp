@@ -1,0 +1,181 @@
+<?php
+
+use common\widgets\Alert;
+use frontend\assets\AppAsset;
+use frontend\models\Package;
+use frontend\models\Page;
+use frontend\models\ProductVolume;
+use frontend\widgets\MainMenu;
+use frontend\widgets\MainMenuMobile;
+use frontend\widgets\SubMenu;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\widgets\Breadcrumbs;
+
+/* @var $this \yii\web\View */
+/* @var $content string */
+/* @var $productVolume ProductVolume */
+/* @var $package Package */
+
+AppAsset::register($this);
+?>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WW557ZN');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php print Html::csrfMetaTags() ?>
+    <title><?= ($this->title) ?></title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Roboto+Slab" rel="stylesheet">
+    <link rel="icon" href="/favicon.ico?v=1.1">
+    <?php $this->head() ?>
+    <meta name="yandex-verification" content="2498dcb9908603a5" />
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WW557ZN"
+            height="0"
+            width="0"
+            style="display:none;visibility:hidden">
+    </iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<?php $this->beginBody() ?>
+<div class="wrap">
+    <header class="h">
+        <div class="h__row yellow">
+            <div class="h__cnt contact">
+                <div class="contact__part" itemscope itemtype="http://schema.org/Phone">
+                    <a href="tel:+375296580898" itemprop="url" class="number"><span itemprop="phoneNumber">+375 (29) 658-08-98</span></a>
+                    <span>Доставка по Беларуси</span>
+                </div>
+                <a class="h__logo" href="/">
+                    <img alt="логотип" title="логотип" src="/images/short-logo.png">
+                </a>
+                <div class="contact__part" itemscope itemtype="http://schema.org/Worktime">
+                    <span itemprop="time" class="work-time">пн-пт 10:00-18:00 <span>сб 11:00-16:00</span></span>
+                    <div class="shared">
+                        <a target="_blank" class="shared__icon shared__icon--inst"
+                           href="https://www.instagram.com/behoney.by/">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a target="_blank" class="shared__icon shared__icon--fb"
+                           href="https://www.facebook.com/behoneyby">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        </a>
+                        <a target="_blank" class="shared__icon shared__icon--vk" href="https://vk.com/behoneyby">
+                            <i class="fa fa-vk" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="shopcart shopcart-desktop">
+                        <a href="<?= Url::to(['/shopcart/index']) ?>" class="shopcart__link">
+                            <span class="shopcart__icon" id="shopcartTotalCount"></span>
+                            <span class="shopcart__label"><?= Yii::$app->shopcart->getTotalCount() ?></span>
+                        </a>
+                        <?php if (Yii::$app->request->pathInfo != 'shopcart/'): ?>
+                            <div class="shopcart__drop">
+                                <div class="buy-modal">
+                                    <h3 class="buy-modal__title">
+                                        <?= Page::getModelByNameFixed('shopcart')->name; ?>
+                                    </h3>
+                                    <ul class="buy-list js-scroll-init js-basket">
+                                        <?php $shopcart = Yii::$app->shopcart; ?>
+                                        <?php print $this->render('_shopcart.sphp', [
+                                            'text' => '',
+                                            'shopcart' => $shopcart
+                                        ]) ?>
+                                    </ul>
+                                    <p class="buy-modal__total">
+                                        Общая сумма:
+                                    <span class="totalSumBasket" data-price="<?= $shopcart->getTotalSum() ?>">
+                                        <?= Yii::$app->formatter->asDecimal($shopcart->getTotalSum(), 2) ?>
+                                    </span>
+                                        руб.
+                                    </p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="h__row">
+            <?php print MainMenu::widget([
+                'options' => [
+                    'class' => 'h__cnt nav',
+                    'tag' => 'div',
+                ],
+                'encodeLabels' => 'false',
+            ]); ?>
+            <?php print MainMenuMobile::widget([
+                'options' => [
+                    'class' => 'mob-nav',
+                    'tag' => 'div',
+                ],
+                'encodeLabels' => 'false',
+            ]); ?>
+        </div>
+    </header>
+
+    <div class="c-align">
+        <?php print Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            'homeLink' => [
+                'label' => '<span itemprop="title">' . Yii::t('yii', 'Home') . '</span>',
+                'url' => '/',
+                'rel' => 'nofollow',
+                'itemprop' => 'url',
+            ],
+            'encodeLabels' => false,
+            'tag' => 'div',
+            'itemTemplate' => '<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb">{link}</div>'
+        ]) ?>
+    </div>
+
+    <?php print Alert::widget() ?>
+    <?php print $content ?>
+</div>
+<footer class="footer">
+    <div class="c-align">
+        <?php print SubMenu::widget(['options' => ['class' => 'footer__flex',
+            'tag' => 'div',],
+            'encodeLabels' => 'false',]); ?>
+        <div class="footer__pay">
+            <img alt="логотип баковских карточек"
+                 title="логотип баковских карточек"
+                 src="/images/footer-pay.png">
+        </div>
+        <div class="footer__copy copy">
+            <p>
+                © 2016. beHoney<br>
+                ИП Сидорович Анна Александровна, 220125 г. Минск, ул. Острошицкая, 10-41,
+                УНП 192606664, зарегистирован Минским горисполкомом 17.02.2016 г.<br>
+                Режим работы интернет-магазина: ПН-ПТ, 10:00 - 18:00<br>
+                Доставка товаров осуществляется ежедневно на следующий рабочий день
+                после оформления заказа с 10:00 до 20:00.<br>
+                Дата регистрации Интернет-магазина в торговом реестре РБ 01.11.2016 г. № 357136
+            </p>
+        </div>
+    </div>
+</footer>
+<?php $this->endBody() ?>
+</body>
+</html>
+<?php $this->endPage() ?>

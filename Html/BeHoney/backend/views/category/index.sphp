@@ -1,0 +1,33 @@
+<?php
+
+use yii\grid\GridView;
+use yii\helpers\Html;
+
+/* @var $this yii\web\View */
+/* @var $searchModel backend\models\CategorySearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = 'Категории';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="category-index">
+    <h1><?= $this->title ?></h1>
+    <p>
+        <?php print Html::a('Создать категорию', ['create'], ['class' => 'btn btn-success']); ?>
+    </p>
+    <?php print GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'title',
+            'name',
+            'slug',
+            'position',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+</div>

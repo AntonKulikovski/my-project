@@ -1,0 +1,48 @@
+.date-form{
+  background-color: #f5f5f5;
+  padding: 15px 25% 12px 3%;
+  position: relative;
+
+  &__field{
+    display: inline-block;
+    vertical-align: top;
+    width: 32%;
+    position: relative;
+    text-align: center;
+
+    input{
+      font-size: 18px;
+      color: #381700;
+      font-family: 'Mrs-Eaves-Roman';
+      line-height: 26px;
+      background-color: transparent;
+      border: 0;
+      width: 100%;
+      text-align: center;
+
+      &::-webkit-input-placeholder {color:#381700;}
+      &::-moz-placeholder          {color:#381700;}/* Firefox 19+ */
+      &:-moz-placeholder           {color:#381700;}/* Firefox 18- */
+      &:-ms-input-placeholder      {color:#381700;}
+    }
+
+    &:after{
+      display: block;
+      content: "";
+      position: absolute;
+      top: 8px;
+      bottom: 9px;
+      right: 0;
+      background-color: #381700;
+      width: 1px;
+    }
+
+    &:last-child:after{display: none}
+  }
+}
+
+@include tel{
+  .date-form{
+    padding: 15px 23% 12px 3%;
+  }
+}

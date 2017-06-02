@@ -1,0 +1,36 @@
+<?php
+
+use frontend\models\Page;
+use yii\helpers\Url;
+
+/* @var $this yii\web\View */
+/* @var $magazine \frontend\models\Magazine */
+
+$this->title = $magazine->title ? $magazine->title : $magazine->name;
+
+$this->params['breadcrumbs'][] = [
+    'label' => '<span itemprop="title">' . Page::getModelByNameFixed('magazine')->name . '</span>',
+    'rel' => 'nofollow',
+    'itemprop' => 'url',
+    'url' => Url::to(['magazine/index']),
+];
+$this->params['breadcrumbs'][] = [
+    'label' => $magazine->name,
+    'template' => '<span>' . $magazine->name . '</span>'
+];
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $magazine->descriptionMeta,
+]);
+?>
+<main>
+    <div class="c-align">
+        <div class="b-type">
+            <h1 class="b-type__title"><?= $magazine->name ?></h1>
+            <div class="b-text">
+            <p><?php print $magazine->content; ?></p>
+            </div>
+        </div>
+    </div>
+</main>

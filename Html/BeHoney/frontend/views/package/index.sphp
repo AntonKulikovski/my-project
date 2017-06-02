@@ -1,0 +1,102 @@
+<?php
+
+use frontend\models\Page;
+use frontend\models\Package;
+use frontend\assets\PackageAsset;
+use frontend\models\PackageTag;
+use frontend\models\Tag;
+use yii\helpers\Url;
+
+/**
+ * @var $packageTag PackageTag
+ * @var $package Package
+ * @var $page Page
+ * @var $tag Tag
+ */
+
+$this->title = $slug == 'all' ? $page->title : $tag->title;
+
+if ($slug != 'all') {
+    $this->params['breadcrumbs'][] = [
+        'label' => '<span itemprop="title">' . $page->name . '</span>',
+        'rel' => 'nofollow',
+        'itemprop' => 'url',
+        'url' => Url::to(['package/index', 'slug' => 'all']),
+    ];
+}
+
+$label = $slug == 'all' ? $page->name : $tag->name;
+$this->params['breadcrumbs'][] = [
+    'label' => $label,
+    'template' => '<span>' . $label . '</span>'
+];
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $slug == 'all' ? $page->descriptionMeta : $tag->descriptionMeta,
+]);
+
+PackageAsset::register($this);
+?>
+<main>
+    <div class="c-align">
+        <div class="b-type">
+            <h1 class="b-type__title"><?= $slug == 'all' ? 'Все наборы' : $tag->name ?></h1>
+            <div class="type-text"><?= $page->descriptionTop ?></div>
+            <ul class="filter">
+                <li class="filter__item all<?= $slug == 'all' ? ' active' : '' ?>" data-slug="all">Все наборы</li>
+                <?php foreach ($existTags as $packageTag): ?>
+                    <li class="filter__item package <?= $slug == $packageTag->tag->slug ? ' active' : '' ?>"
+                        data-slug="<?= $packageTag->tag->slug ?>">
+                        <?= $packageTag->tag->name ?>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+            <div class="b-type__cnt">
+                <?php foreach ($packages as $packageTag) : ?>
+                    <div class="b-good">
+                        <a class="b-good__link" href="<?= Url::to([
+                            'package/package',
+                            'slug' => $packageTag->package->slug
+                        ]) ?>">
+                            <img class="b-good__img"
+                                 alt="<?= $packageTag->package->name ?>"
+                                 title="<?= $packageTag->package->name ?>"
+                                 src="<?= $packageTag->package->photos[0]->imageFile->asHome ?>">
+                            <p href="<?= Url::to(['package/package', 'slug' => $packageTag->package->slug]) ?>"
+                               class="b-good__title">
+                                <?= $packageTag->package->name ?>
+                            </p>
+                        </a>
+                        <p class="b-good__cost">
+                            <?php switch ($packageTag->package->type) {
+                                case Package::TYPE_STANDARD :
+                                    echo 'от ' . Yii::$app->formatter->asDecimal(
+                                            $packageTag->package->price + $priceProduct * 2,
+                                            2
+                                        );
+
+                                    break;
+                                case Package::TYPE_ONE :
+                                    echo 'от ' . Yii::$app->formatter->asDecimal(
+                                            $packageTag->package->price + $priceProduct,
+                                            2
+                                        );
+
+                                    break;
+                                case Package::TYPE_ASORTI :
+                                    echo 'от ' . Yii::$app->formatter->asDecimal($packageTag->package->price, 2);
+                                    
+                                    break;
+                            } ?>
+                            руб.
+                        </p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div>
+                <p><?= $slug == 'all' ? $page->descriptionBottom : $tag->description ?></p>
+            </div>
+        </div>
+    </div>
+</main>

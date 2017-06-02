@@ -1,0 +1,30 @@
+.breadcrumb{
+  list-style-type: none;
+  padding: 40px 30px 0;
+  font-size: 14px;
+  div{
+    display: inline-block;
+    vertical-align: middle;
+
+    a{
+      color: #000;
+      transition: color $timeanimation ease;
+      &:hover{color: $yellow-color}
+    }
+
+    &:after{
+      display: inline-block;
+      content: "\2192";
+      vertical-align: middle;
+      margin: 0 10px 2px;
+    }
+
+    &:last-child{
+      &:after{display: none}
+    }
+  }
+
+  @include tel{
+    padding: 40px 0 0 15px;
+  }
+}

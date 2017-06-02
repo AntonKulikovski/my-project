@@ -1,0 +1,47 @@
+<?php
+
+use yii\helpers\Url;
+use frontend\models\Package;
+
+/**
+ * @var $packageTag \common\models\PackageTag
+ * @var $packages \common\models\PackageTag[]
+ * @var $priceProduct integer
+ */
+?>
+<?php foreach ($packages as $packageTag) : ?>
+    <div class="b-good mobile-slider">
+        <a class="b-good__link" href="<?= Url::to(['package/package', 'slug' => $packageTag->package->slug]) ?>">
+            <img class="b-good__img"
+                 alt="<?= str_replace(
+                     '.' . $packageTag->package->photos[0]->imageFile->extension,
+                     '',
+                     $packageTag->package->photos[0]->imageFile->name
+                 ) ?>"
+                 title="<?= str_replace(
+                     '.' . $packageTag->package->photos[0]->imageFile->extension,
+                     '',
+                     $packageTag->package->photos[0]->imageFile->name
+                 ) ?>"
+                 src="<?= $packageTag->package->photos[0]->imageFile->asHome ?>">
+            <p href="<?= Url::to(['package/package', 'slug' => $packageTag->package->slug]) ?>" class="b-good__title">
+                <?= $packageTag->package->name ?>
+            </p>
+        </a>
+        <p class="b-good__cost">
+            <?php switch ($packageTag->package->type) {
+                case Package::TYPE_STANDARD :
+                    echo 'от ' . Yii::$app->formatter->asDecimal($packageTag->package->price + $priceProduct * 2, 2);
+                    break;
+                case Package::TYPE_ONE :
+                    echo 'от ' . Yii::$app->formatter->asDecimal($packageTag->package->price + $priceProduct, 2);
+                    break;
+                case Package::TYPE_ASORTI :
+                    echo 'от ' . Yii::$app->formatter->asDecimal($packageTag->package->price, 2);
+                    break;
+            }
+            ?>
+            руб.
+        </p>
+    </div>
+<?php endforeach; ?>

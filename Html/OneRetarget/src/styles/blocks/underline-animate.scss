@@ -1,0 +1,17 @@
+.underline-animate{
+  position: relative;
+  &:after{
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-bottom: 1px dashed;
+    bottom: 3px;
+    transition: left $timeanimation ease;
+  }
+
+  &:hover:after{
+    left: 100%;
+  }
+}

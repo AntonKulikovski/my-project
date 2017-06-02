@@ -1,0 +1,32 @@
+.advan{
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+
+  &__item{
+    padding-left: 50px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    font-size: 18px;
+    margin: 0 30px 0;
+    text-align: left;
+
+    p{
+      margin: 15px 0;
+      line-height: 25px;
+    }
+
+    &:last-child{margin-right: 0}
+
+    &.clock{background-image: url("../images/advan-icon/clock.png")}
+    &.cursor{background-image: url("../images/advan-icon/cursor.png")}
+  }
+
+  @include tel{
+    display: block;
+
+    &__item{
+      margin: 0;
+    }
+  }
+}

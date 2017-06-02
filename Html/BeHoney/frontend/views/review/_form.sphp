@@ -1,0 +1,21 @@
+<?php
+
+use yii\helpers\Html;
+use frontend\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $model \frontend\models\Review */
+/* @var $form yii\widgets\ActiveForm */
+?>
+<div class="category-form">
+    <?php $form = ActiveForm::begin(); ?>
+    <?php print $form->field($model, 'name')->textInput(['maxlength' => true])->label('Ваше имя'); ?>
+    <?php print $form->field($model, 'email')->textInput()->label('Ваш E-mail'); ?>
+    <?php print $form->field($model, 'urlSoc')->textInput(); ?>
+    <?php print $form->field($model, 'message')->textarea()->label('Ваш отзыв'); ?>
+    <div class="form-group">
+        <?php print Html::submitButton('Отправить отзыв'); ?>
+    </div>
+    <?php ActiveForm::end(); ?>
+</div>
+

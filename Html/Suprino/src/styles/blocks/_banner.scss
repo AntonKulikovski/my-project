@@ -1,0 +1,185 @@
+.banner{
+  position: relative;
+  max-height: 514px;
+  overflow: hidden;
+  padding-top: 68px;
+
+  @include tablet(){
+    margin: 0 5px;
+  }
+}
+
+.slider{
+  &__item{
+    position: relative;
+    min-height: 527px;
+  }
+
+  &__item-title{
+    font-size: 58px;
+    color: $title-color;
+    line-height: 1.05;
+    font-weight: 500;
+    font-family: 'lato', sans-serif;
+    margin: 0 0 35px;
+    letter-spacing: 0;
+
+    @include tablet(){
+      font-size: 40px;
+    }
+  }
+
+  &__item-content{
+    position: relative;
+    padding: 105px 0;
+    float: left;
+    opacity: 0;
+    max-width: 530px;
+    font-size: 18px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    color: $banner-text-color;
+    z-index: 1;
+
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+  }
+
+  &__item-text{
+    opacity: 0.6;
+    padding-right: 135px;
+  }
+
+  &__arrow{
+    position: absolute;
+    top: 144px;
+    left: 1px;
+    z-index: 10;
+    span{
+      display: inline-block;
+      width: 10px;
+      height: 18px;
+      background-image: url("../images/slider-arrow.png");
+      background-repeat: no-repeat;
+      cursor: pointer;
+
+      &:last-child{margin-left: 10px}
+    }
+    &--prev{background-position: 0 0}
+    &--next{background-position: -25px 0}
+  }
+
+  @include desktop(){
+    &__item{min-height: 200px}
+    &__arrow{top: 60px}
+    &__item-img{display: none}
+    &__item-content{
+      max-width: 100%;
+      padding: 20px 0;
+    }
+  }
+
+  @media (max-width: 1199px){
+  }
+}
+
+.js-slider-img-opacity{
+  float: right;
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  z-index: 0;
+
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+
+  @media (max-width: 1199px){
+    display: none;
+  }
+}
+
+.parallax-wrap{
+  position: absolute;
+  width: 600px;
+  height: 350px;
+  text-align: center;
+  left: 49%;
+  top: 0;
+  bottom: 0;
+  float: none;
+}
+
+
+#slide-1{
+  .slider__item-content{
+    margin-left: -500px;
+    opacity: 0;
+  }
+
+  .js-slider-img-opacity{
+    opacity: 0;
+    transform: rotate(0deg) scale(0);
+  }
+}
+#slide-2{
+  .slider__item-content{
+    margin-top: -500px;
+    opacity: 0;
+  }
+  .js-slider-img-opacity{
+    bottom: -500px;
+    opacity: 0;
+  }
+}
+#slide-3{
+  .slider__item-content{
+    margin-left: -500px;
+    opacity: 0;
+    transform: rotate(0deg) scale(0);
+  }
+  .js-slider-img-opacity{
+    margin-right: 0;
+    opacity: 0;
+    transform: rotate(-960deg) scale(0);
+
+  }
+}
+#slide-4{
+  .slider__item-content{
+    margin-left: -500px;
+    opacity: 0;
+    transform: rotate(-960deg) scale(1);
+  }
+  .js-slider-img-opacity{
+    margin-right: -500px;
+    opacity: 0;
+    transform: rotate(320deg) scale(1);
+  }
+}
+#slide-5{
+  .slider__item-content{
+    opacity: 0;
+    transform: rotate(320deg) scale(0);
+  }
+  .js-slider-img-opacity{
+    margin-right: -500px;
+    opacity: 0;
+    transform: rotate(0deg) scale(0);
+  }
+}
+
+#slide-1.active, #slide-2.active, #slide-3.active, #slide-4.active, #slide-5.active{
+  .slider__item-content{
+    margin: 0;
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+  .js-slider-img-opacity{
+    opacity: 1;
+    margin: 0;
+    bottom: 0;
+    transform: rotate(0deg) scale(1);
+  }
+}

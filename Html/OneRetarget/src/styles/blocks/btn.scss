@@ -1,0 +1,16 @@
+.btn{
+  background-color: $color-yellow;
+  color: #010101;
+  font-size: 19px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 20px 37px 16px;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+  border: 0;
+
+  transition: background $timeanimation ease;
+
+  &:hover{
+    background-color: #ffc832;
+  }
+}

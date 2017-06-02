@@ -1,0 +1,39 @@
+.set{
+  margin-bottom: 45px;
+
+  &__item{
+    font-family: 'Roboto Condensed';
+    margin-bottom: 20px;
+  }
+
+  &__img{
+    display: inline-block;
+    vertical-align: middle;
+
+    img{
+      display: none;
+      border: 1px solid #d7d7d7;
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+
+      &.active{display: block}
+    }
+  }
+
+  &__cnt{
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 19px;
+    vertical-align: top;
+    text-align: left;
+  }
+}
+
+@media (max-width: 450px){
+  .set{
+    &__cnt{
+      margin-left: 5px;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+<?php
+
+use backend\models\Order;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Order */
+/* @var $form yii\widgets\ActiveForm */
+?>
+
+<div class="order-form">
+    <?php $form = ActiveForm::begin(); ?>
+    <?php print $form->field($model, 'typeDelivery')->dropDownList(Order::$deliveries, ['prompt' => 'Выберите способ доставки']); ?>
+    <?php print $form->field($model, 'name')->textInput(['maxlength' => true]); ?>
+    <?php print $form->field($model, 'email')->textInput(['maxlength' => true]); ?>
+    <?php print $form->field($model, 'phone')->textInput(); ?>
+    <?php print $form->field($model, 'typePayment')->dropDownList(Order::$payments, ['prompt' => 'Выберите способ оплаты']); ?>
+    <?php print $form->field($model, 'price')->textInput(); ?>
+    <div class="form-group">
+        <?php print Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), [
+                'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary',
+            ]
+        ); ?>
+    </div>
+    <?php ActiveForm::end(); ?>
+</div>

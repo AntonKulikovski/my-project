@@ -1,0 +1,55 @@
+<?php
+
+use backend\models\Package;
+use backend\models\Page;
+use yii\grid\GridView;
+use yii\helpers\Html;
+
+/* @var $this yii\web\View */
+/* @var $searchModel backend\models\PackageSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = Page::getModelByNameFixed('package')->name;
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="package-index">
+    <h1><?= $this->title ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <p>
+        <?php print Html::a('Создать подарочный набор', ['create'], ['class' => 'btn btn-success']); ?>
+    </p>
+    <?php print GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            'title',
+            'name',
+            [
+                'attribute' => 'type',
+                'value' => function (Package $model) {
+                    return Package::$types[$model->type];
+                },
+                'filter' => Package::$types,
+            ],
+            [
+                'attribute' => 'tags',
+                'value' => function (Package $model) {
+                    return implode(', ', Package::getExistTagsNames($model->id));
+                },
+                'filter' => Package::getTags(),
+            ],
+            'price',
+            [
+                'attribute' => 'active',
+                'format' => 'boolean',
+                'filter' => ["Нет", "Да"],
+            ],
+            'position',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+</div>

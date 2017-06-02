@@ -1,0 +1,17 @@
+.b-bord{
+  border: 2px solid $yellow-color;
+
+  .type-text{margin: 24px auto}
+}
+
+@include tablet{
+  .b-bord{
+    margin: 0 20px;
+  }
+}
+
+@include tel{
+  .b-bord{
+    margin: 20px 20px 0;
+  }
+}

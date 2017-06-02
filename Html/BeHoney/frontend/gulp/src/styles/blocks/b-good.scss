@@ -1,0 +1,57 @@
+.b-good{
+  flex: 0 0 33%;
+  max-height: 338px;
+
+  font-family: "Roboto Slab", sans-serif;
+
+  &__link{
+    display: block;
+
+    &:hover{
+      .b-good__title{color: #000}
+    }
+  }
+
+  &__img{
+    margin-top: 16px;
+    margin-bottom: 12px;
+    width: auto;
+    max-width: 100%;
+  }
+
+  &__img-link{
+    display: block;
+  }
+
+  &__title{
+    display: inline-block;
+    color: $yellow-color;
+    font-size: 19px;
+    margin-bottom: 2px;
+    margin-top: 0;
+
+    transition: color $timeanimation linear;
+  }
+  &__cost{
+    font-size: 14px;
+  }
+}
+
+@include tablet{
+  .b-good{
+    flex: 0 0 31%;
+    &__img{
+      width: 100%;
+    }
+  }
+}
+
+@include tel{
+  .b-good{
+    margin: 0 10px;
+    max-height: 100%;
+
+    &__title{font-size: 22px}
+    &__cost{font-size: 18px}
+  }
+}

@@ -1,0 +1,132 @@
+.b-link-row{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  position: absolute;
+  width: 100%;
+  bottom: 23%;
+
+  &__item{
+    flex: 0 0 50%;
+    text-align: center;
+
+    a, span{
+      display: inline-block;
+      cursor: pointer;
+      font-size: 16px;
+      color: #005d68;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 7px;
+      &.bold{font-weight: bold;}
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background-color: #005d68;
+        transition: right .5s ease;
+      }
+      &:hover:after {
+        right: 100%;
+      }
+    }
+  }
+
+  &--bold{
+    a, span{
+      font-weight: bold;
+
+      &:after{height: 2px}
+    }
+  }
+
+  &--single{
+    margin-bottom: 19px;
+    .b-link-row__item{
+      flex: 0 0 100%;
+    }
+  }
+
+  &--border{
+    border-top: 1px solid #ebe7e5;
+
+    .b-link-row__item{
+      padding: 16px 0 11px;
+
+      &:first-child{border-right: 1px solid #ebe7e5;}
+
+      a,span{
+        &:after{right: 100%}
+        &:hover:after{right: 0}
+      }
+    }
+  }
+}
+
+@media (max-width: 1500px){
+  .b-link-row{
+    bottom: 18%;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 768px){
+  .b-link-row{
+    &--block{
+      display: block;
+
+      .b-link-row__item{
+        margin-bottom: 30px;
+
+        a, span{font-weight: bold}
+      }
+    }
+  }
+}
+
+@include tablet{
+  .slider__plaha-wrap{
+    .b-link-row{
+      bottom: 45px;
+    }
+  }
+}
+
+@include tel{
+  .b-link-row{
+    position: static;
+    display: block;
+    bottom: auto;
+    margin-top: 19px;
+
+    &__item{
+      display: inline-block;
+      width: 49%;
+
+      a, span{
+        font-size: 14px;
+
+        &:after{
+          height: 1px;
+          bottom: 3px;
+        }
+      }
+    }
+
+    &--single{
+      .b-link-row__item{width: 100%}
+    }
+  }
+}
+
+@include wide{
+  .b-link-row{
+    &__item{
+      a{font-size: 21px}
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.inst-slider{
+  margin-top: 37px;
+  img{
+    border: 1px solid #d7d7d7;
+    border-radius: 5px;
+  }
+
+  &.owl-theme{
+    .owl-controls{
+      margin-top: 46px;
+      @extend .custom-slider-nav;
+    }
+  }
+}

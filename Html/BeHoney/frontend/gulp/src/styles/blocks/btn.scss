@@ -1,0 +1,60 @@
+.btn{
+
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 0;
+  border: 1px solid $yellow-color;
+  background-color: transparent;
+  transition: all $timeanimation linear;
+
+
+  &--yellow{background-color: $yellow-color}
+
+  &__to-cart{
+    font-family: 'Roboto Condensed';
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 24px;
+    margin-left: 3px;
+    padding: 23px 27px;
+    border-width: 2px;
+    position: relative;
+
+    transition: all $timeanimation linear;
+
+    &.hide{
+      opacity: 0;
+    }
+
+    &:hover{
+      background-color: transparent;
+    }
+  }
+  &__confirm{
+    @extend .btn__to-cart;
+    margin-top: 18px;
+    margin-bottom: 112px;
+  }
+
+  &__message{
+    @extend .btn__to-cart;
+    margin-top: 16px;
+    margin-left: 22px;
+    padding: 23px 16px;
+  }
+}
+
+@include tel{
+  .btn{
+    &__confirm{
+      margin-bottom: 0;
+    }
+
+    &__message{
+      margin-left: 0;
+      margin-top: 0;
+    }
+  }
+}

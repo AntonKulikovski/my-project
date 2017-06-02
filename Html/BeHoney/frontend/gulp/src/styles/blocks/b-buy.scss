@@ -1,0 +1,35 @@
+.b-buy{
+  position: relative;
+  margin-top: 20px;
+
+  &__label{
+    @extend .btn__to-cart;
+    display: inline-block;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: $main-color;
+    background: $yellow-color;
+    line-height: 0;
+    padding: 25px 27px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity $timeanimation linear;
+
+    &:hover{
+      background: $yellow-color;
+      color: $main-color;
+    }
+
+    @include tel{
+      left: 50%;
+      margin-left: -120px;
+    }
+  }
+
+  .active{
+    opacity: 1;
+    z-index: 1;
+  }
+}

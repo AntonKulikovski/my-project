@@ -1,0 +1,44 @@
+<?php
+
+use common\models\News;
+use backend\models\Page;
+use yii\helpers\Html;
+use yii\grid\GridView;
+
+/* @var $this yii\web\View */
+/* @var $searchModel backend\models\NewsSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+
+$this->title = Page::getModelByNameFixed('news')->name;
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="news-index">
+    <h1><?= $this->title ?></h1>
+    <p>
+        <?php print Html::a('Создать новость', ['create'], ['class' => 'btn btn-success']); ?>
+    </p>
+    <?php print GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+            'id',
+            'title',
+            [
+                'attribute' => 'image',
+                'format' => 'html',
+                'value' => function (News $model) {
+                    return !$model->imageFile->isEmpty ? Html::img($model->imageFile->asSmall) : null;
+                },
+            ],
+            'name',
+            [
+                'attribute' => 'active',
+                'format' => 'boolean',
+                'filter' => ["Нет", "Да"],
+            ],
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+</div>

@@ -1,0 +1,231 @@
+.b-gallery-link{
+  position: relative;
+  background-position: center center;
+  background-size: 100% 100%;
+
+  margin-right: 0;
+
+  transition: all $timeanimation ease;
+  -moz-transition: all $timeanimation ease;
+  -ms-transition: all $timeanimation ease;
+  -webkit-transition: all $timeanimation ease;
+  -o-transition: all $timeanimation ease;
+
+  width: inherit;
+  height: inherit;
+  overflow: hidden;
+
+  &__bg{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    transition: all $timeanimation ease;
+    -moz-transition: all $timeanimation ease;
+    -ms-transition: all $timeanimation ease;
+    -webkit-transition: all $timeanimation ease;
+    -o-transition: all $timeanimation ease;
+
+    background-position: center center;
+    background-size: 100% 100%;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  &__wrapper{
+    position: relative;
+    flex: 0 0 32.9%;
+    align-content: center;
+    background-color: #fff;
+    padding: 6px;
+    overflow: hidden;
+
+    transition: box-shadow $timeanimation ease;
+    z-index: 2;
+
+    &.index:hover{z-index: 5}
+
+    &:after{
+      display: block;
+      position: absolute;
+    }
+  }
+
+  &:last-child{margin-right: 0}
+
+  &__wrap{
+    justify-content: center;
+    flex-wrap: wrap;
+
+    margin-bottom: 47px;
+
+    &.low-margin{margin-top: 5px}
+  }
+
+  :last-child{margin-right: 0}
+
+  &__link-wrap{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+
+  img{
+    display: block;
+    width: auto;
+    max-width: 100%;
+    opacity: 0;
+  }
+
+  &__content{
+    display: inline-block;
+    font-family: 'Mrs-Eaves-Roman';
+    position: absolute;
+    text-align: center;
+    left: 12%;
+    right: 12%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 3.4px;
+    padding: 0 5px;
+  }
+
+  &__text-border{
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    top: 12%;
+    bottom: 12%;
+    opacity: 0.5;
+    border: 1px solid;
+    border-color: transparent;
+    transition: border-color $timeanimation ease;
+  }
+
+  &__wrapper:hover{
+      -moz-box-shadow: 0 12px 26px -9px rgba(0,0,0,.4),0 -7px 15px -16px rgba(0,0,0,.4),0 16px 26px -9px rgba(0,0,0,.4),0 -5px 15px -6px rgba(0,0,0,.4);
+      -webkit-box-shadow: 0 12px 26px -9px rgba(0,0,0,.4),0 -7px 15px -16px rgba(0,0,0,.4),0 16px 26px -9px rgba(0,0,0,.4),0 -5px 15px -6px rgba(0,0,0,.4);
+      box-shadow: 0 12px 26px -9px rgba(0,0,0,.4),0 -7px 15px -16px rgba(0,0,0,.4),0 16px 26px -9px rgba(0,0,0,.4),0 -5px 15px -6px rgba(0,0,0,.4);
+      z-index: 3;
+
+    .b-gallery-link{
+      &__bg{
+        transform: scale(1.15);
+      }
+      .b-gallery-link__text-border{border-color: #fff}
+    }
+  }
+
+  &__wrap{
+    &.fade-text{
+      .b-gallery-link{
+        cursor: pointer;
+        img{display: block}
+        &:hover{
+          @media (min-width: 1025px){
+            .fade-text__content{opacity: 1}
+          }
+        }
+        @media (min-width: 1025px){
+          margin: 6px;
+          &:last-child{margin-right: 6px}
+        }
+      }
+    }
+  }
+}
+
+@include tablet{
+  .b-gallery-link{
+
+    &__content{
+      left: 5%;
+      right: 5%;
+    }
+
+    &__text-border{
+      right: 5%;
+      left: 5%;
+    }
+
+    &__wrap{
+      justify-content: space-around;
+
+      &.fade-text{
+        justify-content: space-between;
+        padding: 0 16px;
+        .b-gallery-link{flex: 0 0 49%}
+      }
+
+      .b-gallery-link{
+        margin-right: 0;
+        margin-bottom: 12px;
+        &:last-child{margin-right: 0}
+      }
+    }
+
+    &__wrapper{
+      .b-gallery-link{margin-bottom: 0}
+    }
+  }
+
+}
+
+@include tel{
+  .b-gallery-link{
+    margin-bottom: 12px;
+    margin-right: 0;
+    display: block;
+
+    &.white-frame{
+      &:after{display: none}
+    }
+
+    img{
+      min-height: 0;
+    }
+
+    &:last-child{
+      margin-bottom: 0;
+    }
+
+    &__wrap{
+      display: block;
+      text-align: center;
+      padding: 0 6px;
+
+      &.fade-text{
+        padding: 0 5px;
+      }
+
+      .b-gallery-link:last-child{margin-right: 0}
+    }
+
+    &__content{
+      letter-spacing: 1.8px;
+      font-size: 17px;
+      padding: 58px 0;
+      text-transform: uppercase;
+      width: 100%;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+@include wide{
+  .b-gallery-link{
+    &__content{font-size: 36px}
+  }
+}

@@ -1,0 +1,13 @@
+<?php
+
+/* @var $model \frontend\models\Review */
+?>
+
+<img class="review__ava" alt="<?= $model->name ?>" title="<?= $model->name ?>" src="<?= $model->imageFile->asPreview ?>">
+<span class="review__name"><?= $model->name ?></span>
+<?php if ($review->urlSoc): ?>
+    <?php print '</a>' ?>
+<?php endif; ?>
+<p class="review__cnt">
+    <?= $model->message ?>
+</p>

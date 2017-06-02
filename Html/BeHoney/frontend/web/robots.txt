@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+#Disallow: /shopcart/
+#Disallow: /404/
+#Host: behoney.by
+#Sitemap: http://behoney.by/sitemap.xml

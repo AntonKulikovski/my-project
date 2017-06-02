@@ -1,0 +1,174 @@
+.logo-gallery{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 920px;
+  width: 100%;
+  margin: 0 auto;
+
+  &__wrap{
+    text-align: center;
+    margin-top: 33px;
+  }
+
+  &__title{
+    font-size: 24px;
+    font-family: 'Mrs-Eaves-Roman';
+    color: #035d67;
+    letter-spacing: 3.1px;
+    margin: 0 0 39px;
+  }
+
+  &__signature{
+    color: #371700;
+    font-size: 16px;
+    font-family: 'Avenir';
+    max-width: 514px;
+    width: 100%;
+    margin: 0 auto 46px;
+    text-align: left;
+    line-height: 1.6;
+  }
+
+  &__item{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 25%;
+    width: 230px;
+    height: 228px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0;
+    transition: all $timeanimation linear;
+    margin: -1px -1px 0 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &:after{
+      display: block;
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity $timeanimation linear;
+    }
+
+    &:hover:after{opacity: 1}
+
+    &--monterey{
+      background-image: url("../images/logo-gallery/monterey.svg");
+      &:hover:after{background-image: url("../images/logo-gallery/monterey-active.svg");}
+    }
+    &--stanford{
+      background-image: url("../images/logo-gallery/stanford.svg");
+      &:hover:after{background-image: url("../images/logo-gallery/stanford-active.svg");}
+    }
+    &--drisco{
+      background-image: url("../images/logo-gallery/drisco.svg");
+      &:hover:after{background-image: url("../images/logo-gallery/drisco-active.svg");}
+    }
+    &--lafayette{
+      background-image: url("../images/logo-gallery/lafayette.svg");
+      &:hover:after{background-image: url("../images/logo-gallery/lafayette-active.svg");}
+    }
+    &--bodega{
+      background-image: url("../images/logo-gallery/bodega.svg");
+      &:hover:after{background-image: url("../images/logo-gallery/bodega-active.svg");}
+    }
+    &--napa{
+      background-image: url("../images/logo-gallery/napa.svg");
+      &:hover:after{background-image: url("../images/logo-gallery/napa-active.svg");}
+    }
+    &--bernardus{
+      background-image: url("../images/logo-gallery/bernardus.svg");
+      &:hover:after{background-image: url("../images/logo-gallery/bernardus-active.svg");}
+    }
+
+    &--tablet{display: none}
+
+    &:hover{
+      -webkit-box-shadow: 0px 0px 35px -5px rgba(115,115,115,0.5);
+      -moz-box-shadow: 0px 0px 35px -5px rgba(115,115,115,0.5);
+      box-shadow: 0px 0px 35px -5px rgba(115,115,115,0.5);
+      z-index: 2;
+    }
+
+    &--empty:hover{
+      box-shadow: none;
+      z-index: 1;
+    }
+  }
+
+  &__mobile-view{
+    display: none;
+    font-size: 14px;
+    text-align: center;
+    color: #371700;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+@include tablet{
+  .logo-gallery{
+    padding: 0 34px;
+    justify-content: flex-start;
+
+    &__item{
+      flex: 0 0 33%;
+
+      &--tablet{display: block}
+    }
+
+    &__wrap{margin-top: 48px}
+
+    &__signature{margin-bottom: 39px}
+  }
+}
+
+@include tel{
+  .logo-gallery{
+    display: block;
+    padding: 0;
+
+    &__item{
+      display: block;
+      width: 100%;
+      border: 0;
+      background-color: transparent;
+      height: auto;
+      text-decoration: none;
+      margin-bottom: 30px;
+
+      &--empty{display: none}
+      &:hover{
+        box-shadow: none;
+      }
+    }
+
+    &__wrap{margin-top: 42px}
+    &__title{
+      font-size: 21px;
+      margin-bottom: 20px;
+    }
+
+    &__signature{
+      font-size: 14px;
+      line-height: 1.9;
+      margin-bottom: 62px;
+      padding: 0 20px;
+    }
+
+    &__mobile-view{
+      display: block;
+    }
+  }
+}

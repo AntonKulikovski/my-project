@@ -1,0 +1,27 @@
+<?php
+
+/** @var \frontend\models\Payment $payment */
+
+$this->title = 'Оплата';
+?>
+<main>
+    <div class="c-align">
+        <div class="b-type">
+            <h1 href="#" class="b-type__title border">Спасибо за покупку!</h1>
+            <div class="thank">
+                <p class="thank__text">Мы рады, что вы сделали заказ в нашем интернет-магазине.</p>
+                <p class="thank__text">В ближайшее время наш менеджер свяжется с вами для уточнения деталей.</p>
+                <div class="thank__check">
+                    <p>Номер вашего заказа</p>
+                    <br>
+                    <p><?= $payment->orderId ?> от <?= Yii::$app->formatter->asDate($payment->order->createdAt) ?></p>
+                </div>
+                <p class="thank__text">Мы также выслали его вам на почту.</p>
+                <img class="thank__img"
+                     alt="заказа оформлен"
+                     title="заказа оформлен"
+                     src="/images/check-success.png">
+            </div>
+        </div>
+    </div>
+</main>

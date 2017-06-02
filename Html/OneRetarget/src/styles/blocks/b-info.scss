@@ -1,0 +1,36 @@
+.b-info{
+  &__wrap{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    margin-top: 31px;
+  }
+
+  flex: 0 0 33%;
+  max-width: 340px;
+  font-size: 18px;
+  margin-bottom: 27px;
+
+  h5{
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+  }
+
+  p{
+    margin: 14px 0 30px;
+    font-weight: 300;
+    line-height: 1.35;
+    &:last-child{margin-bottom: 0}
+  }
+
+  @include desktop-small{
+    padding: 0 20px;
+  }
+
+  @include tel{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <title>Suprinno</title>
+
+
+    <link rel="stylesheet" type="text/css" href="styles/jquery.parallax.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.min.css">
+</head>
+<body>
+
+<div class="wrapper">
+
+    <div class="page-content">
+        <header id="anchor-js-main" class="header__wrap">
+            <div class="header">
+                <div class="c-align">
+                    <div class="clearfix">
+                        <a href="#" class="logo">suprinno</a>
+
+                        <span class="header__mob-menu hidden-lg"></span>
+
+                        <div class="header__control-panel js-drop-menu">
+                            <ul class="nav">
+                                <li><span scrollLink="js-main" class="anchor">Главная</span></li>
+                                <li><span scrollLink="js-sentence" class="anchor">Что предлагаем</span></li>
+                                <li><span scrollLink="js-advantages" class="anchor">Преимущества</span></li>
+                                <li><span scrollLink="js-service" class="anchor">Для кого наш сервис</span></li>
+                                <li><span scrollLink="js-begin" class="anchor">С чего начать</span></li>
+                            </ul>
+                            <div class="localization">
+                                <span class="js-localization__select localization__select"><span
+                                        class="flag-icon flag-icon-ru"></span></span>
+                                <ul class="js-localization__drop localization__drop">
+                                    <li langAttr="us" class="js-localization__drop-item js-localization-us active"><span
+                                            class="flag-icon flag-icon-us"></span></li>
+                                    <li langAttr="ru" class="js-localization__drop-item js-localization-ru"><span
+                                            class="flag-icon flag-icon-ru"></span></li>
+                                    <li langAttr="es" class="js-localization__drop-item js-localization-es"><span
+                                            class="flag-icon flag-icon-es"></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="c-align">
+                <div id="wrapper" class="banner">
+                    <div id="banner-slider" class="slider">
+                        <div id="slide-1" class="slider__item clearfix">
+                            <div class="slider__item-content">
+                                <h2 class="slider__item-title">Дайте <span class="text-weight-light">вашей</span> идее шанс <span class="text-weight-light">на успех</span></h2>
+                                <div class="slider__item-text">
+                                    <p>Lorem Ipsum is simply dummy text of the printing
+                                        and typesetting industry. Lorem Ipsum has been the
+                                        industry's standard dummy text ever since the, when
+                                        an unknown printer took a galley.</p>
+                                </div>
+                            </div>
+                            <div id="port" class="parallax-wrap js-slider-img-opacity">
+                                <div class="parallax-layer"><img src="images/banner-img/lamp-1.png"></div>
+                                <div class="parallax-layer"><img src="images/banner-img/lamp-2.png"></div>
+                                <div class="parallax-layer"><img src="images/banner-img/lamp-3.png"></div>
+                            </div>
+                        </div>
+                        <div id="slide-2" class="slider__item clearfix">
+                            <div class="slider__item-content">
+                                <h2 class="slider__item-title">Экономьте <span class="text-weight-light">бюджет проекта</span> разумно</h2>
+                                <div class="slider__item-text">
+                                    <p>Lorem Ipsum is simply dummy text of the printing
+                                        and typesetting industry. Lorem Ipsum has been the
+                                        industry's standard dummy text ever since the, when
+                                        an unknown printer took a galley.</p>
+                                </div>
+                            </div>
+                            <img class="js-slider-img-opacity" src="images/banner-img/banner-2.png">
+                        </div>
+                        <div id="slide-3" class="slider__item clearfix">
+                            <div class="slider__item-content">
+                                <h2 class="slider__item-title">Получайте <span class="text-weight-light">объективную</span> информацию</h2>
+                                <div class="slider__item-text">
+                                    <p>Lorem Ipsum is simply dummy text of the printing
+                                        and typesetting industry. Lorem Ipsum has been the
+                                        industry's standard dummy text ever since the, when
+                                        an unknown printer took a galley.</p>
+                                </div>
+                            </div>
+                            <img class="js-slider-img-opacity" src="images/banner-img/banner-3.png">
+                        </div>
+                        <div id="slide-4" class="slider__item clearfix">
+                            <div class="slider__item-content">
+                                <h2 class="slider__item-title">Защитите <span class="text-weight-light">проект</span> от рисков</h2>
+                                <div class="slider__item-text">
+                                    <p>Lorem Ipsum is simply dummy text of the printing
+                                        and typesetting industry. Lorem Ipsum has been the
+                                        industry's standard dummy text ever since the, when
+                                        an unknown printer took a galley.</p>
+                                </div>
+                            </div>
+                            <img class="js-slider-img-opacity" src="images/banner-img/banner-4.png">
+                        </div>
+                        <div id="slide-5" class="slider__item clearfix">
+                            <div class="slider__item-content">
+                                <h2 class="slider__item-title">Работайте <span class="text-weight-light">только</span> с профессионалами</h2>
+                                <div class="slider__item-text">
+                                    <p>Lorem Ipsum is simply dummy text of the printing
+                                        and typesetting industry. Lorem Ipsum has been the
+                                        industry's standard dummy text ever since the, when
+                                        an unknown printer took a galley.</p>
+                                </div>
+                            </div>
+                            <img class="js-slider-img-opacity" src="images/banner-img/banner-5.png">
+                        </div>
+                    </div>
+                    <div class="slider__arrow">
+                        <span class="slider__arrow--prev"></span>
+                        <span class="slider__arrow--next"></span>
+                    </div>
+                </div>
+                <div id="thumbs-wrapper" class="b-about">
+                    <ul id="thumbs" class="b-about__list">
+                        <li thumb="#slide-1" class="b-about__item active js-slide-1">
+                            <div class="b-about__img"><img src="images/about-icon-1.png"></div>
+                            <p class="b-about__content">Дайте вашей идее шанс на успех</p>
+                        </li>
+                        <li thumb="#slide-2" class="b-about__item js-slide-2">
+                            <div class="b-about__img"><img src="images/about-icon-2.png"></div>
+                            <p class="b-about__content">Экономьте бюджет проекта разумно</p>
+                        </li>
+                        <li thumb="#slide-3" class="b-about__item js-slide-3">
+                            <div class="b-about__img"><img src="images/about-icon-3.png"></div>
+                            <p class="b-about__content">Получайте объективную информацию</p>
+                        </li>
+                        <li thumb="#slide-4" class="b-about__item js-slide-4">
+                            <div class="b-about__img"><img src="images/about-icon-4.png"></div>
+                            <p class="b-about__content">Защитите проект от рисков</p>
+                        </li>
+                        <li thumb="#slide-5" class="b-about__item js-slide-5">
+                            <div class="b-about__img"><img src="images/about-icon-5.png"></div>
+                            <p class="b-about__content">Работайте только с профессионалами</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div id="anchor-js-sentence" class="b-content b-content--small-padding">
+                <div data-enllax-ratio="1" data-enllax-direction="vertical">
+                    <div class="c-align">
+
+                        <h2 class="b-content__title" data-enllax-ratio="-0.1" data-enllax-type="foreground" data-enllax-direction="vertical">Что предлагаем</h2>
+
+                        <div class="b-sentence__wrap">
+                            <div class="b-sentence" data-enllax-ratio="0.05" data-enllax-type="foreground" data-enllax-direction="horizontal">
+                                <img class="b-sentence__img" src="images/sentence-icon-1.png">
+
+                                <p class="b-sentence__text">Координация проектов</p>
+                            </div>
+                            <div class="b-sentence" data-enllax-ratio="-0.05" data-enllax-type="foreground" data-enllax-direction="horizontal">
+                                <img class="b-sentence__img" src="images/sentence-icon-2.png">
+
+                                <p class="b-sentence__text">Приeмка проектов</p>
+                            </div>
+                            <div class="b-sentence" data-enllax-ratio="0.05" data-enllax-type="foreground" data-enllax-direction="horizontal">
+                                <img class="b-sentence__img" src="images/sentence-icon-3.png">
+
+                                <p class="b-sentence__text">Написание технических заданий</p>
+                            </div>
+                            <div class="b-sentence">
+                                <img class="b-sentence__img" src="images/sentence-icon-4.png">
+
+                                <p class="b-sentence__text">Проведение технических интервью</p>
+                            </div>
+                            <div class="b-sentence" data-enllax-ratio="-0.05" data-enllax-type="foreground" data-enllax-direction="horizontal">
+                                <img class="b-sentence__img" src="images/sentence-icon-5.png">
+
+                                <p class="b-sentence__text">Арбитраж конфликтных ситуаций</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="anchor-js-advantages" class="b-content b-content--invert">
+                <div class="c-align">
+                    <h2 class="b-content__title">Преимущества</h2>
+                    <div class="center-align" data-enllax-ratio="1" data-enllax-direction="horizontal">
+                        <div class="b-advantages" data-enllax-ratio="-0.12" data-enllax-type="foreground" data-enllax-direction="horizontal">
+                            <img src="images/advantages-1.png">
+                            <p class="b-advantages__text">Стоим на защите интересов владельца проекта</p>
+                        </div>
+                        <div class="b-advantages">
+                            <img src="images/advantages-2.png">
+                            <p class="b-advantages__text">Экономим ваши деньги, обнаруживая и снижая риски</p>
+                        </div>
+                        <div class="b-advantages" data-enllax-ratio="0.12" data-enllax-type="foreground" data-enllax-direction="horizontal">
+                            <img src="images/advantages-3.png">
+                            <p class="b-advantages__text">Сохраним ваше время и силы</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="anchor-js-service" class="b-content">
+                <div class="c-align">
+                    <div class="b-side__wrapper">
+                        <div class="clearfix" data-enllax-ratio="0.5" data-enllax-direction="vertical">
+                            <div class="b-side" data-enllax-ratio="-0.1" data-enllax-type="foreground" data-enllax-direction="vertical">
+                                <div class="b-side__content">
+                                    <h2 class="b-content__title">Для кого наш сервис</h2>
+                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen.</p>
+                                    <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker.</p>
+                                </div>
+                            </div>
+                            <div class="b-side" data-enllax-ratio="0.1" data-enllax-type="foreground" data-enllax-direction="vertical"><img class="img-responsive" src="images/service.png"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="anchor-js-begin" class="b-content b-content--invert b-content--bg-img">
+                <div class="c-align" data-enllax-ratio="0.5" data-enllax-direction="vertical">
+                    <h2 class="b-content__title" data-enllax-ratio="-0.2" data-enllax-type="foreground" data-enllax-direction="vertical">С чего начать</h2>
+                    <div class="center-align">
+                        <div class="b-begin" data-enllax-ratio="-0.12" data-enllax-type="foreground" data-enllax-direction="horizontal">
+                            <img src="images/skype-img.png">
+                            <p class="b-advantages__text">Связаться с нами по скайпу</p>
+                        </div>
+                        <div class="b-separate"></div>
+                        <div class="b-begin" data-enllax-ratio="0.12" data-enllax-type="foreground" data-enllax-direction="horizontal">
+                            <img src="images/man-img.png">
+                            <p class="b-advantages__text">Назначить встречу онлайн</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <footer class="footer">
+        <div class="c-align clearfix">
+                <a href="#" class="footer__logo">suprinno</a>
+                <div class="footer__control-panel">
+                <ul class="nav">
+                    <li><span scrollLink="js-main" class="anchor">Главная</span></li>
+                    <li><span scrollLink="js-sentence" class="anchor">Что предлагаем</span></li>
+                    <li><span scrollLink="js-advantages" class="anchor">Преимущества</span></li>
+                    <li><span scrollLink="js-service" class="anchor">Для кого наш сервис</span></li>
+                    <li><span scrollLink="js-begin" class="anchor">С чего начать</span></li>
+                </ul>
+                <div class="localization">
+                    <span class="js-localization__select localization__select"><span class="flag-icon flag-icon-ru"></span></span>
+                    <ul class="js-localization__drop localization__drop">
+                        <li langAttr="us" class="js-localization__drop-item active js-localization-us"><span class="flag-icon flag-icon-us"></span></li>
+                        <li langAttr="ru" class="js-localization__drop-item js-localization-ru"><span class="flag-icon flag-icon-ru"></span></li>
+                        <li langAttr="es" class="js-localization__drop-item js-localization-es"><span class="flag-icon flag-icon-es"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer__copy">
+                <div class="c-align">
+                <p>Все права защищены. Suprinno 2015</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>-->
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>-->
+<script src="scripts/jquery.parallax.min.js" type="text/javascript"></script>
+<script src="scripts/jquery.carouFredSel-6.2.1-packed.js" type="text/javascript"></script>
+
+<script src="vendor/jquery.enllax.min.js"></script>
+<script src="scripts/main.min.js" type="text/javascript"></script>
+</body>
+</html>

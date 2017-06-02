@@ -1,0 +1,60 @@
+.banner-desc{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-left: 30%;
+  margin-top: 5px;
+  top: 26%;
+  width: 100%;
+  max-width: 383px;
+  text-align: center;
+  padding: 30px 0 23px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+
+  @media(max-width: 1200px){
+    left: 33%;
+    transform: translateX(0);
+  }
+
+  :before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    margin-left: -26px;
+    height: 14px;
+    width: 52px;
+    background: url("../images/rings.png") 0 0 no-repeat;
+  }
+
+  h3{
+    font-family: 'Mrs-Eaves-Roman';
+    font-size: 38px;
+    font-weight: normal;
+    color: #fff;
+    letter-spacing: -0.2px;
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+
+  p{
+    color: #371700;
+    font-size: 16px;
+    font-family: 'Mrs-Eaves-Roman';
+    line-height: 20px;
+    margin: 0;
+  }
+}
+
+@include tablet{
+  .banner-desc{
+    position: static;
+    max-width: 100%;
+
+    &--desk{
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<?php
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Page */
+
+$this->title = 'Изменение страницы: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Изменение';
+?>
+<div class="page-update">
+    <h1><?= $this->title ?></h1>
+    <?php print $this->render('_form.sphp', [
+        'model' => $model,
+    ]); ?>
+</div>

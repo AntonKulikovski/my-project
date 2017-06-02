@@ -1,0 +1,28 @@
+.header{
+  padding-top: 23px;
+  padding-bottom: 24px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+
+  @include desktop-small{
+    &>div{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  @include tablet-wide{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 3;
+    background-color: #fff;
+
+    &>div{display: block}
+  }
+}
+
+.b-header{
+  display: inline-block;
+  vertical-align: top;
+}

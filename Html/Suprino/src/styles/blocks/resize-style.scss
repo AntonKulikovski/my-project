@@ -1,0 +1,28 @@
+.hidden-element {display: none}
+
+.hidden-lg{
+  display: none;
+  @include desktop(){
+    display: block;
+  }
+}
+
+.visible-lg{
+  display: block;
+  @include tablet{
+    display: none;
+  }
+}
+
+.hidden-md{
+  @include tablet(){
+    display: none;
+  }
+}
+
+.visible-md{
+  display: none;
+  @include tablet(){
+    display: block;
+  }
+}

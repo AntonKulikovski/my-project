@@ -1,0 +1,43 @@
+.b-side{
+  flex: 0 0 50%;
+  max-width: 50%;
+  border-right: 1px solid #d7d7d7;
+  padding: 0 15px 49px 20px;
+
+  &--no-padding{padding: 0}
+
+  &:last-child{
+    border-right: none;
+    padding-left: 0;
+  }
+
+  &__text{
+    font-family: 'Roboto Condensed';
+    font-size: 16px;
+  }
+
+  &__wrap{
+    display: flex;
+    margin-top: 65px;
+    &.border{border-bottom: 1px solid #d7d7d7;}
+  }
+
+  &--low-margin{
+    margin-top: 51px;
+  }
+}
+
+@include tel{
+  .b-side{
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0 20px;
+    margin-top: 30px;
+
+    &__wrap{
+      display: block;
+      text-align: center;
+      margin-top: 0;
+    }
+  }
+}

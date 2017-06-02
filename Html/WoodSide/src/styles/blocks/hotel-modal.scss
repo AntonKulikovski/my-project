@@ -1,0 +1,52 @@
+.hotel-modal{
+  display: none;
+
+  background-color: #fff;
+  padding: 17px 10px;
+
+  -webkit-box-shadow: 0px 2px 15px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 2px 15px -5px rgba(0,0,0,0.75);
+  box-shadow: 0px 2px 15px -5px rgba(0,0,0,0.75);
+
+  &__list{
+    list-style-type: none;
+    text-align: center;
+  }
+
+  &__title{
+    display: none;
+    position: relative;
+    font-size: 16px;
+    color: #371700;
+    padding-left: 40px;
+    font-family: 'Mrs-Eaves-Roman';
+
+    &.active{display: inline-block}
+
+    &:after{
+      position: absolute;
+      content: "";
+      display: block;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      left: 0;
+      top: 50%;
+      margin-top: -9px;
+    }
+
+    &.napa:after{background-color: #d6a16d}
+    &.bodega:after{background-color: #005f88}
+    &.lafa:after{background-color: #701100}
+    &.drisco:after{background-color: #3f4c00}
+    &.stanford:after{background-color: #6e8878}
+    &.monterey:after{background-color: #23205c}
+    &.bernar:after{background-color: #545759}
+  }
+}
+
+@include tel{
+  .hotel-modal{
+    display: block;
+  }
+}

@@ -1,0 +1,26 @@
+<?php
+
+use frontend\models\Page;
+
+/* @var $this yii\web\View */
+/* @var $page Page */
+
+$this->title = $page->title;
+$label = !empty($page->title) ? $page->title : $page->name;
+$this->params['breadcrumbs'][] = [
+    'label' => $label,
+    'template' => '<span>' . $label . '</span>'
+];
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $page->descriptionMeta,
+]);
+?>
+<main>
+    <div class="c-align">
+        <div class="site-about">
+            <h1 class="b-type__title"><?= $page->name ?></h1>
+        </div>
+    </div>
+</main>

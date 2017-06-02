@@ -1,0 +1,20 @@
+.fade-text{
+  &__content{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    opacity: 0;
+    font-size: 16px;
+    color: #371700;
+    line-height: 26px;
+    padding: 0 36px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+
+    transition: opacity $timeanimation linear;
+  }
+}

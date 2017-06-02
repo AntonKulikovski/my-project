@@ -1,0 +1,32 @@
+<?php
+
+use yii\helpers\Html;
+use backend\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Review */
+/* @var $form yii\widgets\ActiveForm */
+?>
+
+<div class="review-form">
+    <?php $form = ActiveForm::begin(); ?>
+    <?php print $form->field($model, 'name')->textInput(['maxlength' => true]); ?>
+    <?php print $form->field($model, 'email')->textInput(); ?>
+    <?php print $form->field($model, 'urlSoc')->textInput(); ?>
+    <?php print $form->field($model, 'imageFile')->fileBlueimpUploader([
+        'url' => ['review/upload-image'],
+        'previewData' => [
+            'format' => 'small',
+        ],
+    ]); ?>
+    <?php print $form->field($model, 'message')->textarea(); ?>
+    <?php print $form->field($model, 'position')->textInput(); ?>
+    <?php print $form->field($model, 'main')->checkbox(); ?>
+    <?php print $form->field($model, 'active')->checkbox(); ?>
+    <div class="form-group">
+        <?php print Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), [
+            'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
+        ]); ?>
+    </div>
+    <?php ActiveForm::end(); ?>
+</div>

@@ -1,0 +1,32 @@
+.login{
+
+  &__item{
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__reg{
+    color: $color-blue;
+    text-decoration: underline;
+
+    &:hover{text-decoration: none}
+  }
+
+  &__btn{
+    background-color: $color-blue;
+    color: $color-white;
+    padding: 14px 18px 12px;
+    border-radius: 4px;
+    margin-left: 16px;
+    transition: background $timeanimation ease;
+    &:hover{
+      text-decoration: none;
+      background-color: #2899bf;
+    }
+  }
+
+  @include tablet-wide{
+    display: none;
+  }
+
+}

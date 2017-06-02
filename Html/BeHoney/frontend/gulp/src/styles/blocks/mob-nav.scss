@@ -1,0 +1,35 @@
+.mob-nav{
+  display: none;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: #f5f5f5;
+  padding: 25px 15px;
+
+  -webkit-box-shadow: 0px 7px 10px -6px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 7px 10px -6px rgba(0,0,0,0.5);
+  box-shadow: 0px 7px 10px -6px rgba(0,0,0,0.5);
+
+  &__list{
+    text-align: center;
+    list-style-type: none;
+
+    li{
+      margin-bottom: 30px;
+
+      .drop-list{
+        li{
+          margin-bottom: 15px;
+          &:last-child{margin-bottom: 0}
+        }
+      }
+
+      &:last-child{margin-bottom: 0}
+    }
+  }
+}
+
+@media(min-width: 1025px){
+  .mob-nav{display: none!important;}
+}

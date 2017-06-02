@@ -1,0 +1,170 @@
+.b-double{
+  background-color: #fff;
+  margin-top: 42px;
+  padding-top: 81px;
+  padding-bottom: 74px;
+
+  &__title, &__subtitle{
+    font-family: 'Mrs-Eaves-Roman';
+    font-weight: normal;
+  }
+
+  &__title{
+    color: #035d67;
+    font-size: 24px;
+    letter-spacing: 3.1px;
+    margin: 0px 0 7px;
+  }
+  &__subtitle{
+    font-size: 22px;
+    color: #371700;
+    margin-top: 0;
+    margin-bottom: 51px;
+  }
+
+  &__text{
+    font-size: 16px;
+    color: #371700;
+    line-height: 26px;
+  }
+
+  &__item{
+    flex: 0 0 50%;
+    padding: 0 10%;
+  }
+
+  &--three{
+    padding: 58px 9.9% 74px;
+
+    .b-double__item{
+      position: relative;
+      flex: 0 0 31%;
+      padding: 0 0 72px;
+      text-align: left;
+    }
+
+    .b-double__title{
+      margin-bottom: 39px;
+    }
+
+    .b-link-row{
+      bottom: 0;
+
+      &__item a {
+        letter-spacing: 0.55px;
+
+        &:after{
+          height: 1px;
+        }
+      }
+    }
+  }
+}
+
+@include tablet{
+  .b-double{
+    margin-top: 96px;
+    padding-top: 41px;
+    padding-bottom: 28px;
+
+    &__title{
+      font-size: 21px;
+      margin-bottom: 41px;
+    }
+
+    &__subtitle{
+      font-size: 18px;
+      line-height: 26px;
+      margin-bottom: 33px;
+    }
+
+    &__item{padding: 0 6%}
+
+    &--three{
+      margin-top: 30px;
+      padding: 58px 0 28px;
+
+
+      .flex-row{
+        display: block;
+      }
+
+      .b-double__item{
+        border-bottom: 1px solid #ebe7e5;
+        padding-bottom: 94px;
+        margin-bottom: 57px;
+        text-align: center;
+        &:last-child{
+          margin-bottom: 0;
+          border-bottom: 0;
+        }
+      }
+
+      .b-double__title{
+        margin-bottom: 31px;
+      }
+
+      .b-double__text{
+        font-size: 14px;
+        max-width: 457px;
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@include tel{
+  .b-double{
+    margin-top: 54px;
+    padding-bottom: 46px;
+
+    .flex-row{
+      display: block;
+    }
+
+    &__title{
+      margin-bottom: 17px;
+    }
+
+    &__item{
+      border-bottom: 1px solid #ebe7e5;
+      margin-bottom: 52px;
+      padding-bottom: 52px;
+
+      &:last-child{
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+    }
+
+    &__subtitle{margin-bottom: 37px}
+
+    &--three{
+
+      .b-double__item{
+        padding-bottom: 37px;
+        margin-bottom: 59px;
+      }
+
+      .b-double__title{
+        font-size: 18px;
+        letter-spacing: normal;
+        margin-bottom: 34px;
+      }
+
+      .b-double__text{
+        padding: 0 41px 0 41px;
+        text-align: center;
+      }
+
+      .b-link-row{
+        margin-top: 14px;
+        &__item a{
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

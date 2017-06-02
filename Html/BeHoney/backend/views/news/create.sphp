@@ -1,0 +1,17 @@
+<?php
+
+use backend\models\Page;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\News */
+
+$this->title = 'Создание новости';
+$this->params['breadcrumbs'][] = ['label' => Page::getModelByNameFixed('news')->name, 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="news-create">
+    <h1><?= $this->title ?></h1>
+    <?php print $this->render('_form.sphp', [
+        'model' => $model,
+    ]); ?>
+</div>

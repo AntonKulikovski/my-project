@@ -1,0 +1,32 @@
+.open-map{
+  position: relative;
+  color: #381700;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 19px;
+
+  &:after{
+    display: block;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    right: 100%;
+    height: 2px;
+    background-color: #381700;
+
+    transition: right $timeanimation linear;
+  }
+
+  &:hover{
+    &:after{right: 0}
+  }
+
+  &__wrap{
+    display: block;
+    margin: 10px 0;
+    text-align: right;
+  }
+}
+
+.js-map-open{display: none}

@@ -1,0 +1,15 @@
+.total-cost{
+  display: block;
+  font-family: 'Roboto Slab';
+  margin: 45px 0 17px;
+  font-size: 18px;
+  color: #000;
+  span{font-weight: bold}
+}
+
+@include tel{
+  .total-cost{
+    font-size: 21px;
+    span{display: block}
+  }
+}

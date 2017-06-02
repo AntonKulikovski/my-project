@@ -1,0 +1,107 @@
+.book-btn{
+
+  &__wrap{
+    position: absolute;
+    right: 70px;
+    top: 2px;
+  }
+
+  display: block;
+  padding: 10px 21px 9px 53px;
+  border-radius: 5px;
+
+  font-size: 14px;
+  font-family: 'Avenir', sans-serif;
+  color: #fff;
+  background-color: #8bc2da;
+  background-image: url("../images/ic_calendar.svg");
+  background-position: center left 21px;
+  background-repeat: no-repeat;
+  border: 0;
+  cursor: pointer;
+
+  box-shadow: 2px 2px 0 1px rgba(0,0,0,.15);
+
+  transition: all $timeanimation linear;
+
+
+  &:hover{
+    background-color: #192930;
+    box-shadow: none
+  }
+
+  &__rate{
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 10px;
+    color: #192930;
+    margin-top: 13px;
+    letter-spacing: -0.35px;
+    text-decoration: none;
+
+    &:after{
+      display: block;
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -1px;
+      height: 1px;
+      background-color: #192930;
+
+      transition: all $timeanimation linear;
+    }
+
+    &:hover{
+      &:after{right: 0}
+    }
+
+    &.bold{font-weight: 600}
+  }
+
+  &--tablet{display: none}
+}
+
+@include tablet{
+  .book-btn{
+    position: static;
+    background-color: transparent;
+    background-position: top 12px left 20px;
+    padding: 15px 22px 17px 52px;
+    box-shadow: none;
+
+    &--tablet{display: inline-block}
+    &--desktop{display: none}
+
+    &__rate{
+      position: absolute;
+      right: 16px;
+      top: 25px;
+      margin-top: 0;
+    }
+  }
+}
+
+@media (max-width: 420px){
+  .book-btn{
+    &__rate{
+      position: static;
+      float: right;
+      margin-top: 34px;
+      margin-right: 10px;
+    }
+  }
+}
+
+@include wide{
+  .book-btn{
+    font-size: 21px;
+
+    &__wrap{
+      top: 15px;
+    }
+
+    &__rate{font-size: 14px}
+  }
+}

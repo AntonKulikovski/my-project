@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <script type="text/javascript">window.NREUM || (NREUM = {});
+    NREUM.info = {
+        "beacon": "bam.nr-data.net",
+        "errorBeacon": "bam.nr-data.net",
+        "licenseKey": "d3266d43fd",
+        "applicationID": "9723527",
+        "transactionName": "JwtYQ0RYXVQARxhHRgYIX1QZR1BfAEYYVF8NAVhDRQ==",
+        "queueTime": 0,
+        "applicationTime": 35,
+        "agent": ""
+    }</script>
+    <script type="text/javascript">window.NREUM || (NREUM = {}), __nr_require = function (e, t, n) {
+        function r(n) {
+            if (!t[n]) {
+                var o = t[n] = {exports: {}};
+                e[n][0].call(o.exports, function (t) {
+                    var o = e[n][1][t];
+                    return r(o || t)
+                }, o, o.exports)
+            }
+            return t[n].exports
+        }
+
+        if ("function" == typeof __nr_require)return __nr_require;
+        for (var o = 0; o < n.length; o++)r(n[o]);
+        return r
+    }({
+        1: [function (e, t, n) {
+            function r() {
+            }
+
+            function o(e, t, n) {
+                return function () {
+                    return i(e, [(new Date).getTime()].concat(u(arguments)), t ? null : this, n), t ? void 0 : this
+                }
+            }
+
+            var i = e("handle"), a = e(2), u = e(3), c = e("ee").get("tracer"), f = NREUM;
+            "undefined" == typeof window.newrelic && (newrelic = f);
+            var s = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit"], l = "api-", p = l + "ixn-";
+            a(s, function (e, t) {
+                f[t] = o(l + t, !0, "api")
+            }), f.addPageAction = o(l + "addPageAction", !0), f.setCurrentRouteName = o(l + "routeName", !0), t.exports = newrelic, f.interaction = function () {
+                return (new r).get()
+            };
+            var d = r.prototype = {
+                createTracer: function (e, t) {
+                    var n = {}, r = this, o = "function" == typeof t;
+                    return i(p + "tracer", [Date.now(), e, n], r), function () {
+                        if (c.emit((o ? "" : "no-") + "fn-start", [Date.now(), r, o], n), o)try {
+                            return t.apply(this, arguments)
+                        } finally {
+                            c.emit("fn-end", [Date.now()], n)
+                        }
+                    }
+                }
+            };
+            a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function (e, t) {
+                d[t] = o(p + t)
+            }), newrelic.noticeError = function (e) {
+                "string" == typeof e && (e = new Error(e)), i("err", [e, (new Date).getTime()])
+            }
+        }, {}], 2: [function (e, t, n) {
+            function r(e, t) {
+                var n = [], r = "", i = 0;
+                for (r in e)o.call(e, r) && (n[i] = t(r, e[r]), i += 1);
+                return n
+            }
+
+            var o = Object.prototype.hasOwnProperty;
+            t.exports = r
+        }, {}], 3: [function (e, t, n) {
+            function r(e, t, n) {
+                t || (t = 0), "undefined" == typeof n && (n = e ? e.length : 0);
+                for (var r = -1, o = n - t || 0, i = Array(o < 0 ? 0 : o); ++r < o;)i[r] = e[t + r];
+                return i
+            }
+
+            t.exports = r
+        }, {}], ee: [function (e, t, n) {
+            function r() {
+            }
+
+            function o(e) {
+                function t(e) {
+                    return e && e instanceof r ? e : e ? c(e, u, i) : i()
+                }
+
+                function n(n, r, o) {
+                    if (!p.aborted) {
+                        e && e(n, r, o);
+                        for (var i = t(o), a = v(n), u = a.length, c = 0; c < u; c++)a[c].apply(i, r);
+                        var f = s[w[n]];
+                        return f && f.push([y, n, r, i]), i
+                    }
+                }
+
+                function d(e, t) {
+                    b[e] = v(e).concat(t)
+                }
+
+                function v(e) {
+                    return b[e] || []
+                }
+
+                function g(e) {
+                    return l[e] = l[e] || o(n)
+                }
+
+                function m(e, t) {
+                    f(e, function (e, n) {
+                        t = t || "feature", w[n] = t, t in s || (s[t] = [])
+                    })
+                }
+
+                var b = {}, w = {}, y = {
+                    on: d,
+                    emit: n,
+                    get: g,
+                    listeners: v,
+                    context: t,
+                    buffer: m,
+                    abort: a,
+                    aborted: !1
+                };
+                return y
+            }
+
+            function i() {
+                return new r
+            }
+
+            function a() {
+                (s.api || s.feature) && (p.aborted = !0, s = p.backlog = {})
+            }
+
+            var u = "nr@context", c = e("gos"), f = e(2), s = {}, l = {}, p = t.exports = o();
+            p.backlog = s
+        }, {}], gos: [function (e, t, n) {
+            function r(e, t, n) {
+                if (o.call(e, t))return e[t];
+                var r = n();
+                if (Object.defineProperty && Object.keys)try {
+                    return Object.defineProperty(e, t, {value: r, writable: !0, enumerable: !1}), r
+                } catch (i) {
+                }
+                return e[t] = r, r
+            }
+
+            var o = Object.prototype.hasOwnProperty;
+            t.exports = r
+        }, {}], handle: [function (e, t, n) {
+            function r(e, t, n, r) {
+                o.buffer([e], r), o.emit(e, t, n)
+            }
+
+            var o = e("ee").get("handle");
+            t.exports = r, r.ee = o
+        }, {}], id: [function (e, t, n) {
+            function r(e) {
+                var t = typeof e;
+                return !e || "object" !== t && "function" !== t ? -1 : e === window ? 0 : a(e, i, function () {
+                    return o++
+                })
+            }
+
+            var o = 1, i = "nr@id", a = e("gos");
+            t.exports = r
+        }, {}], loader: [function (e, t, n) {
+            function r() {
+                if (!h++) {
+                    var e = y.info = NREUM.info, t = l.getElementsByTagName("script")[0];
+                    if (setTimeout(f.abort, 3e4), !(e && e.licenseKey && e.applicationID && t))return f.abort();
+                    c(b, function (t, n) {
+                        e[t] || (e[t] = n)
+                    }), u("mark", ["onload", a()], null, "api");
+                    var n = l.createElement("script");
+                    n.src = "https://" + e.agent, t.parentNode.insertBefore(n, t)
+                }
+            }
+
+            function o() {
+                "complete" === l.readyState && i()
+            }
+
+            function i() {
+                u("mark", ["domContent", a()], null, "api")
+            }
+
+            function a() {
+                return (new Date).getTime()
+            }
+
+            var u = e("handle"), c = e(2), f = e("ee"), s = window, l = s.document, p = "addEventListener", d = "attachEvent", v = s.XMLHttpRequest, g = v && v.prototype;
+            NREUM.o = {
+                ST: setTimeout,
+                CT: clearTimeout,
+                XHR: v,
+                REQ: s.Request,
+                EV: s.Event,
+                PR: s.Promise,
+                MO: s.MutationObserver
+            }, e(1);
+            var m = "" + location, b = {
+                beacon: "bam.nr-data.net",
+                errorBeacon: "bam.nr-data.net",
+                agent: "js-agent.newrelic.com/nr-998.min.js"
+            }, w = v && g && g[p] && !/CriOS/.test(navigator.userAgent), y = t.exports = {
+                offset: a(),
+                origin: m,
+                features: {},
+                xhrWrappable: w
+            };
+            l[p] ? (l[p]("DOMContentLoaded", i, !1), s[p]("load", r, !1)) : (l[d]("onreadystatechange", o), s[d]("onload", r)), u("mark", ["firstbyte", a()], null, "api");
+            var h = 0
+        }, {}]
+    }, {}, ["loader"]);</script>
+    <meta content="target-densitydpi=device-dpi, width=device-width, user-scalable=yes" name="viewport"/>
+    <meta content="OneRetarget – один сервис, чтобы запустить ретаргетинг и таргетированную рекламу в Вконтакте, Одноклассниках, Мой Мир и Facebook. Ретаргетинг (ремаркетинг) во всех соцсетях – из одного интерфейса."
+          name="description"/>
+    <title>Клиенты - oneretarget.com</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <link rel="shortcut icon" type="image/png"
+          href="/assets/favicon-61cf0d3c4b0727aab212db8c2c8250bf676ef73f19c9feae08832f3f29846c70.png"/>
+    <link rel="stylesheet" media="screen"
+          href="/assets/public-87e1f2252726d45ded63a51dc8dcdf19225aef9ab862cae510d7c193905cd99f.css"/>
+    <script src="/assets/public-5ef4d8f84af82ab86137a3a3522d8a91ad9febef5ed2b530e1bc7d045892d2f2.js"></script>
+    <meta name="csrf-param" content="authenticity_token"/>
+    <meta name="csrf-token"
+          content="+dRoRlIzasP7WvAwQoEGq/6DiO3w5CfLu0iQDh7DCA3t/DkG9Cy75oeOS0T2nxt1IxfGauB3Hn9nXP8m/zsMhA=="/>
+    <link href="https://www.oneretarget.com/ru/clients" rel="canonical"/>
+    <!--[if lte IE 8]>
+    <script src="/assets/public_lt_ie8-298ec473703076b4f0b945fd6f0f3cad0b5949b9d41145ee86ab472e73cdd43d.js"></script>
+    <![endif]--></head>
+<body>
+<noscript>
+    <iframe src="//www.googletagmanager.com/ns.html?id=GTM-TBSM3V"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+        'gtm.start': new Date().getTime(), event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+            '//www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-TBSM3V');</script>
+<div id="wrapper">
+    <header class="header js-header">
+    <div class="c-align">
+        <a class="b-header logo" href="#">
+            <img src="images/logo.png" alt="OneRetarget">
+        </a>
+        <ul class="b-header nav js-nav">
+            <!--Class "mob-point" use for tablet and mobile screen. For desktop blocks with it class hidden-->
+
+            <li class="mob-point"><a href="#"><img src="images/logo.png" alt="OneRetarget"></a></li>
+
+            <li><a href="#">Клиенты</a></li>
+            <li><a href="#">Кейсы</a></li>
+            <li><a href="#">Контакты</a></li>
+            <li><a href="#">Блог</a></li>
+
+            <li class="mob-point"><a href="#">Регистрация</a></li>
+            <li class="mob-point"><a href="#">Вход</a></li>
+            <li class="mob-point">
+                <span class="contact__number">+7 (499) 638-26-95</span>
+                <a class="contact__link" href="#">help@oneretarget.com</a>
+            </li>
+
+        </ul>
+
+        <!--This block visible on tablet and mobile screen -->
+        <div class="humb js-humb"><span></span></div>
+        <!--This block visible on tablet and mobile screen -->
+
+        <!--block with class "login" and "contact" visible only on desktop -->
+
+        <div class="b-header login">
+            <a class="login__item login__reg" href="#">Регистрация</a>
+            <a class="login__item login__btn" href="#">Вход</a>
+        </div>
+        <div class="b-header contact">
+            <span class="contact__number">+7 (499) 638-26-95</span>
+            <a class="contact__link" href="#">help@oneretarget.com</a>
+        </div>
+
+        <!--block with class "login" and "contact" visible only on desktop -->
+
+    </div>
+</header>
+    <div id="main">
+        <div class="content-block">
+            <div class="container">
+                <div class="page-title"><h1>Клиенты</h1></div>
+                <div class="page-description">Уже более 50 компаний увеличивают свои продажи и средний чек, возвращая
+                    клиентов на свои сайты через OneRetarget. Присоединяйтесь!
+                </div>
+                <ul class="clients-list">
+                    <li>
+                        <div class="head">
+                            <div class="visual"><img
+                                    src="/assets/img17-fd426c2920428b25187266b97b0bdcc773989a82a77c5cf08eb80ef7db5ef76a.png"/>
+                            </div>
+                        </div>
+                        <div class="text"><p>Финам - одна из крупнейших инвестиционных компаний России, биржевой брокер
+                            ММВБ и РТС.</p></div>
+                        <div class="footer"><a href="http://finam.ru" target="blank">finam.ru</a></div>
+                    </li>
+                    <li>
+                        <div class="head">
+                            <div class="visual"><img
+                                    src="/assets/img18-e1f0ceae1e15e9e35f1c0509bc4d2e98644ce0e71f7312c64016377230b50c95.png"/>
+                            </div>
+                        </div>
+                        <div class="text"><p>Финансовая группа БКС входит в число лидеров российского рынка брокерских
+                            услуг.</p></div>
+                        <div class="footer"><a href="http://bcs.ru" target="blank">bcs.ru</a></div>
+                    </li>
+                    <li>
+                        <div class="head">
+                            <div class="visual"><img
+                                    src="/assets/img19-d8a879f9659a4a68fd7252f5094489798ae86375ec1bd008771c3fcd97374b7e.png"/>
+                            </div>
+                        </div>
+                        <div class="text"><p>Международная брокерская компания для физических и юридических лиц.</p>
+                        </div>
+                        <div class="footer"><a href="http://nordfx.com" target="blank">nordfx.com</a></div>
+                    </li>
+                    <li>
+                        <div class="head">
+                            <div class="visual"><img
+                                    src="/assets/img20-dbf4c43f0681e3be8bd6fe8ffa54b29516c20407bfa97b919d368e93a4924bbe.png"/>
+                            </div>
+                        </div>
+                        <div class="text"><p>Kotex – один из самых узнаваемых и популярных брендов в категории женской
+                            гигиены не только в России, но и в мире.</p></div>
+                        <div class="footer"><a href="http://kotex.ru" target="blank">kotex.ru</a></div>
+                    </li>
+                    <li>
+                        <div class="head">
+                            <div class="visual"><img
+                                    src="/assets/img21-5e1806f832b2a176b4e74358d7c354eb744d02c090acdc934b73641235f10af9.png"/>
+                            </div>
+                        </div>
+                        <div class="text"><p>Garin Studio - агентство интернет-дизайна, разработки и
+                            digital-проектов.</p></div>
+                        <div class="footer"><a href="http://garin-studio.ru" target="blank">garin-studio.ru</a></div>
+                    </li>
+                    <li>
+                        <div class="head">
+                            <div class="visual"><img
+                                    src="/assets/img22-51f4411b79b16a452c669921389c0a7a2bbfd94f51a8bdef18cd738c018219a3.png"/>
+                            </div>
+                        </div>
+                        <div class="text"><p>Sape - система комплексной интернет-рекламы и продвижения сайтов, одна из
+                            крупнейших на территории России и СНГ.</p></div>
+                        <div class="footer"><a href="http://sape.ru" target="blank">sape.ru</a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="request_form">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form class="request-form JS-Ajax-form" data-name="request_form" action="/ru/request" accept-charset="UTF-8"
+                  data-remote="true" method="post"><input name="utf8" type="hidden" value="&#x2713;"/>
+                <div class="modal-header"><h3>Заявка на проведение рекламной кампании</h3></div>
+                <div class="modal-body">
+                    <fieldset>
+                        <div class="form-row"><label class="input-holder"><input placeholder="Эл. почта (Обязательно)"
+                                                                                 type="text" name="request_form[email]"
+                                                                                 id="request_form_email"/></label></div>
+                        <div class="form-row"><label class="input-holder"><textarea placeholder="Сообщение"
+                                                                                    name="request_form[message]"
+                                                                                    id="request_form_message">
+</textarea></label></div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer"><input type="submit" name="commit" value="Отправить" class="send-btn"/></div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="b-blue">
+    <div class="b-basic">
+        <div class="c-align">
+            <div class="b-flex b-flex--center">
+                <div class="b-half center-cnt">
+                    <h4>One Agency</h4>
+                    <p>Наши специалисты сами настроят и будут контролировать<br> проведение рекламной кампании для вашего сайта</p>
+                    <button class="btn b-half__btn">Подать заявку</button>
+                </div>
+                <div class="b-half center-cnt">
+                    <h4>Сервис OneRetarget</h4>
+                    <p>Зарегистрируйтесь в OneRetarget и<br> управляйте рекламой самостоятельно</p>
+                    <button class="btn b-half__btn">Зарегистрироваться</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="container clear">
+        <div class="footer_left">
+            <div class="footer_header">Контакты</div>
+            <div class="footer_contacts">
+                <div class="phone">+7(499) 638-26-95</div>
+                <div class="email"><a class="help_email_link"
+                                      href="mailto:help@oneretarget.com">help@oneretarget.com</a></div>
+            </div>
+            <div class="copir">©&nbsp;2016&nbsp;OneRetarget.com</div>
+        </div>
+        <ul class="f-menu">
+            <li><a href="/?locale=ru">Главная</a></li>
+            <li><a href="/ru/clients">Клиенты</a></li>
+            <li><a href="/ru/cases">Кейсы</a></li>
+            <li><a href="/ru/contact_us">Контакты</a></li>
+            <li><a href="/ru/help">Справка</a></li>
+            <li><a href="/ru/wiki/">Wiki</a></li>
+            <li><a href="/ru/blog/">Блог</a></li>
+        </ul>
+    </div>
+    <div class="clear" id="time_remaining_spacer"></div>
+    <div class="JS-TimeRemaining" data-spacer="time_remaining_spacer" id="time_remaining_widget">
+        <div class="widget_inner container clear">
+            <div class="widget_header">
+                <div class="total_remaining">До запуска ретаргетинга <span class="minutes">18 минут</span></div>
+                <div class="close_widget"><a class="close_time_widget" href="#close_time_widget">Больше не
+                    показывать</a></div>
+            </div>
+            <div class="clear"></div>
+            <div class="widget_body">
+                <div class="step registration_step active">
+                    <div class="arrow"></div>
+                    <div class="step_number">
+                        <div class="step_caption">1</div>
+                    </div>
+                    <div class="step_body">
+                        <div class="step_name"><a href="/ru/registry/sign_up">Регистрация</a></div>
+                        <div class="minutes">2 минуты</div>
+                    </div>
+                    <div class="step_completed">
+                        <div class="step_name">Вы зарегистрированы</div>
+                        <div class="completed">Завершено</div>
+                    </div>
+                </div>
+                <div class="step audience_step">
+                    <div class="arrow"></div>
+                    <div class="step_number">
+                        <div class="step_caption">2</div>
+                    </div>
+                    <div class="step_body">
+                        <div class="step_name">Создать аудиторию</div>
+                        <div class="minutes">3 минуты</div>
+                    </div>
+                    <div class="step_completed">
+                        <div class="step_name">Аудитория создана</div>
+                        <div class="completed">Завершено</div>
+                    </div>
+                </div>
+                <div class="step advertisement_step">
+                    <div class="arrow"></div>
+                    <div class="step_number">
+                        <div class="step_caption">3</div>
+                    </div>
+                    <div class="step_body">
+                        <div class="step_name">Создать объявление</div>
+                        <div class="minutes">3 минуты</div>
+                    </div>
+                    <div class="step_completed">
+                        <div class="step_name">Объявление создано</div>
+                        <div class="completed">Завершено</div>
+                    </div>
+                </div>
+                <div class="step counter_step">
+                    <div class="step_number">
+                        <div class="step_caption">4</div>
+                    </div>
+                    <div class="step_body">
+                        <div class="step_name">Установить код</div>
+                        <div class="minutes">10 минут</div>
+                    </div>
+                    <div class="step_completed">
+                        <div class="step_name">Код установлен</div>
+                        <div class="completed">Завершено</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

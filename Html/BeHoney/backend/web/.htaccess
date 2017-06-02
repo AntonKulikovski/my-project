@@ -1,0 +1,14 @@
+Options +FollowSymLinks -Indexes
+IndexIgnore */*
+
+RewriteEngine on
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{THE_REQUEST} !^[^\s]+\s+\/(css|js|assets|img|upload)\/.+
+RewriteCond %{THE_REQUEST} !^[^\s]+\s+\/apple\-touch[^/]+(HTTP[\/\d\.]+)?$
+
+# otherwise forward it to index.php
+RewriteRule . index.php

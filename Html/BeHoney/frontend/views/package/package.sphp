@@ -1,0 +1,191 @@
+<?php
+
+use frontend\models\forms\AddToCartForm;
+use frontend\models\Package;
+use yii\helpers\Url;
+
+/**
+ * @var $product \frontend\models\Product;
+ * @var $package \frontend\models\Package;
+ * @var $photo \common\models\PackagePhoto;
+ * @var $productFirst \frontend\models\ProductVolume;
+ * @var $productSecond \frontend\models\ProductVolume;
+ * @var $addToCartForm AddToCartForm;
+ * @var $page \frontend\models\Page;
+ *
+ */
+
+$this->title = $package->title ? $package->title : $package->name;
+$this->params['breadcrumbs'][] = [
+    'label' => '<span itemprop="title">' . $page->name . '</span>',
+    'rel' => 'nofollow',
+    'itemprop' => 'url',
+    'url' => Url::to(['package/index', 'slug' => 'all']),
+];
+$this->params['breadcrumbs'][] = [
+    'label' => $package->name,
+    'template' => '<span>' . $package->name . '</span>'
+];
+$url = Url::home(true) . 'podarochnyj-nabor/' . $package->slug . '/';
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $package->descriptionMeta,
+]);
+?>
+<main>
+    <div class="c-align">
+        <div class="b-side__wrap">
+            <div class="b-side">
+                <div class="product-slider">
+                    <?php if (count($package->photos) > 1): ?>
+                        <div id="main-slider" class="slider">
+                            <?php foreach ($package->photos as $index => $photo): ?>
+                                <div id="slide-<?= $index ?>" class="slider__item">
+                                    <a href="<?= $photo->imageFile->asMain ?>" data-lightbox="product-slider" data-title="<?= str_replace(
+                                        '.' . $photo->imageFile->extension,
+                                        '',
+                                        $photo->imageFile->name
+                                    ) ?>">
+                                        <img class="<?= $index == 0 ? 'js-img-move ' : '' ?>packageImage"
+                                         alt="<?= str_replace(
+                                             '.' . $photo->imageFile->extension,
+                                             '',
+                                             $photo->imageFile->name
+                                         ) ?>"
+                                         title="<?= str_replace(
+                                             '.' . $photo->imageFile->extension,
+                                             '',
+                                             $photo->imageFile->name
+                                         ) ?>"
+                                         src="<?= $photo->imageFile->asMain ?>">
+                                    </a>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="slider-pag js-slider-pag">
+                            <?php foreach ($package->photos as $index => $photo): ?>
+                                <div id="<?= $index ?>" class="slider-pag__item <?= $index == 0 ? 'active' : '' ?>">
+                                    <img class='packageImage'
+                                         alt="<?= str_replace(
+                                             '.' . $photo->imageFile->extension,
+                                             '',
+                                             $photo->imageFile->name
+                                         ) ?>"
+                                         title="<?= str_replace(
+                                             '.' . $photo->imageFile->extension,
+                                             '',
+                                             $photo->imageFile->name
+                                         ) ?>"
+                                         src="<?= $photo->imageFile->asUnderMain ?>">
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php else: ?>
+                        <?php $photo = $package->photos; ?>
+                        <img class="js-img-move prodcut__img packageImage"
+                             alt="<?= str_replace(
+                                 '.' . $package->photos[0]->imageFile->extension,
+                                 '',
+                                 $package->photos[0]->imageFile->name
+                             ) ?>"
+                             title="<?= str_replace(
+                                 '.' . $package->photos[0]->imageFile->extension,
+                                 '',
+                                 $package->photos[0]->imageFile->name
+                             ) ?>"
+                             src="<?= $package->photos[0]->imageFile->asMain ?>">
+                    <?php endif; ?>
+                </div>
+                <div class="b-side__text">
+                    <?php print $package->description; ?>
+                </div>
+                <div class="social-shared">
+                    <a href="http://vk.com/share.php?url=<?= $url ?>&title=<?= $package->name ?>&description=<?= $package->description ?>&image=<?= 'http:' . $package->photos[0]->imageFile->getUrl() ?>">
+                        <img alt="социальная сеть vk" title="социальная сеть vk" src="/images/shared-link_vk.png">
+                    </a>
+                    <a target="_blank" href="https://www.facebook.com/sharer.php?u=<?= $url ?>">
+                        <img alt="социальная сеть facebook"
+                             title="социальная сеть facebook"
+                             src="/images/shared-link_f.png">
+                    </a>
+                </div>
+            </div>
+            <div class="b-side">
+                <div class="floor product">
+                    <?php switch ($package->type) {
+                        case Package::TYPE_STANDARD:
+                            print $this->renderAjax('_package-standard.sphp', [
+                                'package' => $package,
+                            ]);
+
+                            break;
+                        case Package::TYPE_ONE:
+                            print $this->renderAjax('_package-one.sphp', [
+                                'package' => $package,
+                            ]);
+
+                            break;
+                        case Package::TYPE_ASORTI:
+                            print $this->renderAjax('_package-asorti.sphp', [
+                                'package' => $package,
+                            ]);
+                            break;
+                    } ?>
+                </div>
+                <div class="floor">
+                    <ul class="accord">
+                        <li class="accord__item">
+                            <span class="accord__open">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>Стандартная доставка
+                            </span>
+                            <div class="accord__text">
+                                <p>
+                                    Осуществляется на следующий рабочий день после заказа с 10:00 до 20:00.<br>
+                                    Стоимость доставки по Минску в пределах МКАД*:
+                                </p>
+                                <ul>
+                                    <li>- При заказе до 40 рублей стоимость доставки составит 4 рубля.</li>
+                                    <li>- При заказе свыше 40 рублей - доставка бесплатная.</li>
+                                </ul>
+                                <span>* заказы за пределами МКАД рассчитываются отдельно.</span>
+                            </div>
+                        </li>
+                        <li class="accord__item">
+                            <span class="accord__open">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>Срочная доставка
+                            </span>
+                            <div class="accord__text">
+                                <p>
+                                    Осуществляется в течении 4 часов после оформления заказа.<br>
+                                    Стоимость 7 рублей, вне зависимости от суммы заказа.
+                                </p>
+                            </div>
+                        </li>
+                        <li class="accord__item">
+                            <span class="accord__open">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>Самовывоз
+                            </span>
+                            <div class="accord__text">
+                                <p>Осуществляется по адресу – г. Минск, ул. Острошицкая, 10-41.</p>
+                            </div>
+                        </li>
+                        <li class="accord__item">
+                            <span class="accord__open">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>Доставка по всей Беларуси
+                            </span>
+                            <div class="accord__text">
+                                <p>
+                                    Также мы осуществляем доставку по всей Беларуси, срок и стоимость доставки
+                                    рассчитывается индивидуально.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clone-img js-image-wrap"></div>
+</main>
+

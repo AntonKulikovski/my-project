@@ -1,0 +1,65 @@
+.icon-menu{
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 44px 0;
+
+  &__item{
+    display: inline-block;
+    padding: 9px 0 9px 55px;
+    font-size: 15px;
+    color: $color-black;
+    position: relative;
+
+    &:after{
+      display: block;
+      content: "";
+      background-color: $color-yellow;
+      width: 51px;
+      height: 51px;
+      border-radius: 50%;
+      position: absolute;
+      left: -30px;
+      top: -8px;
+      opacity: 0;
+      transition: opacity $timeanimation ease;
+    }
+
+    &:before{
+      display: block;
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-position: left center;
+      z-index: 1;
+    }
+
+    &:hover{
+      text-decoration: none;
+      &:after{opacity: 1}
+    }
+
+    &.auto:before{background-image: url("../images/menu-icon/auto.png")}
+    &.internet:before{background-image: url("../images/menu-icon/internet.png")}
+    &.build:before{background-image: url("../images/menu-icon/build.png")}
+    &.cafe:before{background-image: url("../images/menu-icon/cafe.png")}
+    &.business:before{background-image: url("../images/menu-icon/business.png")}
+  }
+
+  @include desktop-small{
+    justify-content: center;
+
+    &__item{
+      margin-right: 35px;
+      &:last-child{margin-right: 0}
+    }
+  }
+
+  @include tablet-wide{
+    display: none;
+  }
+}

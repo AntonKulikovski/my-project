@@ -1,0 +1,49 @@
+<?php
+
+use yii\helpers\Url;
+
+/**
+ * @var $product \frontend\models\Product
+ * @var $category \frontend\models\Category
+ */
+
+$this->title = $category->title ? $category->title : $category->name;
+$this->params['breadcrumbs'][] = [
+    'label' => $category->name,
+    'template' => '<span>' . $category->name . '</span>'
+];
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $category->descriptionMeta,
+]);
+?>
+<main>
+    <div class="c-align">
+        <div class="b-type">
+            <h1 class="b-type__title"><?= $category->name ?></h1>
+            <div class="type-text">
+                <p><?= $category->descriptionTop ?></p>
+            </div>
+            <div class="b-type__cnt mobile-slider">
+                <?php foreach ($category->products as $product) : ?>
+                    <div class="b-good">
+                        <a class="b-good__link" href="<?= Url::to(['product/index', 'slug' => $product->slug]) ?>">
+                            <img alt="<?= $product->name . ' ' . $product->productVolumes[0]->volume ?>"
+                                 title="<?= $product->name . ' ' . $product->productVolumes[0]->volume ?>"
+                                 class="b-good__img"
+                                 src="<?= !empty($product->productVolumes) ? $product->productVolumes[0]->imageFile->asHome : $product->imageFile->asHome ?>">
+                            <p class="b-good__title"><?= $product->name ?></p>
+                        </a>
+                        <p class="b-good__cost">
+                            от
+                            <?= !empty($product->productVolumes) ? Yii::$app->formatter->asDecimal($product->productVolumes[0]->price, 2) : '0,00'; ?>
+                            руб.
+                        </p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <p><?= $category->descriptionBottom ?></p>
+        </div>
+    </div>
+</main>

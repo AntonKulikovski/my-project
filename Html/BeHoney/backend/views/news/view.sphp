@@ -1,0 +1,54 @@
+<?php
+
+use backend\models\Page;
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\News */
+
+$this->title = $model->title;
+$this->params['breadcrumbs'][] = ['label' => Page::getModelByNameFixed('news')->name, 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="news-view">
+
+    <h1><?= $this->title ?></h1>
+
+    <p>
+        <?php print Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+        <?php print Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Вы уверены что хотите удалить эту новость?',
+                'method' => 'post',
+            ],
+        ]); ?>
+    </p>
+    <?php print DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'title',
+            'name',
+            [
+                'attribute' => 'imageFile',
+                'format' => 'html',
+                'value' => !$model->imageFile->isEmpty ? Html::img($model->imageFile->asSmall) : null,
+            ],
+            'content:html',
+            'active:boolean',
+            'descriptionShort:ntext',
+            'descriptionMeta:ntext',
+            'url',
+            'slug',
+            'createdAt:dateTime',
+            [
+                'attribute' => 'publicAt',
+                'value' => $model->publicAt ? Yii::$app->formatter->asDatetime($model->publicAt) : 'Новость не опубликована',
+            ],
+            'updatedAt:dateTime',
+        ],
+    ]) ?>
+
+</div>

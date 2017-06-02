@@ -1,0 +1,13 @@
+.b-pay{
+  display: none;
+  text-align: left;
+  padding: 0 18px;
+  font-family: 'Roboto Condensed';
+  border-bottom: 1px solid #d7d7d7;
+}
+
+@include tel{
+  .b-pay{
+    display: block;
+  }
+}

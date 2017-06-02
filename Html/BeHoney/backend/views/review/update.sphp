@@ -1,0 +1,18 @@
+<?php
+
+use backend\models\Page;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Review */
+
+$this->title = 'Изменнение отзыва от: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => Page::getModelByNameFixed('review')->name, 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Изменнение';
+?>
+<div class="review-update">
+    <h1><?= $this->title ?></h1>
+    <?php print $this->render('_form.sphp', [
+        'model' => $model,
+    ]); ?>
+</div>

@@ -1,0 +1,38 @@
+<?php
+
+use yii\grid\GridView;
+use backend\models\Payment;
+
+/* @var $this yii\web\View */
+
+$this->title = 'Оплата заказа:' . $orderId;
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="payment-index">
+    <h1><?= $this->title ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php print GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'status',
+            'token',
+            [
+                'attribute' => 'result',
+                'value' => function (Payment $model) {
+                    $results = str_replace('{', '{<br>&emsp', $model->result);
+                    $results = str_replace('}', '<br>}<br>', $results);
+                    $results = str_replace(',', ',<br>&emsp', $results);
+                    return $results;
+                },
+                'format' => 'html',
+            ],
+            'error:text',
+            'notification',
+            'createdAt:date',
+            'updatedAt:date'
+        ],
+    ]); ?>
+</div>

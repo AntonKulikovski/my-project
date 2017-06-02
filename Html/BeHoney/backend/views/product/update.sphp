@@ -1,0 +1,16 @@
+<?php
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Product */
+
+$this->title = 'Изменение продукта: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Продукты', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Изменнение';
+?>
+<div class="product-update">
+    <h1><?= $this->title ?></h1>
+    <?php print $this->render('form/_form.sphp', [
+        'model' => $model,
+    ]); ?>
+</div>

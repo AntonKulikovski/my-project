@@ -1,0 +1,96 @@
+<?php
+
+use backend\assets\AppAsset;
+use backend\models\Page;
+use common\widgets\Alert;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\helpers\Html;
+use yii\helpers\Url;
+use yii\widgets\Breadcrumbs;
+
+
+/* @var $this \yii\web\View */
+/* @var $content string */
+
+AppAsset::register($this);
+?>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<head>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php print Html::csrfMetaTags() ?>
+    <title><?= $this->title ?></title>
+    <?php $this->head() ?>
+</head>
+<body>
+<?php $this->beginBody() ?>
+
+<div class="wrap">
+    <?php
+    if (Yii::$app->user->identity && !Yii::$app->user->isGuest) {
+        NavBar::begin([
+            'brandLabel' => 'BeHoney',
+            'brandUrl' => Yii::$app->homeUrl,
+            'options' => [
+                'class' => 'navbar-inverse navbar-fixed-top',
+            ],
+        ]);
+
+        $page = Page::find()->indexBy('nameFixed')->asArray()->all();
+        $menuItems = [
+            ['label' => 'Категории', 'url' => Url::to(['/category/index'])],
+            ['label' => 'Продукты', 'url' => Url::to(['/product/index'])],
+            ['label' => 'Теги', 'url' => Url::to(['/tag/index'])],
+            ['label' => $page['package']['name'], 'url' => Url::to(['/package/index'])],
+            ['label' => 'Заказы', 'url' => Url::to(['/order/index'])],
+            ['label' => 'Слайдер', 'url' => Url::to(['/slider/index'])],
+            ['label' => $page['review']['name'], 'url' => Url::to(['/review/index'])],
+            ['label' => 'Страницы', 'url' => Url::to(['/page/index'])],
+            ['label' => $page['news']['name'], 'url' => Url::to(['/news/index'])],
+            ['label' => $page['magazine']['name'], 'url' => Url::to(['/magazine/index'])],
+        ];
+
+        if (Yii::$app->user->isGuest) {
+            $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        } else {
+            $menuItems[] = '<li>'
+                . Html::beginForm(['/site/logout'], 'post')
+                . Html::submitButton(
+                    'Logout (' . Yii::$app->user->identity->username . ')',
+                    ['class' => 'btn btn-link']
+                )
+                . Html::endForm()
+                . '</li>';
+        }
+
+        print Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => $menuItems,
+        ]);
+
+        NavBar::end();
+    }
+    ?>
+
+    <div class="container">
+        <?php print Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
+        <?php print Alert::widget() ?>
+        <?php print $content ?>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="pull-left">&copy; BeHoney <?= date('Y') ?></p>
+    </div>
+</footer>
+
+<?php $this->endBody() ?>
+</body>
+</html>
+<?php $this->endPage() ?>

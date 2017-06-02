@@ -1,0 +1,108 @@
+.b-rel{
+  display: flex;
+  align-items: center;
+  flex: 0 0 50%;
+
+  &__wrap{
+    display: flex;
+    padding: 14px 11px 19px;
+    border-top: 1px solid #d7d7d7;
+  }
+
+  &__img{
+  }
+
+  &__cnt{
+    text-align: left;
+    margin-left: 8px;
+  }
+
+  &__title{
+    display: inline-block;
+    font-family: 'Roboto Slab';
+    font-size: 20px;
+    color: $yellow-color;
+    margin-bottom: 12px;
+
+    transition: color $timeanimation linear;
+
+    &:hover{
+      color: #000;
+    }
+  }
+
+  .volume{
+    margin-left: 1px;
+
+    div{
+      margin-right: 13px;
+      &:last-child{margin-right: 0}
+    }
+
+    &.radio-custom input[type=radio]+label{
+      font-size: 14px;
+
+      span{
+        width: 13px;
+        height: 13px;
+        margin-right: 5px;
+
+        &:after{
+          width: 5px;
+          height: 5px;
+          margin-left: -2.5px;
+          margin-top: -2.5px;
+        }
+      }
+    }
+  }
+
+  .product{
+    &__cost{
+      font-size: 16px;
+      margin-top: 12px;
+      margin-bottom: 6px;
+    }
+  }
+
+  .btn__to-cart{
+    font-size: 16px;
+    margin-top: 11px;
+    padding: 18px 21px;
+  }
+}
+
+@include tablet{
+  .b-rel{
+    display: block;
+    &__cnt{
+      text-align: center;
+      margin-left: 0;
+    }
+  }
+}
+
+@include tel{
+  .b-rel{
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid $yellow-color;
+    &:last-child{
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+    &__wrap{
+      padding: 14px 0 19px;
+      display: block;
+    }
+
+    .volume.radio-custom input[type=radio]+label{
+      font-size: 16px;
+    }
+
+    .product{
+      &__cost{font-size: 18px}
+    }
+  }
+}

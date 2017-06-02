@@ -1,0 +1,60 @@
+.form{
+  text-align: center;
+  padding-bottom: 63px;
+
+  &__label{
+    margin-top: 7px;
+    margin-bottom: 25px;
+  }
+
+  &__btn{
+    width: 21%;
+    padding: 20px 0 16px;
+  }
+
+  &__field{
+    display: inline-block;
+    width: 39%;
+    max-width: 353px;
+    padding: 19px 23px 16px;
+    border-radius: 5px;
+    border: 0;
+    margin-right: 14px;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.2);
+
+    &::-webkit-input-placeholder {color:$color-black;}
+    &::-moz-placeholder          {color:$color-black;}/* Firefox 19+ */
+    &:-moz-placeholder           {color:$color-black;}/* Firefox 18- */
+    &:-ms-input-placeholder      {color:$color-black;}
+  }
+
+  @include tablet{
+    padding-bottom: 30px;
+
+    &__field{
+      width: 37%;
+    }
+  }
+
+  @include tel{
+    &__btn{
+      display: block;
+      width: 150px;
+      margin: 30px auto 0;
+    }
+
+    &__field{
+      width: 46%;
+      margin: 0 1%;
+    }
+  }
+
+  @media (max-width: 450px){
+    &__field{
+      display: block;
+      max-width: 300px;
+      margin: 0 auto 30px;
+      width: 100%;
+    }
+  }
+}

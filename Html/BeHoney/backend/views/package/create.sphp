@@ -1,0 +1,16 @@
+<?php
+
+use backend\models\Page;
+/* @var $this yii\web\View */
+/* @var $model backend\models\Package */
+
+$this->title = 'Создание подарочного набора';
+$this->params['breadcrumbs'][] = ['label' => Page::getModelByNameFixed('package')->name, 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="package-create">
+    <h1><?= $this->title ?></h1>
+    <?php print $this->render('_form.sphp', [
+        'model' => $model,
+    ]); ?>
+</div>

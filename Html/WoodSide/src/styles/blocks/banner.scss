@@ -1,0 +1,88 @@
+.banner{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 auto;
+
+  background-position: top center;
+  background-repeat: no-repeat;
+  
+  &--career{background-image: url("../images/banners/career.png")}
+
+  &--food{background-image: url("../images/banners/food-drink.png")}
+
+  &--management{background-image: url("../images/banners/management.png")}
+
+  &--destination{background-image: url("../images/map.png")}
+  
+  &--meeting{background-image: url("../images/banners/meeting.png")}
+
+  &--about{background-image: url("../images/banners/about.png")}
+
+  &--about-bottom{background-image: url("../images/banners/well-said.png")}
+
+  &--about-why{background-image: url("../images/banners/about-why.png")}
+
+  &--career-search{background-image: url("../images/banners/career-search.png")}
+  
+  &--spas{background-image: url("../images/banners/spas.png")}
+  
+  &--spirit{background-image: url("../images/banners/spirit.png")}
+  
+  &--weddings{background-image: url("../images/banners/weddings.png")}
+  
+  &--said{background-image: url("../images/banners/well-said.png")}
+
+  &--giving{background-image: url("../images/banners/giving.png")}
+
+
+  img{
+    opacity: 0;
+    display: block;
+    @media (max-width: 1920px){
+      height: 400px;
+    }
+  }
+
+  &__content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+    h3{
+      text-align: center;
+      margin: 0;
+      font-size: 48px;
+      color: #fff;
+      font-family: 'Mrs-Eaves-Roman';
+      font-weight: lighter;
+      letter-spacing: 6px;
+    }
+  }
+}
+
+@media (min-width: 1401px){
+  .banner{
+    &--destination{background-size: auto auto}
+
+    img{width: 100%}
+  }
+}
+
+@include tablet{
+  .banner{
+    &__content{
+      h3{font-size: 40px}
+    }
+  }
+}
+
+@include tel{
+  .banner{
+    &__content{
+      h3{font-size: 29px}
+    }
+  }
+}

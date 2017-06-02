@@ -1,0 +1,16 @@
+$tel-width: 767px;
+
+$tablet-width: 1024px;
+
+
+@mixin tel {
+  @media (max-width: #{$tel-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet-width}) {
+    @content;
+  }
+}

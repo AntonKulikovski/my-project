@@ -1,0 +1,119 @@
+<?php
+
+use frontend\models\Page;
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+/* @var $this yii\web\View
+ * @var $page Page
+ */
+
+$this->title = $page->title;
+$label = !empty($page->title) ? $page->title : $page->name;
+$this->params['breadcrumbs'][] = [
+    'label' => $label,
+    'template' => '<span>' . $label . '</span>'
+];
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $page->descriptionMeta,
+]);
+?>
+<main>
+    <div class="c-align">
+        <div class="b-type"><h1 class="b-type__title"><?= $page->name ?></h1></div>
+        <div class="b-side__wrap b-side--low-margin">
+            <div class="b-side b-side--no-padding">
+                <div class="info">
+                    <div class="info__item">
+                        <span class="info__label">Телефоны:</span>
+                        <span class="info__cnt"><a href="tel:+375296580898">+375 (29) 658-08-98</a> Viber,<br> WhatsApp, Telegram</span>
+                    </div>
+                    <div class="info__item">
+                        <span class="info__label">E-mail:</span>
+                        <a target="_blank" href="mailto:info@behoney.by" class="info__cnt">info@behoney.by</a>
+                    </div>
+                    <div class="info__item">
+                        <span class="info__label">Адрес самовывоза:</span>
+                        <span class="info__cnt">г. Минск, ул. Острошицкая, 10-41.</span>
+                    </div>
+                    <div class="shared">
+                        <a target="_blank" class="shared__icon shared__icon--inst" href="https://www.instagram.com/behoney.by/">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a target="_blank" class="shared__icon shared__icon--fb" href="https://www.facebook.com/behoneyby">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                        </a>
+                        <a target="_blank" class="shared__icon shared__icon--vk" href="https://vk.com/behoneyby">
+                            <i class="fa fa-vk" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="b-side b-side--no-padding message__wrapper">
+                <div class="message">
+                    <p class="message__text">Если у Вас остались вопросы или есть какие-то предложения о развитии нашего бренда или о совместном сотрудничестве, заполните поля ниже, и мы не оставим без внимания Ваше сообщение.</p>
+                    <div class="message__form">
+                        <?php $form = ActiveForm::begin([
+                            'id' => 'contact-form'
+                        ]); ?>
+                            <div class="form">
+                                <?php print $form->field($model, 'name')
+                                    ->textInput([
+                                        'class' => 'form__field',
+                                    ])->label(Yii::t('app', 'Name'), [
+                                        'class' => 'message__label',
+                                    ]); ?>
+                                <?php print $form->field($model, 'email')
+                                    ->textInput([
+                                        'class' => 'form__field',
+                                    ])->label(Yii::t('app', 'E-mail'), [
+                                        'class' => 'message__label',
+                                    ]); ?>
+                                <?php print $form->field($model, 'body')
+                                    ->textarea([
+                                        'class' => 'message__textarea',
+                                    ])->label(Yii::t('app', 'Message'), [
+                                        'class' => 'message__label',
+                                    ]); ?>
+                                <div class="form__group js-modal-send">
+                                    <label class="message__label"></label>
+                                    <?php print Html::submitButton('отправить сообщение', [
+                                        'class' => 'btn btn--yellow btn__message',
+                                    ]); ?>
+                                </div>
+                            </div>
+                        </div>
+                        <?php ActiveForm::end(); ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2347.8581299657885!2d27.689339515976542!3d53.952027636871016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc9373c71106f%3A0x6bb7727e10e77ffa!2z0YPQuy4g0J7RgdGC0YDQvtGI0LjRhtC60LDRjyAxMCwg0JzQuNC90YHQuiwg0JHQtdC70LDRgNGD0YHRjA!5e0!3m2!1sru!2s!4v1477487266828"
+                width="100%"
+                height="inherit"
+                frameborder="0"
+                style="border:0"
+                allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <span class="modal-bg"></span>
+
+    <div id="js-modal-thank" class="modal">
+        <p class="modal__message">Благодарим Вас за обращение к нам. Мы ответим Вам как можно скорее.</p>
+        <div class="modal__close">
+            <span></span>
+        </div>
+    </div>
+
+    <div id="js-modal-error" class="modal">
+        <p class="modal__message"></p>
+        <div class="modal__close">
+            <span></span>
+        </div>
+    </div>
+</main>

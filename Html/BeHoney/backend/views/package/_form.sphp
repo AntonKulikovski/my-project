@@ -1,0 +1,95 @@
+<?php
+
+use backend\models\Package;
+use backend\widgets\ActiveForm;
+use backend\widgets\DropZone;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Html;
+use yii\helpers\Json;
+use yii\helpers\Url;
+use yii\web\JqueryAsset;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Package */
+/* @var $form ActiveForm */
+/* @var $filesContext common\base\file\ImageContext */
+
+$this->registerJsFile('@web/js/photos/form.js', [
+    'depends' => JqueryAsset::className(),
+]);
+$filesContext = Yii::$app->contextManager->getContext('photo-package');
+?>
+<div class="package-form">
+    <?php $form = ActiveForm::begin([
+        'id' => $formId = 'package-form',
+        'options' => [
+            'data-prefix' => $filesContext->postParamStoragePrefix,
+            'data-name-field' => $model->formName(),
+        ],
+    ]); ?>
+    <?php print $form->field($model, 'type')->dropDownList(Package::$types, [
+        'prompt' => 'Выберите тип подарочного набора'
+    ]); ?>
+    <?php print $form->field($model, 'title')->textInput(['maxlength' => true]); ?>
+    <?php print $form->field($model, 'name')->textInput(['maxlength' => true]); ?>
+    <?php print $form->field($model, 'url')->textInput(['maxlength' => true]); ?>
+    <?php print $form->field($model, 'price')->textInput(); ?>
+    <?php print $form->field($model, 'active')->checkbox(); ?>
+    <?php print $form->field($model, 'description')->redactor([
+        'settings' => [
+            'minHeight' => 300,
+            'plugins' => ['fullscreen', 'fontcolor', 'video']
+        ],]); ?>
+    <?php print $form->field($model, 'position')->textInput(); ?>
+    <div class="<?= $model->hasErrors('photosModels') ? ' has-error' : '' ?>">
+        <?php print Html::label(Yii::t('app', 'photosModels'), $dropZoneId = 'filesDropZone', [
+            // html options
+        ]); ?>
+        <?php if ($model->hasErrors('photosModels')): ?>
+            <?php print Html::error($model, 'photosModels', [
+                'class' => 'help-block',
+            ]); ?>
+        <?php endif; ?>
+    </div>
+    <?php print DropZone::widget([
+        'id' => 'filesDropZone',
+        'uploadUrl' => Url::to(['package/upload-photo-package']),
+        'initFiles' => ArrayHelper::getColumn(
+            array_filter($model->getPhotosModels(), function ($photo) {
+                return !$photo->imageFile->isEmpty;
+            }),
+            'imageFile', false
+        ),
+        'options' => [
+            'maxFiles' => Package::MAX_PHOTOS_COUNT,
+            'maxFileSize' => Yii::$app->params['files']['defaultMaxSize'],
+            'acceptedFiles' => $filesContext->inputAccept,
+        ],
+        'clientEvents' => [
+            'success' => 'function (file, response) {
+                $("#" + ' . Json::encode($formId) . ').trigger("fileAdded", [file, response]);
+            }',
+            'removedfile' => 'function (file) {
+                $("#" + ' . Json::encode($formId) . ').trigger("fileRemoved", [file]);
+            }',
+        ],
+    ]); ?>
+    <?php $existTags = isset($model->id) ? Package::getExistTags($model->id) : []; ?>
+    <?php print $form->field($model, 'tags')
+        ->checkboxList(Package::getTags(), [
+            'item' => function ($index, $label, $name, $checked, $value) use ($existTags) {
+                $checked = in_array($value, $existTags) ? 1 : 0;
+
+                return '<div class="checkboxTag">' . Html::checkbox($name, $checked, ['label' => $label, 'value' => $value]) . '</div>';
+            }
+        ])
+        ->label('Теги'); ?>
+    <?php print $form->field($model, 'descriptionMeta')->textarea(); ?>
+    <div class="form-group">
+        <?php print Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), [
+                'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary',
+            ]
+        ); ?>
+    </div>
+    <?php ActiveForm::end(); ?>
+</div>

@@ -1,0 +1,43 @@
+.message{
+  font-family: 'Roboto Condensed';
+  font-size: 16px;
+  padding-left: 30px;
+
+  &__text{
+    margin: 0;
+  }
+
+  &__label{
+    vertical-align: top;
+    width: 84px;
+    display: inline-block;
+    padding-top: 10px;
+  }
+
+  &__form{
+    margin-top: 35px;
+  }
+
+  &__textarea{
+    @extend .form__field;
+    height: 150px;
+    resize: none;
+  }
+}
+
+@include tel{
+  .message{
+    text-align: left;
+    padding-right: 30px;
+    &__label{
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, textarea{
+      max-width: 340px;
+      width: 100%;
+    }
+
+    &__wrapper{margin-top: 0}
+  }
+}

@@ -1,0 +1,44 @@
+<?php
+
+use backend\models\Page;
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Review */
+
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => Page::getModelByNameFixed('review')->name, 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="review-view">
+    <h1><?= $this->title ?></h1>
+    <p>
+        <?php print Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+        <?php print Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Вы уверены что хотите удалить этот отзыв?',
+                'method' => 'post',
+            ],
+        ]); ?>
+    </p>
+    <?php print DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'name',
+            'email',
+            'urlSoc',
+            [
+                'attribute' => 'imageFile',
+                'format' => 'html',
+                'value' => !$model->imageFile->isEmpty ? Html::img($model->imageFile->asSmall) : null,
+            ],
+            'message:ntext',
+            'main:boolean',
+            'active:boolean',
+            'position',
+        ],
+    ]) ?>
+</div>

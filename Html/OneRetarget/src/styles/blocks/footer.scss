@@ -1,0 +1,17 @@
+.footer{
+  @extend .c-align;
+  padding-top: 41px;
+  padding-bottom: 20px;
+
+  &__copy{
+    font-weight: 300;
+    margin-top: 25px;
+    display: block;
+  }
+
+  @include tablet{
+    &__copy{
+      text-align: center;
+    }
+  }
+}

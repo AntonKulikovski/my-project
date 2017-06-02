@@ -1,0 +1,51 @@
+<?php
+
+use backend\models\Package;
+use backend\models\Page;
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Package */
+
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => Page::getModelByNameFixed('package')->name, 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="package-view">
+    <h1><?= $this->title ?></h1>
+    <p>
+        <?php print Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+        <?php print Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Вы уверены что хотите удалить этот подарочный набор?',
+                'method' => 'post',
+            ],
+        ]); ?>
+    </p>
+    <?php print DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'name',
+            'title',
+            [
+                'attribute' => 'type',
+                'value' => Package::$types[$model->type],
+            ],
+            'price',
+            'active:boolean',
+            'description:html',
+            'url',
+            'slug',
+            'position',
+            [
+                'attribute' => 'tags',
+                'label' => 'Теги',
+                'value' => implode(', ', Package::getExistTagsNames($model->id)),
+            ],
+            'descriptionMeta',
+        ],
+    ]); ?>
+</div>

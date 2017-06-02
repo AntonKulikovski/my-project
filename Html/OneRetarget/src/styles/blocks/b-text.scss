@@ -1,0 +1,18 @@
+.b-text{
+  @extend .center-cnt;
+  margin-top: 20px;
+  margin-bottom: 54px;
+
+  .b-type{
+    margin-top: 0;
+    margin-bottom: 45px;
+
+    h3{margin-bottom: 21px}
+
+    p{
+      line-height: 1.45;
+      font-weight: 300;
+      margin: 0 0 26px;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+.header{
+  display: block;
+  padding-top: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  background-image: url("../images/body-bg.png");
+  z-index: 50;
+
+  &__row{
+    width: 100%;
+
+    &--mob{display: none}
+  }
+
+  &__inner{
+    position: relative;
+    text-align: center;
+    padding-bottom: 41px;
+  }
+}
+
+@include tablet{
+  .header{
+    padding-top: 0;
+    position: static;
+
+    &__row{
+      &--mob{display: block}
+      &--desk{display: none}
+
+      .header-fix{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 52;
+        background-color: #73a4ba;
+        transition: left $timeanimation linear;
+
+        &.open-menu{left: 93%}
+      }
+    }
+
+    &__inner{
+      margin-top: 41px;
+    }
+  }
+}
+
+@include tel{
+  .header{
+
+    &__row{
+      .header-fix{
+        &.open-menu{left: 83%}
+      }
+    }
+
+    &__inner{
+      margin-top: 22px;
+      padding-bottom: 18px;
+    }
+  }
+}
+
+@include wide{
+  .header{
+    padding-top: 42px;
+  }
+}

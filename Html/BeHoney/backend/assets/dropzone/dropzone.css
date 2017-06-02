@@ -1,0 +1,48 @@
+/* CSS style for dropzone file uploader */
+.dropzone {
+    margin-bottom: 20px;
+}
+.dropzone .dz-default.dz-message {
+    background-image: none;
+    z-index: -1;
+}
+.dropzone .dz-default.dz-message span {
+    display: inherit;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 34px;
+    font-weight: 700;
+}
+.dropzone .dz-default.dz-message > span > span {
+    font-size: 24px;
+    font-weight: 500;
+}
+.dropzone .dropzone-upload-more-button {
+    position: absolute;
+    bottom: 0px;
+    height: 30px;
+    width: 100%;
+    left: 0px;
+    text-align: center;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 550px) {
+    .dropzone .dz-default.dz-message {
+        width: 100%;
+        margin-left: -50%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .dropzone .dz-default.dz-message span {
+        font-size: 20px;
+    }
+    .dropzone .dz-default.dz-message > span > span {
+        font-size: 20px;
+    }
+}
+
+.event-form-photoes-container .dropzone {
+    z-index: 0;
+}

@@ -1,0 +1,31 @@
+.contact{
+  padding: 15px 0 7px;
+  font-family: 'Roboto Condensed', sans-serif;
+
+  .h__logo{
+    position: absolute;
+    left: 50%;
+    margin-left: -83px;
+  }
+
+  &__part{
+    width: 50%;
+
+    &:first-child{text-align: left}
+    &:last-child{text-align: right}
+
+    .number {
+      margin-right: 42px;
+      color: $main-color;
+    }
+
+    span {
+
+      margin-left: 0;
+    }
+  }
+
+  span{
+    letter-spacing: -0.15px;
+  }
+}

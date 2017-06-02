@@ -1,0 +1,113 @@
+.icon-list{
+  list-style-type: none;
+  margin-top: 43px;
+  margin-bottom: 58px;
+  text-align: center;
+
+  &__item{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    max-width: 242px;
+    margin-right: 50px;
+    width: 100%;
+    text-align: left;
+
+    &:after{
+      display: block;
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20px;
+      background: url("../images/arrow-right.png");
+      width: 63px;
+      height: 15px;
+    }
+
+    &:last-child{
+      padding-right: 0;
+      margin-right: 0;
+      &:after{display: none}
+    }
+  }
+
+  &__img{
+    width: auto;
+    max-width: 100%;
+    margin-bottom: 7px;
+  }
+
+  &__text{
+    font-weight: 300;
+    line-height: 1.45;
+  }
+
+  &__title{
+    font-size: 18px;
+    height: 42px;
+    margin-top: 28px;
+    margin-bottom: 27px;
+  }
+
+  &__label{
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  &__btn{
+    max-width: 193px;
+    font-size: 16px;
+    padding: 13px 0 12px;
+    width: 100%;
+  }
+
+  .star{
+    font-family: Arial;
+  }
+
+  @include desktop-small{
+    &__item{
+      margin-right: 40px;
+      max-width: 200px;
+    }
+  }
+
+  @include tablet{
+    margin-bottom: 30px;
+
+    &__item{
+      display: block;
+      margin: 0 auto 80px;
+      padding-bottom: 30px;
+
+      &:last-child{
+        margin-right: auto;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+
+      &:after{
+        right: 50%;
+        margin-right: -31px;
+        transform: rotate(90deg);
+        top: auto;
+        bottom: -30px;
+      }
+    }
+
+    &__title{
+      height: auto;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    &__text, &__label{
+      margin-bottom: 0;
+      br{display: none}
+    }
+  }
+
+  @include tel{
+    &__btn{margin-top: 20px}
+  }
+}

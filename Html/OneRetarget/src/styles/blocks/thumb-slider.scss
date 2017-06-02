@@ -1,0 +1,110 @@
+.thumb-slider{
+  padding: 0 8px;
+
+  &__wrap{
+    position: relative;
+    z-index: 2;
+  }
+  
+  &__item{
+    margin-top: 10px;
+    margin-bottom: -1px;
+    text-align: center;
+    cursor: pointer;
+
+    p{
+      display: inline-block;
+      border-bottom: 1px dashed #b1b1b1;
+      font-size: 24px;
+      color: #b1b1b1;
+    }
+  }
+
+  .center{
+    .thumb-slider__item{
+
+      @include tablet-wide{
+        background-color: #fff;
+        -webkit-box-shadow: 0 0 15px 0 rgba(0,0,0,0.75);
+        -moz-box-shadow: 0 0 15px 0 rgba(0,0,0,0.75);
+        box-shadow: 0 0 15px 0 rgba(0,0,0,0.75);
+      }
+
+      p{
+        color: #000;
+        border-bottom: 0;
+      }
+    }
+  }
+
+  &__nav{
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    top: 43px;
+  }
+
+  &__arrow{
+    width: 63px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    background: url("../images/arrow-right.png") 0 0 no-repeat;
+    cursor: pointer;
+
+    &--prev{
+      transform: rotate(180deg);
+      left: -45px;
+    }
+
+    &--next{right: -45px}
+  }
+
+  @include tablet-wide{
+    padding: 0 0;
+
+    &__wrap{
+      margin-top: 30px;
+    }
+
+    &__arrow{
+      &--prev{left: 15px}
+      &--next{right: 15px}
+    }
+
+    &__nav{top: 27px}
+
+    &__item{
+      background-color: #fff;
+      box-shadow: none;
+
+      margin-top: 0;
+      margin-bottom: 0;
+
+      p{
+        color: #000;
+        border-bottom: 0;
+      }
+    }
+
+    .center{
+      .thumb-slider__item{box-shadow: none}
+    }
+  }
+
+  @include tel{
+    padding: 0;
+
+    &__item{
+      padding: 0 30px;
+      height: 90px;
+    }
+
+    &__arrow{
+      width: 20px;
+      background-position: right 0;
+      &--prev{left: 10px}
+      &--next{right: 10px}
+    }
+  }
+}

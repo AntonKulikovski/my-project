@@ -1,0 +1,209 @@
+<?php
+
+use yii\helpers\Url;
+use frontend\models\Package;
+use frontend\models\Page;
+
+/**
+ * @var $product \frontend\models\Product
+ * @var $package \frontend\models\Package
+ * @var $category \frontend\models\Category
+ * @var $slide \frontend\models\Slider
+ * @var $review \frontend\models\Review
+ * @var $magazine \frontend\models\Magazine
+ * @var $page Page
+ */
+
+$this->title = $page->title;
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $page->descriptionMeta,
+]);
+$limit = Yii::$app->params['instagram']['limit'];
+$size = Yii::$app->params['instagram']['size'];
+?>
+<main>
+    <div class="slider__wrap">
+        <div id="main-slider" class="slider">
+            <?php foreach ($slider as $index => $slide): ?>
+                <a href="<?= $slide->url ? $slide->url : '#' ?>">
+                    <div id="slide-<?= $index ?>"
+                         class="slider__item"
+                         style="background-image: url(<?php print $slide->imageFile->asHome; ?>)">
+                        <?php if (!empty($slide->description)): ?>
+                            <div class="c-align">
+                                <div class="slider__cnt white-color">
+                                    <?php print $slide->description; ?>
+                                    <button class="btn slider__btn">хочу посмотреть</button>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </a>
+            <?php endforeach; ?>
+        </div>
+        <div class="slider-pag pag-line js-slider-pag">
+            <?php foreach ($slider as $index => $slide): ?>
+                <div id="<?= $index ?>" class="slider-pag__item border-animation  <?= $index == 0 ? 'active' : '' ?>">
+                    <span class="pag-wrap"></span>
+                    <div class="wrapper">
+                        <div class="circle">
+                            <div class="circle__item c1"></div>
+                            <div class="circle__item c2"></div>
+                            <div class="circle__item c3"></div>
+                            <div class="circle__item c4"></div>
+                            <div class="circle__item mask"></div>
+                            <div class="image"
+                                 style="background-image: url('<?php print $slide->imageFile->asPreview; ?>')"></div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div class="c-align">
+        <?php foreach ($categories as $category): ?>
+            <div class="b-type">
+                <div class="b-type__title-wrap border">
+                    <a href="<?= Url::to(['category/index', 'slug' => $category->slug]) ?>"
+                       class="b-type__title">
+                        <?= $category->name ?>
+                    </a>
+                </div>
+                <div class="b-type__cnt good-slider">
+                    <?php foreach ($category->products as $product) : ?>
+                        <div class="b-good">
+                            <a class="b-good__link"
+                               href="<?= Url::to(['product/index', 'slug' => $product->slug]) ?>">
+                                <img class="b-good__img"
+                                     alt="<?= $product->name . ' ' . $product->productVolumes[0]->volume ?>"
+                                     title="<?= $product->name . ' ' . $product->productVolumes[0]->volume ?>"
+                                     src="<?= $product->productVolumes[0]->imageFile->asHome ?>">
+                                <p class="b-good__title"><?= $product->name ?></p>
+                            </a>
+                            <p
+                                class="b-good__cost">
+                                от
+                                <?= isset($product->productVolumes[0]) ? Yii::$app->formatter->asDecimal($product->productVolumes[0]->price, 2) : '0,00' ?>
+                                руб.
+                            </p>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <button class="btn b-type__btn"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+            </div>
+        <?php endforeach; ?>
+        <div class="b-type">
+            <div class="b-type__title-wrap border">
+                <a href="<?= Url::to(['package/index', 'slug' => 'all']) ?>" class="b-type__title">
+                    <?= Page::getModelByNameFixed('package')->name ?>
+                </a>
+            </div>
+            <div class="b-type__cnt good-slider">
+                <?php foreach ($packages as $package) : ?>
+                    <div class="b-good">
+                        <a class="b-good__link" href="<?= Url::to(['package/package', 'slug' => $package->slug]) ?>">
+                            <img class="b-good__img"
+                                 alt="<?= str_replace('.' . $package->photos[0]->imageFile->extension, '', $package->photos[0]->imageFile->name) ?>"
+                                 title="<?= str_replace('.' . $package->photos[0]->imageFile->extension, '', $package->photos[0]->imageFile->name) ?>"
+                                 src="<?= $package->photos[0]->imageFile->asHome ?>">
+                            <p class="b-good__title"><?= $package->name ?></p>
+                        </a>
+                        <p class="b-good__cost">
+                            <?php switch ($package->type) {
+                                case Package::TYPE_STANDARD :
+                                    echo 'от ' . Yii::$app->formatter->asDecimal($package->price + $priceProduct * 2, 2);
+                                    break;
+                                case Package::TYPE_ONE :
+                                    echo 'от ' . Yii::$app->formatter->asDecimal($package->price + $priceProduct, 2);
+                                    break;
+                                case Package::TYPE_ASORTI :
+                                    echo 'от ' . Yii::$app->formatter->asDecimal($package->price, 2);
+                                    break;
+                            }
+                            ?>
+                            руб.
+                        </p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <button class="btn b-type__btn"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+        </div>
+        <div class="b-type border">
+            <div class="b-type__title-wrap">
+                <a href="<?= Url::to(['review/index']) ?>" class="b-type__title">
+                    <?= Page::getModelByNameFixed('review')->name ?>
+                </a>
+            </div>
+            <div class="review__slider">
+                <?php foreach ($reviews as $review): ?>
+                    <div class="review">
+                        <img class="review__ava"
+                             alt="<?= $review->name ?>"
+                             title="<?= $review->name ?>"
+                             src="<?= $review->imageFile->asPreview ?>">
+                        <?php if ($review->urlSoc): ?>
+                            <?php print '<a href="' . $review->urlSoc . '" target="_blank">"' ?>
+                        <?php endif; ?>
+                        <span class="review__name"><?= $review->name ?></span>
+                        <?php if ($review->urlSoc): ?>
+                            <?php print '</a>' ?>
+                        <?php endif; ?>
+                        <p class="review__cnt">
+                            <?= $review->message ?>
+                        </p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="b-type border">
+            <div class="b-type__title-wrap">
+                <a href="<?= Url::to(['magazine/index']) ?>" class="b-type__title">
+                    <?= Page::getModelByNameFixed('magazine')->name ?>
+                </a>
+            </div>
+            <div class="review__slider">
+                <?php foreach ($magazines as $magazine): ?>
+                    <div class="review">
+                        <a href="<?= Url::to(['magazine/magazine', 'slug' => $magazine->slug]) ?>">
+                            <img class="review__ava"
+                                 alt="<?= $magazine->title ?>"
+                                 title="<?= $magazine->title ?>"
+                                 src="<?= $magazine->imageFile->asPreview ?>">
+                            <span class="review__name"><?= $magazine->name ?></span>
+                        </a>
+                        <p><?php print $magazine->descriptionShort ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <div class="b-type border">
+            <div class="b-type__title-wrap">
+                <a target="_blank" href="https://www.instagram.com/behoney.by/" class="b-type__title"><i
+                        class="fa fa-instagram" aria-hidden="true"></i> Instagram</a>
+            </div>
+            <div id="insta-slider" class="inst-slider">
+                <?php if (is_object($media) && property_exists($media, 'data')): ?>
+                    <?php $images = array_slice($media->data, 0, $limit); ?>
+                    <?php if (is_array($images) && !empty($images)): ?>
+                        <?php foreach ($images as $index => $data): ?>
+                            <a href="<?= $data->link ?>" target="_blank">
+                                <img alt="инстаграмм behoney.by <?= $index ?>"
+                                     title="инстаграмм behoney.by <?= $index ?>"
+                                     src="<?= $data->images->low_resolution->url ?>"
+                                     height="<?= $size ?>"
+                                     width="<?= $size ?>"/>
+                            </a>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+        <div class="b-type border seo">
+            <div class="b-type__title-wrap">
+                <h1 class="b-type__title"><?= Page::getModelByNameFixed('index')->name ?></h1>
+            </div>
+            <p><?php print Page::getModelByNameFixed('index')->content ?></p>
+        </div>
+    </div>
+</main>

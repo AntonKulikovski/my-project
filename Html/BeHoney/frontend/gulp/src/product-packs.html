@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html-templates/head.html')
+<body>
+
+@@include('html-templates/header.html')
+
+<main>
+    <div class="c-align">
+
+        <div class="b-side__wrap">
+            <div class="b-side">
+                <div class="product-slider">
+                    <div id="main-slider" class="slider">
+                        <div id="slide-0" class="slider__item">
+                            <img src="images/gift-product.png">
+                        </div>
+                        <div id="slide-1" class="slider__item">
+                            <img src="images/gift-product.png">
+                        </div>
+                    </div>
+                    <div class="slider-pag">
+                        <div id="0" class="slider-pag__item active">
+                            <img src="images/pagination-gift-1.png">
+                        </div>
+                        <div id="1" class="slider-pag__item">
+                            <img src="images/pagination-gift-2.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="b-side__text">
+                    <p>Набор для тех, кто не может определиться) Гречишный или нежный цветочный? Суровая горчица или сдержанный алтайский? Какой вкус мёда понравится?</p>
+                    <p>Не сдерживайтесь! Берите сразу две.</p>
+                    <p>Сразу две банки мёда разных сортов, упакованные в стильную коробку.</p>
+                    <p>Сорта выбираете Вы, а мы доставляем Ваш подарок точно в срок!</p>
+                    <p>Можно даже устроить сладкое состязание - какая баночка мёда закончится первой?</p>
+                </div>
+                <div class="social-shared">
+                    <img src="images/shared-link.png">
+                </div>
+            </div>
+            <div class="b-side">
+                <div class="floor product">
+                    <p class="product__title">НАБОР «МЁД В КОРОБКЕ»</p>
+                    <div class="set">
+                        <div class="set__item">
+                            <div class="set__img">
+                                <img set-img="1" class="active" src="images/set/set-1.png">
+                                <img set-img="2" src="images/set/set-2.png">
+                            </div>
+                            <div class="set__cnt bank">
+                                <span class="bank__title">Баночка №1:</span>
+                                    <div class="bank__drop">
+                                    <input type="text" class="bank__select" readonly value="Мёд гречишный">
+                                    <span class="bank__click"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                    <ul class="bank__list">
+                                        <li set="1" class="bank__item">Мёд гречишный</li>
+                                        <li set="2" class="bank__item">Мёд лесной</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="set__item">
+                            <div class="set__img">
+                                <img set-img="1" src="images/set/set-1.png">
+                                <img set-img="2" class="active" src="images/set/set-2.png">
+                            </div>
+                            <div class="set__cnt bank">
+                                <span class="bank__title">Баночка №2:</span>
+                                <div class="bank__drop">
+                                    <input type="text" class="bank__select" readonly value="Мёд лесной">
+                                    <span class="bank__click"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                    <ul class="bank__list">
+                                        <li set="1" class="bank__item">Мёд гречишный</li>
+                                        <li set="2" class="bank__item">Мёд лесной</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="product__cost">
+                        Цена: 25 рублей
+                    </p>
+                    <div class="count">
+                        <span class="count__btn count__btn--dec"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                        <input type="number" class="count__field" value="1">
+                        <span class="count__btn count__btn--inc"><i class="fa fa-plus" aria-hidden="true"></i></span>
+
+                        <span class="count__unit">шт.</span>
+                    </div>
+                    <button class="btn btn--yellow btn__to-cart">в корзину</button>
+                </div>
+                <div class="floor">
+                    <ul class="accord">
+                        <li class="accord__item">
+                            <span class="accord__open"><i class="fa fa-angle-down" aria-hidden="true"></i>Стандартная доставка</span>
+                            <div class="accord__text">
+                                <p>Осуществляется на следующий день после заказа.
+                                    Стоимость доставки по Минску в пределах МКАД*:</p>
+                                <ul>
+                                    <li>• При заказе до 500 000 – 50 000</li>
+                                    <li>• При заказе свыше 500 000 – доставка бесплатная</li>
+                                </ul>
+                                <span>* заказы за МКАД рассчитываются отдельно</span>
+                            </div>
+                        </li>
+                        <li class="accord__item">
+                            <span class="accord__open"><i class="fa fa-angle-down" aria-hidden="true"></i>Срочная доставка</span>
+                            <div class="accord__text">
+                                <ul>
+                                    <li>• При заказе до 500 000 – 50 000</li>
+                                    <li>• При заказе свыше 500 000 – доставка бесплатная</li>
+                                    <li>* заказы за МКАД рассчитываются отдельно</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="accord__item">
+                            <span class="accord__open"><i class="fa fa-angle-down" aria-hidden="true"></i>Самовывоз</span>
+                            <div class="accord__text">
+                                <p>Осуществляется на следующий день после заказа.
+                                    Стоимость доставки по Минску в пределах МКАД*:
+                                </p>
+                                <ul>
+                                    <li>• При заказе до 500 000 – 50 000</li>
+                                    <li>• При заказе свыше 500 000 – доставка бесплатная</li>
+                                    <li>* заказы за МКАД рассчитываются отдельно</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="accord__item">
+                            <span class="accord__open"><i class="fa fa-angle-down" aria-hidden="true"></i>Доставка по всей Беларуси</span>
+                            <div class="accord__text">
+                                <p>Осуществляется на следующий день после заказа.
+                                    Стоимость доставки по Минску в пределах МКАД*:</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@@include('html-templates/footer.html')
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
+<script src="vendor/owl/owl.carousel.min.js" type="text/javascript"></script>
+<script src="scripts/main.min.js" type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+.page-wrapper{
+  position: relative;
+  left: 0;
+  transition: all $timeanimation linear;
+
+  padding-top: 188px;
+
+  &.open-menu{
+    left: 93%;
+  }
+}
+
+@include tablet{
+  //.page-wrapper{padding-top: 169px}
+  .page-wrapper{padding-top: 48px}
+}
+
+@include tel{
+  .page-wrapper {
+    &.open-menu {
+      left: 83%;
+    }
+  }
+}

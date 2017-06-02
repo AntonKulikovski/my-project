@@ -1,0 +1,16 @@
+{preview}
+<div class='row'>
+    <div class='pull-left'>
+        {remove}
+    </div>
+    <div style="display: inline-block; margin: 5px 0 0 15px;">
+        {input}
+    </div>
+</div>
+<div class='row'>
+    <div class='col-lg-12' style="max-width: 400px; margin-top: 10px;">
+        <div class='progress progress-striped progress-sm' style='display:none;'>
+            {progress}
+        </div>
+    </div>
+</div>

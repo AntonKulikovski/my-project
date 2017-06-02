@@ -1,0 +1,40 @@
+.drop-list{
+  background-color: #fff;
+  list-style-type: none;
+  text-align: left;
+  padding: 26px 18px;
+  box-shadow: 0 0 10px -2px rgba(0,0,0,.6);
+
+  &__wrap{
+    position: absolute;
+    top: 17px;
+    padding-top: 20px;
+    left: -29px;
+    z-index: 12;
+    display: none;
+  }
+
+  li{
+    margin-bottom: 20px;
+
+    &:last-child{margin-bottom: 0}
+
+    a{
+      white-space: nowrap;
+    }
+  }
+}
+
+@include tablet{
+  .drop-list{
+    box-shadow: none;
+    background-color: transparent;
+    text-align: center;
+    padding: 0;
+
+    &__wrap{
+      position: static;
+      padding-top: 25px;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.b-say{
+  padding: 15px 40px 21px;
+  text-align: center;
+  margin-bottom: 144px;
+  position: relative;
+  background-color: #fff;
+
+  &:last-child{margin-bottom: 0}
+
+  &:after{
+    display: block;
+    content: "";
+    position: absolute;
+    height: 38px;
+    left: 0;
+    right: 0;
+    bottom: -38px;
+    z-index: -1;
+    background-image: url("../images/said-triangle.png");
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  &__quote{
+    font-size: 14px;
+    line-height: 26px;
+    margin: 0;
+    font-style: italic;
+  }
+
+  &__wrap{
+    max-width: 754px;
+    margin: 17px auto 167px;
+  }
+
+  &__author{
+    position: absolute;
+    left: 50%;
+    bottom: -115px;
+    transform: translateX(-50%);
+  }
+
+  &__author-name {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+}
+
+@include tel{
+  .b-say{
+    padding: 13px 8px 21px;
+    margin-bottom: 148px;
+
+    &__wrap{
+      padding: 0 15px;
+      margin: 47px auto 167px;
+    }
+  }
+}

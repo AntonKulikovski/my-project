@@ -1,0 +1,33 @@
+.thank{
+  font-family: "Roboto Condensed";
+  margin-top: 32px;
+
+  &__text{
+    font-size: 16px;
+    margin: 0;
+  }
+
+  &__check{
+    color: #000;
+    font-size: 28px;
+    font-family: 'Roboto Slab';
+    margin-top: 20px;
+    margin-bottom: 23px;
+
+    p{
+      display: inline-block;
+      background-color: $yellow-color;
+      margin: 0;
+      padding: 9px 11px 6px;
+      line-height: 23px;
+
+      &:last-child{
+        padding: 5px 11px 8px;
+      }
+    }
+  }
+
+  &__img{
+    margin-top: 58px;
+  }
+}

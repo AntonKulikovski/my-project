@@ -1,0 +1,110 @@
+.wrapper{
+  @include tel{display: none}
+}
+
+.pag-wrap{
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+
+  @include tel{display: none}
+}
+
+.circle{
+  position: relative;
+  width: 76.2px;
+  height: 76.2px;
+  border-radius: 50%;
+  background: $yellow-color ;
+  overflow: hidden;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  &__item{
+    display: block;
+    background: #fff;
+    width: 79.375px;
+    height: 79.375px;
+    position: absolute;
+    border-radius: 50%;
+  }
+}
+
+.c1 {
+  top: -38.1px;
+  left: -38.1px;
+  z-index: 2;
+}
+.c2 {
+  top: 38.1px;
+  left: -38.1px;
+  z-index: 2;
+}
+.c3 {
+  top: 38.1px;
+  left: 38.1px;
+  z-index: 2;
+}
+.c4 {
+  top: -38.1px;
+  left: 38.1px;
+  z-index: 0;
+}
+
+.mask {
+  top: -38.1px;
+  left: -38.1px;
+  background: $yellow-color ;
+  z-index: 1;
+}
+
+.active{
+  .circle {
+    .c1 {animation: left-top-border 3s ease-out forwards}
+    .c2 {animation: left-bottom-border 3s ease-out 1.5s forwards}
+    .c3 {animation: right-bottom-border 3s ease-out 3s forwards}
+    .c4 {animation: right-top-border 3s ease-out 4.5s forwards}
+  }
+}
+
+
+@keyframes left-top-border {
+  to {
+    top: 38.1px;
+    left: -76.2px;
+  }
+}
+@keyframes left-bottom-border {
+  to {
+    top: 76.2px;
+    left: 38.1px;
+  }
+}
+@keyframes right-bottom-border {
+  to {
+    top: -38.1px;
+    left: 76.2px;
+  }
+}
+@keyframes right-top-border {
+  to {
+    top: -76.2px;
+    left: -38.1px;
+  }
+}
+.image {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  top: 3.175px;
+  left: 3.175px;
+  z-index: 3;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}

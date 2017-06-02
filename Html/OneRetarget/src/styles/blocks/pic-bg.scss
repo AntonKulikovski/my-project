@@ -1,0 +1,7 @@
+.pic-bg{
+  background: url("../images/pic-bg.png") 0 0 no-repeat;
+
+  @include tablet{
+    background-size: auto 100%;
+  }
+}

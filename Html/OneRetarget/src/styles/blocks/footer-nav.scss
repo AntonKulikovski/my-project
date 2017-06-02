@@ -1,0 +1,44 @@
+.footer-nav{
+  margin-right: 6%;
+
+  &__name{
+    font-size: 18px;
+    margin: 0 0 33px;
+  }
+
+  &__list{
+    list-style-type: none;
+
+    li{
+      margin-bottom: 11px;
+
+      a{
+        color: $basic-font-color;
+        font-weight: 300;
+      }
+    }
+  }
+
+  &:last-child{
+    a:hover{text-decoration: none}
+  }
+
+  @include tablet{
+    width: 44%;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin-bottom: 30px;
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+
+    &__name{margin-bottom: 20px}
+  }
+
+  @include tel{
+    width: 100%;
+    margin-right: 0;
+  }
+}

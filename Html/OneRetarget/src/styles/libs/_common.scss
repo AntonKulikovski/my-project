@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  outline: none !important;
+}
+
+body {
+  position: relative;
+  font-size: $basic-font;
+  font-family: $basic-font-family;
+  line-height: $basic-line-height;
+  color: $basic-font-color;
+  background-color: $body-color;
+  padding-top: 1px;
+
+  @include tablet-wide{padding-top: 97px}
+  @include tel{padding-top: 87px}
+}
+
+input::-webkit-input-placeholder, input:-ms-input-placeholder, input:-moz-placeholder {
+}
+
+ol, ul{
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  font-size: 36px;
+  margin: 0;
+  font-weight: 100;
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+  font-size: 46px;
+  font-weight: 100;
+  margin: 0;
+}
+
+h3{
+  font-size: 54px;
+  font-weight: 100;
+  margin: 0;
+  text-align: center;
+}
+
+h4{font-size: 36px}
+
+@include tel{
+  h3{font-size: 40px}
+  h2{font-size: 35px}
+  h1{font-size: 30px}
+  h4{font-size: 30px}
+}
+
+a{
+  text-decoration: none;
+  &:hover{text-decoration: underline}
+}
+
+.clearfix {
+  &:after {
+    display: table;
+    content: '';
+    clear: both;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 0;
+  }
+}
+
+.hidden-element {
+  display: none;
+}
+
+.justify {
+  font-size: 0;
+  line-height: 0;
+  letter-spacing: 0;
+  word-spacing: 0;
+  text-align: justify;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.c-align{
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+
+  @include desktop-small{
+    padding: 0 10px;
+  }
+}
+
+.center-cnt {
+  text-align: center;
+}

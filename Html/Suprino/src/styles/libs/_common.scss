@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+  outline: none !important;
+}
+
+body {
+  font-size: $basic-font;
+  line-height: $basic-line-height;
+  position: relative;
+  color: $main-color;
+  background: #fff;
+  font-family: 'lato', sans-serif;
+}
+
+//FOOTER ALWAYS BOTTOM
+
+html, body{
+  height: 100%;
+}
+
+.wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.page-content {
+  display: table-row;
+  height: 100%;
+}
+
+.c-align{
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: 1230px){
+    padding: 0 15px;
+  }
+
+  @include desktop(){
+    max-width: 100%;
+  }
+
+  @media (max-width: 500px){
+    padding: 0;
+  }
+}
+
+//END FOOTER ALWAYS BOTTOM
+
+ol, ul{
+  margin: 0;
+  padding: 0;
+}
+
+.img-responsive{
+  max-width: 100%;
+}
+
+a{
+  text-decoration: none;
+}
+
+.clearfix {
+  &:after {
+    display: table;
+    content: '';
+    clear: both;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 0;
+  }
+}
+
+.center-align {text-align: center}
+.no-margin{margin: 0}
+.no-padding{padding: 0}
+
+.justify {
+  font-size: 0;
+  line-height: 0;
+  letter-spacing: 0;
+  word-spacing: 0;
+  text-align: justify;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 30px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  line-height: 0;
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  border: none;
+}
+
+.text-weight-light{
+  font-family: 'lato-light';
+}

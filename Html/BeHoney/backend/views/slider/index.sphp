@@ -1,0 +1,38 @@
+<?php
+
+use yii\helpers\Html;
+use yii\grid\GridView;
+
+/* @var $this yii\web\View */
+/* @var $searchModel backend\models\SliderSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
+
+$this->title = 'Слайдер';
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="slider-index">
+    <h1><?= $this->title ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <p>
+        <?php print Html::a('Создать слайд', ['create'], ['class' => 'btn btn-success']); ?>
+    </p>
+    <?php print GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
+            [
+                'attribute' => 'image',
+                'format' => 'html',
+                'value' => function ($model) {
+                    return !$model->imageFile->isEmpty ? Html::img($model->imageFile->asSmall) : null;
+                },
+            ],
+            'position',
+
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+</div>

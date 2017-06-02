@@ -1,0 +1,26 @@
+<?php
+
+use backend\models\Product;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Product */
+/* @var $form backend\widgets\ActiveForm */
+?>
+<?php print $form->field($model, 'title')->textInput(['maxlength' => true]); ?>
+<?php print $form->field($model, 'name')->textInput(['maxlength' => true]); ?>
+<?php print $form->field($model, 'categoryId')->dropDownList(Product::getListCategories(), ['prompt' => 'Выберите категорию']); ?>
+<?php //print $form->field($model, 'imageFile')->fileBlueimpUploader([
+//    'url' => ['product/upload-image'],
+//    'previewData' => [
+//        'format' => 'small',
+//    ],
+//]); ?>
+<?php print $form->field($model, 'url')->textInput(['maxlength' => true]); ?>
+<?php print $form->field($model, 'shortDescription')->textarea(['rows' => 6]); ?>
+<?php print $form->field($model, 'description')->redactor([
+    'settings' => [
+        'minHeight' => 300,
+        'plugins' => ['fullscreen', 'fontcolor', 'video']
+    ],]); ?>
+<?php print $form->field($model, 'position')->textInput(); ?>
+<?php print $form->field($model, 'descriptionMeta')->textarea(); ?>

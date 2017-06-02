@@ -1,0 +1,41 @@
+<?php
+
+use frontend\models\Page;
+use yii\helpers\Html;
+use yii\helpers\Url;
+
+/* @var $this yii\web\View */
+/* @var $name string */
+/* @var $message string */
+/** @var $exception \yii\web\NotFoundHttpException */
+
+$this->title = $exception->getCode();
+
+?>
+<main>
+    <div class="c-align">
+        <?php if ($exception->statusCode == 404): ?>
+        <div class="b-type emptyShopcart" style="display: block">
+            <h1 href="#" class="b-type__title">Страница не найдена</h1>
+            <div class="empty">
+                <img alt="пустая банка" title="пустая банка" src="/images/empty-bank.png">
+                <p class="empty__title">Перейдите в каталог:</p>
+                <?php foreach ($categories as $category): ?>
+                    <div class="empty__link">
+                        <a href="<?= Url::to(['category/' . $category->slug . '/']) ?>">
+                            <?= $category->name ?>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+                <div class="empty__link"><a
+                        href="<?= Url::to(['package/index', 'slug' => 'all']) ?>"><?= Page::getModelByNameFixed('package')->name ?></a>
+                </div>
+            </div>
+            <? else: ?>
+                <div class="alert alert-danger">
+                    <?php print nl2br(Html::encode($exception->getMessage())); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</main>

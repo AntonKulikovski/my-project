@@ -1,0 +1,45 @@
+<?php
+
+use frontend\models\Order;
+
+/* @var $this yii\web\View */
+/* @var $order frontend\models\Order */
+/* @var $productOrder \common\models\ProductOrder */
+?>
+<div class="new-order">
+    <p>Здравствуйте <?= $order->name ?>.</p>
+    <p>Ваш заказ был принят.</p>
+    <?php print $order->typePayment == Order::PAYMENT_ERIP
+        ? '<p>Номер вашего заказа в ЕРИП ' . $order->id . '</p>'
+        : '<p>Номер вашего заказа ' . $order->id . ' от ' .  Yii::$app->formatter->asDate($order->createdAt) . '</p>'; ?>
+    <p>Вы заказали:</p>
+    <ul>
+        <?php foreach ($order->productOrders as $productOrder): ?>
+            <li>
+                <p>
+                    <?= $productOrder->name ?>
+                    <?= isset($productOrder->volume) ? $productOrder->volume : '' ?>
+                    <?= $productOrder->nameProductFirst ?>
+                    <?= $productOrder->nameProductSecond ?>
+                    <?= Yii::$app->formatter->asDecimal(
+                        $productOrder->price + $productOrder->priceProductFirst + $productOrder->priceProductSecond,
+                        2
+                    ) . ' руб.'?>
+                    <?= $productOrder->count . ' шт.' ?>
+                    <?= Yii::$app->formatter->asDecimal(
+                        $productOrder->count * ($productOrder->price + $productOrder->priceProductFirst + $productOrder->priceProductSecond),
+                        2
+                    ) . ' руб.'; ?>
+                </p>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <p>Итого: </p>
+    <p>Количество: <?= $order->count ?>.</p>
+    <p>Цена: <?= Yii::$app->formatter->asDecimal($order->price, 2) . ' руб.' ?>.</p>
+
+    <p>Тип доставки: <?= Order::$deliveries[$order->typeDelivery] ?>.</p>
+    <p>Тип оплаты: <?= Order::$payments[$order->typePayment] ?>.</p>
+
+    <p>Спасибо.</p>
+</div>

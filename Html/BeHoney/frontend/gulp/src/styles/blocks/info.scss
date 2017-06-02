@@ -1,0 +1,41 @@
+.info{
+  padding: 0 28px;
+  font-family: 'Roboto Condensed';
+
+  &__item{
+    margin-bottom: 23px;
+  }
+  &__label{
+    display: inline-block;
+    width: 100%;
+    max-width: 178px;
+    vertical-align: top;
+  }
+  &__cnt{
+    display: inline-block;
+    color: #000;
+
+    a{color: #000}
+  }
+
+  .shared{
+    &__icon{
+      &:hover{color: $yellow-color}
+    }
+  }
+}
+
+@include tablet{
+  .info{
+    &__label{
+      display: block;
+    }
+
+    .shared{
+      display: block;
+      text-align: left;
+    }
+
+    &__item{text-align: left}
+  }
+}

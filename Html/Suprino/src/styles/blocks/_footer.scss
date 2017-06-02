@@ -1,0 +1,111 @@
+.footer{
+  background: $purple-bg-color;
+
+  &__logo{
+    @extend .logo;
+    font-size: 27px;
+    margin-top: 34px;
+    padding-bottom: 28px;
+    &:before{
+      width: 35px;
+      height: 40px;
+      background-image: url("../images/footer-logo.png");
+    }
+    &:hover{
+      color: $link-bg-hover;
+      &:before{background-position: 0 0}
+    }
+  }
+
+  &__control-panel{
+    @extend .header__control-panel;
+    padding: 20px 0;
+  }
+
+  &__copy{
+    @extend .center-align;
+    font-size: 12px;
+    color: #9789cb;
+    background-color: #30235f;
+    padding: 6px 0;
+    text-transform: uppercase;
+  }
+
+  @include tablet(){
+    .localization{
+      display: inline-block;
+      margin: 0;
+      float: none;
+      padding-bottom: 10px;
+
+      &__select{
+        display: inline-block;
+        padding-right: 0;
+        margin-right: 5px;
+        background-image: none;
+        line-height: 1em;
+        display: none;
+
+        img{
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
+
+      &__drop{
+        display: inline-block!important;
+        height: auto!important;
+        overflow: visible!important;
+        padding: 5px 0 0!important;
+        position: static;
+        left: auto;
+        right: auto;
+        top: auto;
+        box-shadow: none;
+
+        li{
+          display: inline-block;
+          margin: 0 5px 5px;
+
+          img{
+            vertical-align: top;
+          }
+        }
+      }
+
+      &__drop li, &__select{
+        padding-bottom: 2px;
+
+        &:hover{
+          border-bottom: 2px solid $link-bg-hover;
+          padding-bottom: 0;
+        }
+
+        &.active{
+          border-bottom: 2px solid $link-bg-hover;
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    &__logo{
+      float: none;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+
+    &__control-panel{
+      float: none;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .nav{
+      float: none;
+      li{
+        display: block;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}

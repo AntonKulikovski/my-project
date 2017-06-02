@@ -1,0 +1,20 @@
+.type-text{
+  margin: 33px auto 20px;
+  width: 100%;
+  padding: 0 20px;
+  max-width: 810px;
+  font-family: 'Roboto Condensed', sans-serif;
+  letter-spacing: -0.1px;
+
+  &--full{
+    max-width: 100%;
+  }
+
+  &.center-text{text-align: center}
+}
+
+@include tablet{
+  .type-text{
+    padding: 0 20px;
+  }
+}

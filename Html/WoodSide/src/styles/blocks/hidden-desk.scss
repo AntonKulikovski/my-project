@@ -1,0 +1,4 @@
+.hidden-desk{display: none}
+@include tablet{
+  .hidden-desk{display: block}
+}

@@ -1,0 +1,77 @@
+.h{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 25;
+
+  &__row{
+    background-color: $bg-color;
+    box-shadow: 0 7px 10px -6px rgba(0,0,0,.5);
+    &.yellow{
+      box-shadow: none;
+      background-color: $yellow-color;
+    }
+  }
+
+  &__cnt{
+    @extend .c-align;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+
+    margin: 0 auto;
+    width: 900px;
+  }
+
+  &__logo{
+    width: 166px;
+    text-align: center;
+  }
+
+  &__rightside{
+    &--mobile{
+      display: none;
+    }
+  }
+}
+
+@include tablet{
+  .h{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    background-color: #f5f5f5;
+    padding: 0 15px;
+
+    -webkit-box-shadow: 0px 7px 10px -6px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 7px 10px -6px rgba(0,0,0,0.5);
+    box-shadow: 0px 7px 10px -6px rgba(0,0,0,0.5);
+
+    &__rightside{
+      float: right;
+      margin-left: 30px;
+      margin-top: 3px;
+      &:last-child{margin-left: 0}
+
+      &--mobile{
+        display: block;
+      }
+    }
+
+    &__row{
+      box-shadow: none;
+      &.yellow{
+        display: none;
+      }
+    }
+
+    &__cnt{
+      display: block;
+      width: auto;
+      text-align: left;
+    }
+  }
+}

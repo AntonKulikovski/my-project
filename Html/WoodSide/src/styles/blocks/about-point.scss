@@ -1,0 +1,36 @@
+.about-point{
+  margin-bottom: 18px;
+
+  &:last-child{margin-bottom: 0}
+
+  &__title, &__txt{
+    font-size: 16px;
+    font-family: 'Avenir';
+    color: #371700;
+  }
+
+  &__title{
+    text-transform: uppercase;
+    font-weight: normal;
+    line-height: 26px;
+    margin-top: 0;
+    margin-bottom: 1px;
+  }
+
+  &__txt{
+    margin: 0;
+    line-height: 26px;
+  }
+}
+
+@include tablet{
+  .about-point{
+    margin-bottom: 19px;
+
+    &:last-child{margin-bottom: 0}
+
+    &__title, &__txt{
+      font-size: 14px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.good-slider, .mobile-slider{
+  &.owl-theme{
+    .owl-controls{
+      display: none;
+      margin-top: 35px;
+      @extend .custom-slider-nav;
+
+      @include tel {display: block}
+    }
+  }
+}

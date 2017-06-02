@@ -1,0 +1,11 @@
+.b-flex{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  &--center{justify-content: center}
+
+  @include tablet{
+    display: block;
+  }
+}

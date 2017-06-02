@@ -1,0 +1,5 @@
+.mCSB_inside>.mCSB_container{margin-right: 20px}
+.mCSB_scrollTools{width: 15px}
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar, .mCS-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar, .mCS-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar{
+  background: $yellow-color;
+}

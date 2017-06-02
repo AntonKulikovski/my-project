@@ -1,0 +1,17 @@
+<?php
+
+use frontend\models\Page;
+use yii\helpers\Url;
+
+?>
+    <div itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="/" itemprop="url"><span itemprop="title"><?= Yii::t('yii', 'Home') ?></span></a>
+    </div>
+    <div itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+        <a href="<?= Url::to(['package/index', 'slug' => 'all']) ?>" rel="nofollow" itemprop="url">
+            <span itemprop="title"><?= Page::getModelByNameFixed('package')->name ?></span>
+        </a>
+    </div>
+<?php if ($slug != 'all'): ?>
+    <span itemprop="title"><?= $tagName ?></span>
+<?php endif; ?>

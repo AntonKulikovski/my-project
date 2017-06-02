@@ -1,0 +1,11 @@
+.basic-margin{
+  margin-top: 17px;
+}
+
+@include tablet{
+  .basic-margin{margin-top: 50px}
+}
+
+@include tel{
+  .basic-margin{margin-top: 59px}
+}

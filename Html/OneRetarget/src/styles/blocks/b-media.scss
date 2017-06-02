@@ -1,0 +1,75 @@
+.b-media{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 42px;
+
+  &:nth-child(2n){
+    flex-direction: row-reverse;
+  }
+
+  img{flex: 0 0 42%}
+  &__cnt{flex: 0 0 46%}
+
+  &__wrap{
+    max-width: 813px;
+    margin: 0 auto;
+  }
+
+  &:nth-child(odd){
+    .b-media__cnt{margin-left: 5%}
+  }
+
+  &:nth-child(even){
+    .b-media__cnt{margin-right: 5%}
+  }
+
+  &__title{
+    color: #232f55;
+    font-weight: 100;
+    margin: 0;
+  }
+
+  &__text{
+    font-weight: 300;
+    color: $color-black;
+    margin: 23px 0 24px;
+    line-height: 1.45;
+
+    &:last-child{margin-bottom: 0}
+
+    a{
+      color: $color-blue;
+      text-decoration: underline;
+
+      &:hover{text-decoration: none}
+    }
+  }
+
+  &__btn{
+    padding-top: 15px;
+    font-size: 16px;
+  }
+
+  @include tel{
+    display: block;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto 30px;
+
+    &__cnt{
+      text-align: left;
+    }
+
+    &:nth-child(n){
+      .b-media__cnt{margin: 20px 0 0}
+    }
+
+    img{
+      width: auto;
+      max-width: 100%;
+    }
+  }
+}

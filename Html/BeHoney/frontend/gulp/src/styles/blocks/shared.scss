@@ -1,0 +1,35 @@
+.shared{
+  display: inline-block;
+  margin-right: 15%;
+  vertical-align: text-bottom;
+
+  &__icon{
+    display: inline-block;
+    font-size: 17px;
+    margin-right: 10px;
+    color: #000;
+
+    transition: color $timeanimation linear;
+
+    &:hover{color: #fff}
+
+    &:last-child{margin-right: 0}
+  }
+}
+
+@include tablet{
+  .shared{
+    display: none;
+
+    margin-top: 30px;
+    margin-right: 0;
+    text-align: center;
+
+    &__icon{
+      font-size: 24px;
+      margin-right: 20px;
+    }
+
+    &--tablet{display: block}
+  }
+}

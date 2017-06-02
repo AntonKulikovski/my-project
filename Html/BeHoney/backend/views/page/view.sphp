@@ -1,0 +1,32 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Page */
+
+$this->title = $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Страницы', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="page-view">
+    <h1><?= $this->title ?></h1>
+    <p>
+        <?php print Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+    </p>
+    <?php print DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'title',
+            'name',
+            'nameFixed',
+            'content:html',
+            'descriptionMeta:ntext',
+            'position',
+            'createdAt:dateTime',
+            'updatedAt:dateTime',
+        ],
+    ]); ?>
+</div>

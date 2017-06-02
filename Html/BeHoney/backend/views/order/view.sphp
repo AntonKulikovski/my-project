@@ -1,0 +1,46 @@
+<?php
+
+use backend\models\Order;
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Order */
+
+$this->title = $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Заказы', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="order-view">
+    <h1><?= $this->title ?></h1>
+    <p>
+        <?php print Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+        <?php print Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Вы действительно хотите удалить этот заказ?',
+                'method' => 'post',
+            ],
+        ]); ?>
+    </p>
+    <?php print DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            [
+                'attribute' => 'typeDelivery',
+                'value' => Order::$deliveries[$model->typeDelivery],
+            ],
+            'name',
+            'email:email',
+            'phone',
+            [
+                'attribute' => 'typeDelivery',
+                'value' => Order::$payments[$model->typePayment],
+            ],
+            'count',
+            'phone',
+            'price'
+        ],
+    ]); ?>
+</div>

@@ -1,0 +1,18 @@
+<?php
+
+use backend\models\ProductVolume;
+
+/* @var $this \yii\web\View */
+/* @var $form \backend\widgets\ActiveForm */
+/* @var $model \backend\models\ProductVolume */
+
+?>
+<?php print $form->field($model, 'volume')
+    ->dropDownList(ProductVolume::$volumes, ['prompt' => 'Выберите объем тары']); ?>
+<?php print $form->field($model, 'price')->textInput(); ?>
+<?php print $form->field($model, 'imageFile')->fileBlueimpUploader([
+    'url' => ['product/upload-image-volume'],
+    'previewData' => [
+        'format' => 'home',
+    ],
+]); ?>

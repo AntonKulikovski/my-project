@@ -1,0 +1,19 @@
+.buy-modal{
+  text-align: left;
+  background: #fff;
+  min-width: 350px;
+  box-shadow: 0 0 10px 3px rgba(0,0,0,.2);
+
+  &__title, &__total{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 15px 0;
+    background-color: #f5f5f5;
+  }
+
+  &__total{
+    .value{color: $yellow-color}
+  }
+}

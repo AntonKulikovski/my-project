@@ -1,0 +1,15 @@
+.basic-link{
+  @extend .b-link-row__item;
+
+  &--margin{
+    margin-bottom: 55px;
+  }
+}
+
+@include tel{
+  .basic-link{
+    width: 100%;
+
+    a{font-size: 16px}
+  }
+}

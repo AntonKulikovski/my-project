@@ -1,0 +1,13 @@
+.humb-mobile{
+  display: none;
+  margin-top: 17px;
+  margin-left: 18px;
+  width: 18px;
+  height: 12px;
+  background-image: url("../images/ic_mob-menu.svg");
+  cursor: pointer;
+
+  @include tablet{
+    display: inline-block;
+  }
+}

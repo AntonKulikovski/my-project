@@ -1,0 +1,117 @@
+<?php
+
+use frontend\models\Page;
+use yii\widgets\ListView;
+use frontend\widgets\ActiveForm;
+use yii\data\Pagination;
+use yii\helpers\Html;
+use yii\helpers\Url;
+
+/** @var Page $page */
+/* @var $dataProvider \yii\data\ActiveDataProvider */
+
+$dataProvider->getModels();
+$this->title = $page->title;
+$label = !empty($page->title) ? $page->title : $page->name;
+$this->params['breadcrumbs'][] = [
+    'label' => $label,
+    'template' => '<span>' . $label . '</span>'
+];
+
+if ($dataProvider->pagination->page == 0) {
+    if ($dataProvider->pagination->pageCount > 1) {
+        $this->registerLinkTag([
+            'rel' => 'next',
+            'href' => $dataProvider->pagination->getLinks(true)[Pagination::LINK_NEXT],
+        ]);
+    }
+} else {
+    $this->registerMetaTag([
+        'name' => 'robots',
+        'content' => 'noindex,nofollow',
+    ]);
+
+    if ($dataProvider->pagination->page == $dataProvider->pagination->getPageCount() - 1) {
+        $this->registerLinkTag([
+            'rel' => 'prev',
+            'href' => $dataProvider->pagination->getLinks(true)[Pagination::LINK_PREV],
+        ]);
+    } else {
+        $this->registerLinkTag([
+            'rel' => 'next',
+            'href' => $dataProvider->pagination->getLinks(true)[Pagination::LINK_NEXT],
+        ]);
+        $this->registerLinkTag([
+            'rel' => 'prev',
+            'href' => $dataProvider->pagination->getLinks(true)[Pagination::LINK_PREV],
+        ]);
+    }
+}
+
+$this->registerMetaTag([
+    'name' => 'description',
+    'content' => $page->descriptionMeta,
+]);
+?>
+<main>
+    <div class="c-align">
+        <div class="b-type">
+            <h1 class="b-type__title"><?= $page->name ?></h1>
+            <div class="b-type__cnt">
+            <?php print ListView::widget([
+                'dataProvider' => $dataProvider,
+                'summary' => '',
+                'itemView' => '_review.sphp',
+                'layout' => '{pager}<div class="review__wrap">{summary}{items}</div>{pager}',
+                'itemOptions' => [
+                    'tag' => 'div',
+                    'class' => 'review',
+                ],
+                'pager' => [
+                    'nextPageLabel' => false,
+                    'prevPageLabel' => false,
+                ],
+            ]); ?>
+            </div>
+            <span class="btn btn--yellow review__add js-call-modal">Добавить отзыв</span>
+        </div>
+    </div>
+
+    <span class="modal-bg"></span>
+    <div id="js-modal-add" class="modal">
+        <h3 class="modal__title">Добавьте отзыв</h3>
+        <div class="category-form modal__form">
+            <?php $form = ActiveForm::begin([
+                'action' => Url::to(['review/index']),
+                'id' => 'addReview',
+                'method' => 'POST',
+            ]); ?>
+            <?php print $form->field($model, 'name')->textInput(['maxlength' => true])->label('Ваше имя'); ?>
+            <?php print $form->field($model, 'email')->textInput()->label('Ваш E-mail'); ?>
+            <?php print $form->field($model, 'urlSoc')->textInput(); ?>
+            <?php print $form->field($model, 'message')->textarea()->label('Ваш отзыв'); ?>
+            <div class="form-group js-modal-send">
+                <?php print Html::submitButton('Отправить отзыв'); ?>
+            </div>
+            <?php ActiveForm::end(); ?>
+        </div>
+        <div class="modal__close">
+            <span></span>
+        </div>
+    </div>
+
+    <div id="js-modal-thank" class="modal">
+        <p class="modal__message">Спасибо, ваш отзыв отправлен администратору</p>
+        <div class="modal__close">
+            <span></span>
+        </div>
+    </div>
+
+    <div id="js-modal-error" class="modal">
+        <p class="modal__message"></p>
+        <div class="modal__close">
+            <span></span>
+        </div>
+    </div>
+
+</main>

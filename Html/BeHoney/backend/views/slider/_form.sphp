@@ -1,0 +1,32 @@
+<?php
+
+use backend\widgets\ActiveForm;
+use yii\helpers\Html;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Slider */
+/* @var $form yii\widgets\ActiveForm */
+?>
+
+<div class="slider-form">
+    <?php $form = ActiveForm::begin(); ?>
+    <?php print $form->field($model, 'imageFile')->fileBlueimpUploader([
+        'url' => ['slider/upload-image'],
+        'previewData' => [
+            'format' => 'small',
+        ],
+    ]); ?>
+    <?php print $form->field($model, 'url')->textInput(); ?>
+    <?php print $form->field($model, 'description')->redactor([
+        'settings' => [
+            'minHeight' => 300,
+            'plugins' => ['fullscreen', 'fontcolor']
+        ],]); ?>
+    <?php print $form->field($model, 'position')->textInput(); ?>
+    <div class="form-group">
+        <?php print Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), [
+            'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
+        ]) ?>
+    </div>
+    <?php ActiveForm::end(); ?>
+</div>

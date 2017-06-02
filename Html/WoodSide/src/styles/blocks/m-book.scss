@@ -1,0 +1,136 @@
+.m-book{
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background-color: #fff;
+  padding: 23px 36px;
+  width: 37%;
+  z-index: 52;
+  min-width: 700px;
+
+  &__title{
+    font-size: 36px;
+    font-family: 'Mrs-Eaves';
+    border-bottom: 1px solid #371700;
+    text-align: center;
+    color: #371700;
+    font-style: italic;
+    padding-bottom: 24px;
+    margin: 0;
+    font-weight: 600;
+  }
+
+  &__elem{
+    @extend .clearfix;
+
+    margin-top: 33px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #371700;
+
+    &:last-child{border: 0}
+
+    &.js-before-datepicker{
+      border-bottom: 0;
+
+      &+.m-book__elem{
+        margin-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    .double{
+      float: left;
+      vertical-align: top;
+      width: 48%;
+      margin-right: 4%;
+      &:last-child{margin-right: 0}
+    }
+  }
+
+  &__btn{
+    color: #fff;
+    border: 0;
+    background-color: #3b1700;
+    font-size: 14px;
+    font-family: 'Avenir';
+    max-width: 320px;
+    width: 100%;
+    padding: 22px 0 17px;
+  }
+
+  &__close{
+    display: block;
+    position: absolute;
+    right: 17px;
+    top: 19px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    background-image: url("../images/ic_close.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+}
+
+@include tel{
+  .m-book{
+    min-width: 0;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 27px;
+    transform: translate(0, 0);
+    padding: 30px 0 0;
+
+    &__title{
+      font-size: 30px;
+      font-weight: normal;
+      padding-bottom: 24px;
+      margin: 0 16px 24px;
+    }
+
+    &__close{
+      right: 20px;
+      top: 20px;
+    }
+
+    &__elem{
+      padding: 0 0 21px;
+      margin: 33px 16px 0;
+
+      &--row{
+        .b-dropdown{
+          &__select{padding: 17px 13px}
+        }
+      }
+
+      &:last-child{
+        padding: 0;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      &>.double{
+        width: 100%;
+        margin-bottom: 33px;
+
+        &:last-child{margin-bottom: 0}
+
+        .double{
+          width: 45%;
+          margin-right: 10%;
+          &:last-child{margin-right: 0}
+        }
+      }
+
+      .b-dropdown--half{
+        width: 100%;
+      }
+    }
+
+    &__btn{max-width: 100%}
+  }
+}

@@ -1,0 +1,10 @@
+<?php
+/* @var $model \frontend\models\ContactForm */
+?>
+<p>
+    Здравствуйте!
+    Вы получили данное письмо от <?= $model->name ?>
+</p>
+<p>Имя: <?= $model->name ?></p>
+<p>Email: <?= $model->email ?></p>
+<p>Вопрос: <?= $model->body ?></p>

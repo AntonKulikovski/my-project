@@ -1,0 +1,312 @@
+.map-point {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #371700;
+  font-family: 'Mrs-Eaves-Roman';
+  line-height: 20px;
+  padding: 0 30px;
+  letter-spacing: -.5px;
+
+  cursor: pointer;
+  
+  transition: font $timeanimation ease;
+
+  &--right {
+    .map-point__dot{right: -3px}
+    .map-point__pulse{right: -18px}
+    .map-point__title{text-align: right}
+  }
+  &--left {
+    .map-point__dot{left: -3px}
+    .map-point__pulse{left: -18px}
+    .map-point__title{text-align: left}
+  }
+  
+  &__close{
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 14px;
+    height: 14px;
+    background-image: url("../images/ic_close.svg");
+    cursor: pointer;
+  }
+
+  &__title {
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  &__dot {
+    display: block;
+    position: absolute;
+    top: 67%;
+    margin-top: -10px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    transition: all $timeanimation linear;
+    -webkit-transition: all $timeanimation linear;
+    z-index: 1;
+
+    filter: none;
+    -webkit-filter: blur(0px);
+    -moz-filter: blur(0px);
+    -ms-filter: blur(0px);
+    filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
+  }
+
+  &--napa {
+    margin-left: 98px;
+    top: 20px;
+    .map-point__title {
+      width: 152px
+    }
+    .map-point__dot {
+      background-color: #d6a16d
+    }
+  }
+  &--bodega {
+    margin-left: -190px;
+    top: 34px;
+    .map-point__title {
+      width: 150px
+    }
+    .map-point__dot {
+      background-color: #005f88
+    }
+  }
+  &--lafa {
+    margin-left: 193px;
+    top: 122px;
+    .map-point__title {
+      width: 222px
+    }
+    .map-point__dot {
+      background-color: #701100
+    }
+  }
+  &--drisco {
+    margin-left: -94px;
+    top: 142px;
+    .map-point__title {
+      width: 112px
+    }
+    .map-point__dot {
+      background-color: #3f4c00
+    }
+  }
+  &--stanford {
+    margin-left: -95px;
+    top: 183px;
+    .map-point__title {
+      width: 176px
+    }
+    .map-point__dot {
+      background-color: #6e8878
+    }
+  }
+  &--monterey {
+    margin-left: -81px;
+    bottom: 56px;
+    .map-point__title {
+      width: 230px
+    }
+    .map-point__dot {
+      background-color: #23205c
+    }
+  }
+  &--bernar {
+    margin-left: 234px;
+    bottom: 14px;
+    .map-point__title {
+      width: 186px
+    }
+    .map-point__dot {
+      background-color: #545759
+    }
+  }
+
+  @-webkit-keyframes pulse {
+    0% {
+      -webkit-transform: scale(0);
+      opacity: 0;
+    }
+    8% {
+      -webkit-transform: scale(0);
+      opacity: 0;
+    }
+    15% {
+      -webkit-transform: scale(0.1);
+      opacity: 1;
+    }
+    30% {
+      -webkit-transform: scale(0.5);
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: scale(1);
+    }
+  }
+
+  @-moz-keyframes pulse {
+    0% {
+      -moz-transform: scale(0);
+      opacity: 0;
+    }
+    8% {
+      -moz-transform: scale(0);
+      opacity: 0;
+    }
+    15% {
+      -moz-transform: scale(0.1);
+      opacity: 1;
+    }
+    30% {
+      -moz-transform: scale(0.5);
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      -moz-transform: scale(1);
+    }
+  }
+
+  &__pulse{
+    display: none;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    z-index: 0;
+    opacity: 0.0;
+    width: 48px;
+    height: 48px;
+    border: 2px solid #f9f9f9;
+    /* Giving Animation Function */
+    -webkit-animation: pulse 2.1s linear infinite;
+    -moz-animation: pulse 2.1s linear infinite;
+    border-image: initial;
+
+    &--2{
+      -webkit-animation: pulse 2.1s linear infinite 0.7s;
+      -moz-animation: pulse 2.1s linear infinite 0.7s;
+    }
+    &--3{
+      -webkit-animation: pulse 2.1s linear infinite 1.4s;
+      -moz-animation: pulse 2.1s linear infinite 1.4s;
+    }
+  }
+
+  &:hover {
+    font-size: 16px;
+    .map-point__dot {
+      width: 18px;
+      height: 18px;
+      top: 50%;
+    }
+
+    .map-point__pulse {
+      display: block;
+    }
+  }
+
+  &__wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    box-shadow: inset 0 0px 0 0 rgba(31,73,125,.0),inset 0 0px 0 0 rgba(31,73,125,.0),inset -28rem 0 350px -205px rgba(0,0,0,.3),inset -12px 0 15px -4px rgba(31,73,125,.0)
+
+  }
+}
+
+@include tablet{
+  .map-point {
+    &__dot{margin-top: -10px}
+    &.active, &:hover {
+      font-size: 16px;
+      .map-point__dot{
+        width: 18px;
+        height: 18px;
+        top: 50%;
+      }
+      .map-point__pulse {
+        display: block;
+        top: -15px;
+      }
+    }
+
+    &__wrap{
+      box-shadow: inset 0 0 0 0 rgba(31,73,125,0),inset 0 0 0 0 rgba(31,73,125,0),inset -28rem 0 150px -250px rgba(0,0,0,.3),inset -12px 0 15px -4px rgba(31,73,125,0)
+    }
+  }
+}
+
+@include tel{
+  .map-point{
+    &__title{
+      display: none;
+    }
+
+    &__dot{
+      width: 10px;
+      height: 10px;
+      margin-top: 3px;
+    }
+
+    &.active, &:hover{
+      .map-point__dot{
+        width: 18px;
+        height: 18px;
+      }
+      .map-point__pulse{top: -12px}
+    }
+
+    &--left{
+      .map-point__pulse{left: -18px}
+    }
+    &--right{
+      .map-point__pulse{right: -18px}
+    }
+
+    &--napa {
+      margin-left: 25px;
+      top: 9px;
+    }
+    &--bodega {
+      margin-left: -118px;
+      top: 36px;
+    }
+    &--lafa {
+      margin-left: 71px;
+      top: 124px;
+    }
+    &--drisco {
+      margin-left: -42px;
+      top: 152px;
+    }
+    &--stanford {
+      margin-left: -19px;
+      top: 183px;
+    }
+    &--monterey {
+      margin-left: 33px;
+      bottom: 72px;
+    }
+    &--bernar {
+      margin-left: 129px;
+      bottom: 39px;
+    }
+
+    &__wrap{
+      box-shadow: inset 0 0px 0 0 rgba(31,73,125,.0),inset 0 0px 0 0 rgba(31,73,125,.0),inset -28rem 0 100px -350px rgba(0,0,0,.2),inset -12px 0 15px -4px rgba(31,73,125,.0)
+    }
+  }
+}

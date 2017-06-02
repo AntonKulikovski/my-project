@@ -1,0 +1,52 @@
+.localization{
+  float: left;
+  padding-left: 4px;
+  margin-left: 18px;
+  margin-top: 7px;
+  position: relative;
+
+  &__select{
+    display: block;
+    padding-right: 14px;
+    cursor: pointer;
+    background-image: url("../images/local-arrow.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    line-height: 0;
+
+    img{display: block}
+  }
+
+  &__drop{
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20px;
+    padding: 5px 0 0;
+    background: $purple-bg-color;
+    list-style-type: none;
+    text-align: center;
+    z-index: 1;
+
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+
+    li {
+      display: block;
+      margin-bottom: 5px;
+      cursor: pointer;
+
+      img{
+        display: inline-block;
+        width: 16px;
+        height: 11px;
+      }
+    }
+  }
+}
+
+.localization.mob-vers-head{
+
+}

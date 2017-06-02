@@ -1,0 +1,189 @@
+<?php
+
+use frontend\models\Package;
+use frontend\models\ProductVolume;
+use frontend\base\components\Shopcart;
+use yii\helpers\Url;
+
+/**
+ * @var $productVolume ProductVolume
+ * @var $package Package
+ * @var $productFirst ProductVolume
+ * @var $productSecond ProductVolume
+ * @var $product ProductVolume
+ */
+
+$products = Yii::$app->shopcart->getShopcartProduct();
+
+?>
+<?php if (isset($products[Shopcart::PRODUCT_VOLUMES_PARAM]) && !empty($products[Shopcart::PRODUCT_VOLUMES_PARAM])): ?>
+    <?php foreach ($products[Shopcart::PRODUCT_VOLUMES_PARAM] as $product): ?>
+        <li class="productVolumes" data-id="<?= $product->id ?>" data-product="product">
+            <div class="buy-list__img">
+                <img
+                    alt="<?= $product->product->name . ' ' . $product->volume ?>"
+                    title="<?= $product->product->name . ' ' . $product->volume ?>"
+                    src="<?php print $product->imageFile->asShopcart; ?>">
+            </div>
+            <div class="buy-list__cnt">
+                <a class="buy-list__title" href="<?= Url::to(['product/index', 'slug' => $product->product->slug]) ?>">
+                    <?= $product->product->name . ' ' . ProductVolume::$volumes[$product->volume] ?>
+                </a>
+                <p class="buy-list__desc"><?= $product->product->shortDescription ?></p>
+                <div class="buy-list__control">
+                    <p class="buy-list__cost">
+                        <span class="sum<?= $product->id ?>">
+                            <?= Yii::$app->formatter->asDecimal($product->price, 2) ?>
+                            X
+                            <?= Yii::$app->shopcart->getShopcartProductCount($product) ?>
+                        </span>
+                        руб.
+                    </p>
+                    <button type="submit" class="btn btn--yellow buy-list__btn deleteProductBasket">убрать</button>
+                </div>
+            </div>
+        </li>
+    <?php endforeach; ?>
+<?php endif; ?>
+<?php if (isset($products[Shopcart::PACKAGE_PARAM_STANDARD]) && !empty($products[Shopcart::PACKAGE_PARAM_STANDARD])): ?>
+    <?php foreach ($products[Shopcart::PACKAGE_PARAM_STANDARD] as $packageComposition): ?>
+        <?php
+        $shopcart = Yii::$app->shopcart;
+        $package = $packageComposition[0];
+        $productFirst = $packageComposition[1];
+        $productSecond = $packageComposition[2];
+        ?>
+        <li class="packages"
+            data-id="<?= $package->id ?>"
+            data-productFirstId="<?= $productFirst->id ?>"
+            data-productSecondId="<?= $productSecond->id ?>"
+            data-product="package"
+            data-typePackage="<?= Package::TYPE_STANDARD ?>">
+            <div class="buy-list__img">
+                <img
+                    alt="<?= str_replace(
+                        '.' . $package->photos[0]->imageFile->extension,
+                        '',
+                        $package->photos[0]->imageFile->name
+                    ) ?>"
+                    title="<?= str_replace(
+                        '.' . $package->photos[0]->imageFile->extension,
+                        '',
+                        $package->photos[0]->imageFile->name
+                    ) ?>"
+                    src="<?php print $package->photos[0]->imageFile->asShopcart; ?>">
+            </div>
+            <div class="buy-list__cnt">
+                <a class="buy-list__title" href="<?= Url::to(['package/package', 'slug' => $package->slug]) ?>">
+                    <?= $package->name ?>
+                </a>
+                <div class="buy-list__control">
+                    <p class="buy-list__cost">
+                        <span class="sum<?= $package->id . '-' . $productFirst->id . '-' . $productSecond->id ?>">
+                            <?= Yii::$app->formatter->asDecimal(
+                                $package->price + $productFirst->price + $productSecond->price,
+                                2
+                            ) ?>
+                            X
+                            <?= Yii::$app->shopcart->getShopcartProductCount(
+                                $package,
+                                Package::TYPE_STANDARD,
+                                $productFirst,
+                                $productSecond
+                            ) ?>
+                        </span>
+                        руб.
+                    </p>
+                    <button type="submit" class="btn btn--yellow buy-list__btn deleteProductBasket">убрать</button>
+                </div>
+            </div>
+        </li>
+    <?php endforeach; ?>
+<?php endif; ?>
+<?php if (isset($products[Shopcart::PACKAGE_PARAM_ONE]) && !empty($products[Shopcart::PACKAGE_PARAM_ONE])): ?>
+    <?php foreach ($products[Shopcart::PACKAGE_PARAM_ONE] as $packageComposition): ?>
+        <?php
+        $shopcart = Yii::$app->shopcart;
+        $package = $packageComposition[0];
+        $product = $packageComposition[1];
+        ?>
+        <li class="packages"
+            data-id="<?= $package->id ?>"
+            data-productFirstId="<?= $product->id ?>"
+            data-product="package"
+            data-typePackage="<?= Package::TYPE_ONE ?>">
+            <div class="buy-list__img">
+                <img
+                    alt="<?= str_replace(
+                        '.' . $package->photos[0]->imageFile->extension,
+                        '',
+                        $package->photos[0]->imageFile->name
+                    ) ?>"
+                    title="<?= str_replace(
+                        '.' . $package->photos[0]->imageFile->extension,
+                        '',
+                        $package->photos[0]->imageFile->name
+                    ) ?>"
+                    src="<?php print $package->photos[0]->imageFile->asShopcart; ?>">
+            </div>
+            <div class="buy-list__cnt">
+                <a class="buy-list__title" href="<?= Url::to(['package/package', 'slug' => $package->slug]) ?>">
+                    <?= $package->name ?>
+                </a>
+                <div class="buy-list__control">
+                    <p class="buy-list__cost">
+                        <span class="sum<?= $package->id . '-' . $productFirst->id ?>">
+                            <?= Yii::$app->formatter->asDecimal($package->price + $product->price, 2) ?>
+                            X
+                            <?= Yii::$app->shopcart->getShopcartProductCount($package, Package::TYPE_ONE, $product) ?>
+                        </span>
+                        руб.
+                    </p>
+                    <button type="submit" class="btn btn--yellow buy-list__btn deleteProductBasket">убрать</button>
+                </div>
+            </div>
+        </li>
+    <?php endforeach; ?>
+<?php endif; ?>
+<?php if (isset($products[Shopcart::PACKAGE_PARAM_ASORTI]) && !empty($products[Shopcart::PACKAGE_PARAM_ASORTI])): ?>
+    <?php foreach ($products[Shopcart::PACKAGE_PARAM_ASORTI] as $package): ?>
+        <?php
+        $shopcart = Yii::$app->shopcart;
+        ?>
+        <li class="packages"
+            data-id="<?= $package->id ?>"
+            data-product="package"
+            data-typePackage="<?= Package::TYPE_ASORTI ?>">
+            <div class="buy-list__img">
+                <img
+                    alt="<?= str_replace(
+                        '.' . $package->photos[0]->imageFile->extension,
+                        '',
+                        $package->photos[0]->imageFile->name
+                    ) ?>"
+                    title="<?= str_replace(
+                        '.' . $package->photos[0]->imageFile->extension,
+                        '',
+                        $package->photos[0]->imageFile->name
+                    ) ?>"
+                    src="<?php print $package->photos[0]->imageFile->asShopcart; ?>">
+            </div>
+            <div class="buy-list__cnt">
+                <a class="buy-list__title" href="<?= Url::to(['package/package', 'slug' => $package->slug]) ?>">
+                    <?= $package->name ?>
+                </a>
+                <div class="buy-list__control">
+                    <p class="buy-list__cost">
+                        <span class="sum<?= $package->id ?>">
+                            <?= Yii::$app->formatter->asDecimal($package->price, 2) ?>
+                            X
+                            <?= Yii::$app->shopcart->getShopcartProductCount($package, Package::TYPE_ASORTI) ?>
+                        </span>
+                        руб.
+                    </p>
+                    <button type="submit" class="btn btn--yellow buy-list__btn deleteProductBasket">убрать</button>
+                </div>
+            </div>
+        </li>
+    <?php endforeach; ?>
+<?php endif; ?>

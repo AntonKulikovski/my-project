@@ -1,0 +1,12 @@
+.product-slider{
+  @extend .slider__wrap;
+
+  margin-bottom: 32px;
+  margin-top: 0;
+
+  .slider {
+    &__item {
+      height: auto;
+    }
+  }
+}

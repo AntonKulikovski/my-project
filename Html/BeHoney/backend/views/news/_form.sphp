@@ -1,0 +1,41 @@
+<?php
+
+use yii\helpers\Html;
+use backend\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Magazine */
+/* @var $form yii\widgets\ActiveForm */
+?>
+
+<div class="news-form">
+    <?php $form = ActiveForm::begin(); ?>
+    <?php print $form->field($model, 'title')->textInput(['maxlength' => true]); ?>
+    <?php print $form->field($model, 'name')->textInput(['maxlength' => true]); ?>
+    <?php print $form->field($model, 'imageFile')->fileBlueimpUploader([
+        'url' => ['news/upload-image'],
+        'previewData' => [
+            'format' => 'small',
+        ],
+    ]); ?>
+    <?php print $form->field($model, 'content')->redactor([
+        'settings' => [
+            'minHeight' => 300,
+            'plugins' => ['fullscreen', 'fontcolor', 'video']
+        ],]); ?>
+    <?php print $form->field($model, 'active')->checkbox(); ?>
+    <?php print $form->field($model, 'url')->textInput(['maxlength' => true]); ?>
+    <?php print $form->field($model, 'descriptionShort')->redactor([
+        'settings' => [
+            'minHeight' => 300,
+            'plugins' => ['fullscreen', 'fontcolor']
+        ],
+    ]); ?>
+    <?php print $form->field($model, 'descriptionMeta')->textarea(['maxlength' => true]); ?>
+    <div class="form-group">
+        <?php print Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), [
+            'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary',
+        ]) ?>
+    </div>
+    <?php ActiveForm::end(); ?>
+</div>

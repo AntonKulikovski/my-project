@@ -1,0 +1,38 @@
+<?php
+
+use yii\helpers\Html;
+use backend\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Page */
+/* @var $form yii\widgets\ActiveForm */
+?>
+
+<div class="page-form">
+    <?php $form = ActiveForm::begin(); ?>
+    <?php print $form->field($model, 'title')->textInput(['maxlength' => true]); ?>
+    <?php print $form->field($model, 'name')->textInput(['maxlength' => true]); ?>
+    <?php print $form->field($model, 'content')->redactor([
+        'settings' => [
+            'minHeight' => 300,
+            'plugins' => ['fullscreen', 'fontcolor', 'video']
+        ],
+    ]); ?>
+    <?php print $form->field($model, 'descriptionMeta')->textarea(['maxlength' => true]); ?>
+    <?php print $form->field($model, 'descriptionTop')->redactor([
+        'settings' => [
+            'minHeight' => 300,
+            'plugins' => ['fullscreen', 'fontcolor']
+        ],
+    ]); ?>
+    <?php print $form->field($model, 'descriptionBottom')->redactor([
+        'settings' => [
+            'minHeight' => 300,
+            'plugins' => ['fullscreen', 'fontcolor']
+        ],
+    ]); ?>
+    <div class="form-group">
+        <?php print Html::submitButton(Yii::t('app', 'Update'), ['btn btn-primary']); ?>
+    </div>
+    <?php ActiveForm::end(); ?>
+</div>

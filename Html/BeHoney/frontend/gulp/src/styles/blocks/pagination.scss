@@ -1,0 +1,44 @@
+.pagination{
+  list-style-type: none;
+  margin: 25px 0;
+  li{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+    font-size: 20px;
+    background-color: $yellow-color;
+    padding: 5px 7px;
+    border: 2px solid $yellow-color;
+    border-radius: 5px;
+
+    transition: background $timeanimation ease;
+
+    a{
+      color: #fff;
+      transition: color $timeanimation ease;
+    }
+
+    &:hover{
+      background-color: transparent;
+
+      a{color: $main-color}
+    }
+
+    &.active{
+      background: transparent;
+      border: none;
+      a{
+        color: $main-color;
+      }
+    }
+  }
+}
+
+.list-view{
+  .pagination:first-child{
+    display: none;
+    @include tel{
+      display: block;
+    }
+  }
+}

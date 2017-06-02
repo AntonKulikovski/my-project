@@ -1,0 +1,53 @@
+.custom-slider-nav {
+  text-align: center;
+  div.owl-prev, div.owl-next {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 0;
+    border: 2px solid $yellow-color;
+    margin: 0;
+    color: transparent;
+    position: relative;
+    background-color: transparent;
+    transition: background $timeanimation linear;
+    opacity: 1;
+
+    &:after{
+      display: block;
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 14px;
+      left: 50%;
+      top: 50%;
+      margin-left: -4px;
+      margin-top: -7px;
+      background-image: url("../images/slider-arrow.png");
+      background-repeat: no-repeat;
+    }
+
+    &:hover{
+      background-color: $yellow-color;
+      &:after{
+        background-position-y: -18px;
+      }
+    }
+  }
+  div.owl-prev {
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    &:after{
+      background-position: 0 0;
+    }
+  }
+  div.owl-next {
+    margin-left: -2px;
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+
+    &:after{
+      background-position: -13px 0;
+    }
+  }
+}

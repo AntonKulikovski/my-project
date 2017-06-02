@@ -1,0 +1,73 @@
+.footer{
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+  background-color: #ebebeb;
+  padding: 59px 0 22px;
+  margin-top: 70px;
+
+  &__flex{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__column{
+    flex: 0 0 25%;
+  }
+
+  &__list{
+    list-style-type: none;
+    li{margin-bottom: 8px}
+  }
+
+  &__info{
+    color: #808080;
+    font-size: 14px;
+  }
+
+  &__link{
+    font-size: 14px;
+    color: #808080;
+    transition: color $timeanimation linear;
+    text-transform: uppercase;
+
+    &:hover{
+      color: #000;
+    }
+  }
+
+  &__copy{
+  }
+
+  &__pay{
+    @extend .center-text;
+    margin: 40px 0;
+
+    img{
+      width: 100%;
+      max-width: 340px;
+    }
+  }
+}
+
+@include tel{
+  .footer{
+    &__flex{
+      display: block;
+    }
+
+    &__column{
+      width: 100%;
+      &.hide-phone{
+        display: none;
+      }
+    }
+
+    &__list{
+      li{margin-bottom: 15px}
+    }
+
+    &__link{
+      font-size: 17px;
+    }
+  }
+}

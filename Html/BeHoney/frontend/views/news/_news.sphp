@@ -1,0 +1,16 @@
+<?php
+
+use yii\helpers\Url;
+
+/* @var $model \frontend\models\News */
+?>
+<div class="news__img">
+    <img src="<?= $model->imageFile->asMedium ?>">
+</div>
+<div class="news__cnt">
+    <a class="news__name" href="<?= Url::to(['news/news', 'slug' => $model->slug])?>"><?= $model->name ?></a>
+    <p class="news__text">
+        <?php print $model->descriptionShort; ?>
+    </p>
+    <p class="news__more"><a href="<?= Url::to(['news/news', 'slug' => $model->slug])?>">Читать далее</a></p>
+</div>

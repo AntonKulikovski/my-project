@@ -1,0 +1,26 @@
+.contact{
+  margin-left: 35px;
+
+  &__number{
+    display: block;
+    font-weight: 600;
+    color: $color-black;
+    font-size: 20px;
+    margin-bottom: 3px;
+  }
+
+  &__link{
+    @extend .underline-animate;
+    color: $color-black;
+    &:hover{text-decoration: none}
+    &:after{border-color: $color-black}
+  }
+
+  @include desktop-small{
+    margin-left: 25px;
+  }
+
+  @include tablet-wide{
+    display: none;
+  }
+}

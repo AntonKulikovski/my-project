@@ -1,0 +1,6 @@
+.desk-hide{
+  display: none;
+  @include tablet-wide{
+    display: block;
+  }
+}

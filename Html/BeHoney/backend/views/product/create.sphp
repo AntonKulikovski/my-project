@@ -1,0 +1,15 @@
+<?php
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Product */
+
+$this->title = 'Создание продукта';
+$this->params['breadcrumbs'][] = ['label' => 'Продукты', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="product-create">
+    <h1><?= $this->title ?></h1>
+    <?php print $this->render('form/_form.sphp', [
+        'model' => $model,
+    ]); ?>
+</div>

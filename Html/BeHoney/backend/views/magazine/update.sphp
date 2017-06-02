@@ -1,0 +1,18 @@
+<?php
+
+use backend\models\Page;
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\News */
+
+$this->title = 'Изменнение журнала: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => Page::getModelByNameFixed('magazine')->name, 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Изменение';
+?>
+<div class="news-update">
+    <h1><?= $this->title ?></h1>
+    <?php print $this->render('_form.sphp', [
+        'model' => $model,
+    ]); ?>
+</div>

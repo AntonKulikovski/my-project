@@ -1,0 +1,52 @@
+.accord{
+  font-family: 'Roboto Condensed';
+  font-size: 16px;
+  margin-top: 37px;
+  padding-left: 21px;
+  list-style-type: none;
+
+  &__item{
+    margin-bottom: 29px;
+    &:last-child{margin-bottom: 0}
+  }
+
+  &__open{
+    position: relative;
+    cursor: pointer;
+
+    i{
+      position: absolute;
+      left: -22px;
+      top: 1px;
+
+      transform: rotate(-90deg);
+      transition: all $timeanimation ease;
+    }
+
+    &.open{
+      i{
+        left: -20px;
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &__text{
+    display: none;
+    margin-top: 15px;
+    color: #808080;
+
+    p{margin: 0}
+
+    ul{
+      list-style-type: none;
+    }
+  }
+}
+
+@include tel{
+  .accord{
+    margin-top: 20px;
+    padding-left: 0;
+  }
+}

@@ -1,0 +1,128 @@
+.b-page-intro{
+  font-family: 'Mrs-Eaves-Roman';
+  font-size: 22px;
+  color: #371700;
+  max-width: 838px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 18px 0 20px;
+
+  .align-left{text-align: left}
+
+  &__title{
+    font-size: 36px;
+    font-family: Mrs-Eaves;
+    font-style: italic;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  &__description{
+    margin-bottom: 25px;
+  }
+
+  &__paragraph{
+    margin-bottom: 21px;
+    line-height: 1.25;
+  }
+
+  &__link{
+    color: #1976d2;
+    text-decoration: underline;
+
+    &--no-line{text-decoration: none}
+  }
+
+  &__img-bottom{
+    display: inline-block;
+    margin-top: 30px;
+  }
+
+  &__list{
+    display: inline-block;
+    padding-left: 40px;
+    text-align: left;
+  }
+
+  .phone-link{
+    color: #371700;
+    text-decoration: none;
+  }
+
+  &__table{
+    width: 100%;
+    text-align: left;
+    margin: 20px 0;
+
+    td{
+      padding: 10px 0;
+      &:last-child{text-align: right}
+    }
+  }
+}
+
+@include tablet{
+  .b-page-intro{
+    padding: 13px 10% 0;
+
+    &__paragraph{
+      line-height: 1.2;
+      margin-bottom: 26px;
+    }
+
+    &__title{
+      font-weight: normal;
+      margin-bottom: 34px;
+    }
+
+    &__img-bottom{margin-top: 33px}
+  }
+}
+
+@include tel{
+  .b-page-intro{
+    padding: 17px 5% 0;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+
+    &__title{
+      font-weight: normal;
+      font-size: 30px;
+      letter-spacing: 0.15px;
+      margin-top: 0;
+      margin-bottom: 26px;
+    }
+
+    &__list{
+      padding-left: 0;
+    }
+
+    &__paragraph{
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    &__table{
+      tr{
+        margin-bottom: 10px;
+        display: block;
+        &:last-child{margin-bottom: 0}
+      }
+      td{
+        display: block;
+        text-align: center;
+        padding: 5px 0;
+        &:last-child{text-align: center}
+      }
+    }
+  }
+}
+
+@include wide{
+  .b-page-intro{
+    max-width: 1262px;
+    &__description{
+      font-size: 33px;
+    }
+  }
+}

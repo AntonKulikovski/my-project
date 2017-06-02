@@ -1,0 +1,156 @@
+.modal{
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 41;
+  background-color: #fff;
+  padding: 35px 40px;
+  border-radius: 10px;
+
+  &__title{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    padding: 15px 0 30px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__form{
+    .form-group{
+      margin-bottom: 20px;
+
+      label{
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+
+      input, textarea{
+        width: 100%;
+        transition: all $timeanimation ease;
+        border-width: 1px;
+        min-width: 300px;
+        padding: 5px;
+        background: transparent;
+
+        &:focus{border-color: $yellow-color}
+      }
+
+      textarea{
+        margin-top: 1px;
+        height: 100px;
+      }
+
+      button{
+        @extend .btn;
+        background-color: $yellow-color;
+        border: 2px solid $yellow-color;
+        color: #fff;
+        transition: all $timeanimation ease;
+        line-height: 1.2;
+        padding: 7px 10px;
+        border-radius: 5px;
+        width: 100%;
+        text-align: center;
+
+        &:hover{
+          background-color: transparent;
+          color: $main-color;
+        }
+      }
+    }
+  }
+
+  &__close{
+
+    display: block;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+
+    span, &:after{
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      margin-top: -1.5px;
+      width: 35px;
+      height: 3px;
+      background-color: #000;
+      transition: all $timeanimation ease;
+    }
+
+    span{
+      transform: rotate(-45deg);
+    }
+
+    &:after{
+      content: "";
+      transform: rotate(45deg);
+    }
+
+    &:hover{
+      span{
+        background-color: $yellow-color;
+        transform: rotate(45deg);
+      }
+      &:after{
+        background-color: $yellow-color;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  &__message{
+    padding: 20px 0;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  @include tel {
+    position: absolute;
+    padding: 25px 20px;
+    left: 15px;
+    right: 15px;
+    top: 25px;
+    transform: translate(0);
+
+    &__title{
+      font-size: 22px;
+      padding: 30px 0;
+    }
+
+    &__form {
+      .form-group {
+        input, textarea {
+          min-width: 0;
+        }
+      }
+    }
+  }
+}
+
+.modal-bg{
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #000;
+  opacity: 0.6;
+  z-index: 40;
+}
+
+.help-block{
+  font-size: 14px;
+  margin: 5px 0;
+  color: #ff0000;
+}

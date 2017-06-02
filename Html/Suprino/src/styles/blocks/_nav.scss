@@ -1,0 +1,47 @@
+.nav{
+  float: left;
+  font-size: 17px;
+  list-style-type: none;
+  li{
+    display: inline-block;
+    margin: 0 2px;
+    span{
+      color: $nav-color;
+      font-family: 'lato-light';
+      padding: 6px 16px 8px;
+      border-radius: 3px;
+
+      cursor: pointer;
+
+      -webkit-transition: all 80ms ease-out;
+      -moz-transition: all 80ms ease-out;
+      -o-transition: all 80ms ease-out;
+      transition: all 80ms ease-out;
+      &:hover{
+        background-color: $link-bg-hover;
+        color: $nav-color-hover;
+      }
+    }
+  }
+}
+
+.header{
+  .nav{
+    @include desktop(){
+      float: none;
+      li{
+        display: block;
+        margin: 0 0 20px;
+      }
+    }
+  }
+}
+
+.footer{
+  &__control-panel{
+    .nav{
+      font-size: 15px;
+      a{color: $footer-nav}
+    }
+  }
+}

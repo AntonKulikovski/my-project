@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  outline: none !important;
+}
+
+body {
+  position: relative;
+  font-family: $basic-font-family;
+  font-size: $basic-font;
+  color: $main-color;
+  line-height: $basic-line-height;
+  padding-top: 120px;
+  background-color: $bg-color;
+
+  @include tablet{
+    padding-top: 73px;
+  }
+}
+
+.c-align{
+  max-width: 961px;
+  margin: 0 auto;
+}
+
+a{
+  text-decoration: none;
+  &:hover{text-decoration: none}
+}
+
+ol, ul{
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix {
+  &:after {
+    display: table;
+    content: '';
+    clear: both;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 0;
+  }
+}
+
+.hidden-element {
+  display: none;
+}
+
+.justify {
+  font-size: 0;
+  line-height: 0;
+  letter-spacing: 0;
+  word-spacing: 0;
+  text-align: justify;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.center-align {
+  text-align: center;
+}
+
+//font-family: 'Roboto Slab', serif;
+//font-family: 'Roboto Condensed', sans-serif;

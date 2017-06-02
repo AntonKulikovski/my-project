@@ -1,0 +1,17 @@
+<?php
+
+use backend\models\Page;
+/* @var $this yii\web\View */
+/* @var $model backend\models\Package */
+
+$this->title = 'Изменнение подарочного набора: ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => Page::getModelByNameFixed('package')->name, 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Изменнение';
+?>
+<div class="package-update">
+    <h1><?= $this->title ?></h1>
+    <?php print $this->render('_form.sphp', [
+        'model' => $model,
+    ]); ?>
+</div>

@@ -1,0 +1,46 @@
+.hamb {
+  display: none;
+  width: 30px;
+  height: 3px;
+  background-color: #000;
+  border-radius: 3px;
+  position: relative;
+
+  transition: background $timeanimation linear;
+
+  &:after, &:before {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: #000;
+    position: absolute;
+    border-radius: 3px;
+    left: 0;
+
+    transition: background $timeanimation linear;
+  }
+
+  &:after {
+    top: 10px;
+  }
+
+  &:before {
+    top: 20px;
+  }
+
+  &__wrap{
+    cursor: pointer;
+    height: 24px;
+
+    &:hover, &.open{
+      .hamb{
+        background-color: $yellow-color;
+        &:after, &:before{background-color: $yellow-color}
+      }
+    }
+  }
+}
+
+@include tablet{
+  .hamb{display: block}
+}
